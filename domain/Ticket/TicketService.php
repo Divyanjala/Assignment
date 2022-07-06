@@ -65,8 +65,13 @@ class TicketService
         $data['agent_id'] =  $request['agent_id'];
 
         $res=$this->ticket->create($data);
-        $ref_number = str_pad($res->id + 1, 8, "0", STR_PAD_LEFT);
+        //generate code
+        $rescode=$res->id+9999;
+        $ref_number = str_pad($rescode + 1, 8, "0", STR_PAD_LEFT);
+        $ref_number=$ref_number.'#S#'.($res->id*15*11);
         $this->ticket->where('id', $res->id)
+        //end generate code
+
         ->update(array('ref_number' => $ref_number));
         return $this->get($res->id);
     }
