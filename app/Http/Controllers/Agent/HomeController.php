@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends ParentController
 {
+    /**
+     * Home
+     */
     public function index()
     {
         return view('pages.agent.index');

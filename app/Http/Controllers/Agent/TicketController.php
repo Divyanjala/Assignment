@@ -10,19 +10,25 @@ use App\Events\ReplyEvent;
 
 class TicketController extends ParentController
 {
-
+    /**
+     * All ticket
+     */
     public function tickets()
     {
         $res['tickets'] = TicketFacade::getAll(Auth::user()->id);
         return view('pages.agent.tickets.index')->with($res);
     }
-
+    /**
+     * Get ticket
+     */
     public function getTicket(Request $request)
     {
         TicketFacade::update($request->id,['open_status'=>1]);
         return TicketFacade::get($request->id);
     }
-
+    /**
+     * Store reply
+     */
     public function reply(Request $request)
     {
         TicketFacade::update($request->id,['status'=>2,'reply'=>$request->reply]);

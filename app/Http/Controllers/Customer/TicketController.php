@@ -10,12 +10,18 @@ use App\Events\TicketCreateEvent;
 
 class TicketController extends Controller
 {
+    /**
+     * All ticket
+     */
     public function new()
     {
         $res['agents'] = UserFacade::all();
         return view('pages.customer.tickets.new')->with($res);
     }
 
+    /**
+     * store ticket
+     */
     public function store(Request $request)
     {
         $res = TicketFacade::store($request);
@@ -28,6 +34,9 @@ class TicketController extends Controller
         }
     }
 
+    /**
+     * Get ticketby code
+     */
     public function getTicket(Request $request)
     {
         $res= TicketFacade::getByCode($request->code);
