@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Agent;
+namespace App\Http\Controllers\Police;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class HomeController extends ParentController
      */
     public function index()
     {
-        return view('pages.agent.index');
+        return view('pages.police.index');
     }
 
 }

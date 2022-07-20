@@ -1,4 +1,4 @@
-@extends('layouts.agent')
+@extends('layouts.police')
 
 @section('header')
     <!-- Page Heading -->
@@ -68,7 +68,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('agent.ticket.reply') }}" method="POST">
+                <form action="{{ route('police.ticket.reply') }}" method="POST">
                     @csrf
                     <div class="modal-body mx-3">
                         <div class="md-form mb-5">
@@ -121,7 +121,7 @@
         //get ticket details and change read status
         function getTicket(id) {
             $.ajax({
-                url: '{{ route('agent.get.ticket') }}',
+                url: '{{ route('police.get.ticket') }}',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

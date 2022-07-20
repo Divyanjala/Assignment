@@ -1,4 +1,4 @@
-@extends('layouts.customer')
+@extends('layouts.user')
 @section('title')
     <title>Customer- Service</title>
 @endsection
@@ -99,7 +99,7 @@
 @endsection
 @section('js')
     <script>
-       
+
         //get ticket details and change read status
         function getTicket() {
             code = $('#ref_number').val();
@@ -109,7 +109,7 @@
             }
             html = '';
             $.ajax({
-                url: '{{ route('customer.get.ticket') }}',
+                url: '{{ route('user.get.ticket') }}',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

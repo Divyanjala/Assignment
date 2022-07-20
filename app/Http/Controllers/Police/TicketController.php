@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Agent;
+namespace App\Http\Controllers\Police;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class TicketController extends ParentController
     public function tickets()
     {
         $res['tickets'] = TicketFacade::getAll(Auth::user()->id);
-        return view('pages.agent.tickets.index')->with($res);
+        return view('pages.police.tickets.index')->with($res);
     }
     /**
      * Get ticket
@@ -34,6 +34,6 @@ class TicketController extends ParentController
         TicketFacade::update($request->id,['status'=>2,'reply'=>$request->reply]);
         $ticket=TicketFacade::get($request->id);
         event(new ReplyEvent($ticket));
-        return redirect(route('agent.ticket.all'))->with('alert-success', 'Reply message sent successfully');
+        return redirect(route('police.ticket.all'))->with('alert-success', 'Reply message sent successfully');
     }
 }

@@ -9,12 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agent- Dashboard</title>
 
-    @php
-    $curr_url = Route::currentRouteName();
-    @endphp
-    @include('includes.agent.css')
+    @yield('title')
+
+    @include('includes.user.css')
 </head>
 
 <body id="page-top">
@@ -22,7 +20,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-    @include('includes.agent.sidebar')
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -30,23 +28,25 @@
             <!-- Main Content -->
             <div id="content">
 
-                    @include('includes.agent.nav')
+                <!-- Topbar -->
 
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+                    @include('includes.user.nav')
 
 
-                    @yield('header')
-                    @yield('content')
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-                </div>
-                <!-- /.container-fluid -->
+                        @yield('header')
+                        @yield('content')
+
+                    </div>
+                    <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
-            @include('includes.agent.footer')
+            @include('includes.user.footer')
 
         </div>
         <!-- End of Content Wrapper -->
@@ -73,7 +73,6 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    {{-- <a class="btn btn-primary" href="login.html">Logout</a> --}}
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="btn btn-primary">
@@ -85,7 +84,7 @@
         </div>
     </div>
 
-    @include('includes.agent.js')
+    @include('includes.user.js')
 </body>
 
 </html>

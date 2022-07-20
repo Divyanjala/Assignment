@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Agent;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ParentController extends Controller
 {
-      /**
+    /**
      * Add Middleware For All Controller
      *
      * @return void
