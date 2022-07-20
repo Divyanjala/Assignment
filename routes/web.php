@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\HomeController as AHC;
+
 use App\Http\Controllers\Police\HomeController as PHC;
 use App\Http\Controllers\Police\TicketController as PTC;
 
@@ -18,6 +20,9 @@ use App\Http\Controllers\User\TicketController as CTC;
 */
 Route::get('/', function () {
     return view('welcome');
+});
+Route::prefix('/admin')->group(function () {
+    Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
 });
 
 Route::prefix('/police')->group(function () {
