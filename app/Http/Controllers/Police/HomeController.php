@@ -13,7 +13,7 @@ class HomeController extends ParentController
      */
     public function index()
     {
-        return view('pages.police.index');
+        return view('pages.police.dashboard');
     }
 
 }

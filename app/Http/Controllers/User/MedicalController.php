@@ -5,13 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends ParentController
+class MedicalController extends ParentController
 {
-    /**
-     * Home
-     */
     public function index()
     {
-        return view('pages.user.dashboard');
+        return view('pages.user.fines.index');
     }
 }

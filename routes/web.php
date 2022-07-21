@@ -2,11 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
+use App\Http\Controllers\Admin\PoliceController as APC;
+use App\Http\Controllers\Admin\FineController as AFC;
 
 use App\Http\Controllers\Police\HomeController as PHC;
-use App\Http\Controllers\Police\TicketController as PTC;
+use App\Http\Controllers\Police\FineController as PFC;
+use App\Http\Controllers\Police\UserController as PUC;
 
 use App\Http\Controllers\User\HomeController as UHC;
+use App\Http\Controllers\User\FineController as UFC;
+use App\Http\Controllers\User\MedicalController as UMC;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,16 +27,23 @@ Route::get('/', function () {
 });
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
+    Route::get('/police', [APC::class, "index"])->name('admin.police.all');
+
+    Route::get('/fine', [AFC::class, "index"])->name('admin.fine.all');
 });
 
 Route::prefix('/police')->group(function () {
     Route::get('/', [PHC::class, "index"])->name('police.dashboard');
-    Route::get('/ticket', [PTC::class, "tickets"])->name('police.ticket.all');
-    Route::get('/ticket/get', [PTC::class, "getTicket"])->name('police.get.ticket');
-    Route::post('/ticket/reply', [PTC::class, "reply"])->name('police.ticket.reply');
+    Route::get('/fine', [PFC::class, "index"])->name('police.fine.list');
+    Route::get('/fine/new', [PFC::class, "new"])->name('police.fine.new');
+
+    Route::get('/publicUsers', [PUC::class, "publicUsers"])->name('police.public-users.list');
+    Route::get('/policeUsers', [PUC::class, "policeUsers"])->name('police.police-users.list');
 });
 Route::prefix('/user')->group(function () {
     Route::get('/', [UHC::class, "index"])->name('user.dashboard');
+    Route::get('/fine', [UFC::class, "index"])->name('user.fine.list');
+    Route::get('/medical', [UMC::class, "index"])->name('user.medical.list');
 });
 
 

@@ -27,15 +27,15 @@
         Interface
     </div>
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
-    <a class="nav-link collapsed" href="#"  >
+<li class="nav-item {{ in_array($curr_url, ['user.fine.list']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="{{ route('user.fine.list') }}"  >
         <i class="fas fa-fw fa-list"></i>
         <span>User fine List</span>
     </a>
 </li>
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
-    <a class="nav-link collapsed" href="#"  >
+<li class="nav-item {{ in_array($curr_url, ['user.medical.list']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="{{ route('user.medical.list') }}"  >
         <i class="fas fa-fw fa-book-medical"></i>
         <span>Medical</span>
     </a>

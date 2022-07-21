@@ -28,8 +28,8 @@
      </div>
 
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="#"  >
+     <li class="nav-item {{ in_array($curr_url, ['admin.police.all']) ? 'active' : '' }}">
+         <a class="nav-link collapsed" href="{{ route('admin.police.all') }}"  >
              <i class="fas fa-fw fa-house"></i>
              <span>Police Station</span>
          </a>
@@ -37,8 +37,8 @@
 
      </li>
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="#">
+     <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
+         <a class="nav-link collapsed" href="{{ route('admin.fine.all') }}">
              <i class="fas fa-fw fa-file-lines"></i>
              <span>Fine</span>
          </a>
