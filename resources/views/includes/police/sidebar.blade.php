@@ -28,7 +28,7 @@
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item {{ in_array($curr_url,['police.ticket.all'])?'active':'' }}">
+{{-- <li class="nav-item {{ in_array($curr_url,['police.ticket.all'])?'active':'' }}">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
@@ -40,8 +40,38 @@
             href="{{ route('police.ticket.all') }} ">Tickets</a>
         </div>
     </div>
+</li> --}}
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="#"  >
+        <i class="fas fa-fw fa-list"></i>
+        <span>People fine List</span>
+    </a>
 </li>
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="#">
+        <i class="fas fa-fw fa-file-lines"></i>
+        <span>New Fine</span>
+    </a>
 
+</li>
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="#">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Users</span>
+    </a>
+
+</li>
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="#">
+        <i class="fas fa-fw fa-user-group"></i>
+        <span>Policemen</span>
+    </a>
+
+</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider">

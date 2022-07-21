@@ -26,23 +26,21 @@
     <div class="sidebar-heading">
         Interface
     </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item {{ in_array($curr_url,['police.ticket.all'])?'active':'' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Customer Tickets</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ in_array($curr_url,['police.ticket.all'])?'active':'' }}"
-                href="{{ route('police.ticket.all') }} ">Tickets</a>
-            </div>
-        </div>
-    </li>
-
-
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="#"  >
+        <i class="fas fa-fw fa-list"></i>
+        <span>User fine List</span>
+    </a>
+</li>
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item {{ in_array($curr_url, ['police.ticket.all']) ? 'active' : '' }}">
+    <a class="nav-link collapsed" href="#"  >
+        <i class="fas fa-fw fa-book-medical"></i>
+        <span>Medical</span>
+    </a>
+</li>
+</li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 
