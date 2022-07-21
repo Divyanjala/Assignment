@@ -6,8 +6,7 @@ use App\Http\Controllers\Admin\HomeController as AHC;
 use App\Http\Controllers\Police\HomeController as PHC;
 use App\Http\Controllers\Police\TicketController as PTC;
 
-use App\Http\Controllers\User\HomeController as CHC;
-use App\Http\Controllers\User\TicketController as CTC;
+use App\Http\Controllers\User\HomeController as UHC;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +31,7 @@ Route::prefix('/police')->group(function () {
     Route::post('/ticket/reply', [PTC::class, "reply"])->name('police.ticket.reply');
 });
 Route::prefix('/user')->group(function () {
-    Route::get('/ticket', [CTC::class, "new"])->name('user.ticket.new');
-    Route::post('/ticket/store', [CTC::class, "store"])->name('user.ticket.store');
-    Route::get('/ticket/get', [CTC::class, "getTicket"])->name('user.get.ticket');
+    Route::get('/', [UHC::class, "index"])->name('user.dashboard');
 });
 
 

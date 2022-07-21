@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -32,7 +33,19 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::user()->user_role == User::TYPES['USER']) {
+            return redirect(route('user.dashboard'));
+        }
+
+        if (Auth::user()->user_role == User::TYPES['POLICE']) {
+            return redirect(route('police.dashboard'));
+        }
+
+        if (Auth::user()->user_role == User::TYPES['ADMIN']) {
+            return redirect(route('admin.dashboard'));
+        }
+
+        //return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
