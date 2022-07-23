@@ -27,7 +27,7 @@ class PoliceService
      */
     public function all()
     {
-        return $this->user->all();
+        return $this->police->all();
     }
 
     /**
@@ -48,7 +48,11 @@ class PoliceService
         $newdata['division'] =  $request['division'];
         $newdata['address'] =  $request['address'];
         $newdata['phone'] =  $request['phone'];
-        $this->police->create($newdata);
+        $pol=$this->police->create($newdata);
+
+        $rescode='POL'.$pol->id.'#';
+        $this->police->where('id', $pol->id)
+        ->update(array('ref_number' => $rescode));
     }
 
 

@@ -39,7 +39,7 @@
                                     <th>Province</th>
                                     <th>district</th>
                                     <th>Phone Number</th>
-                                    <th>Reference Code</th>
+                                    <th>Email</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -47,25 +47,25 @@
                                 @foreach ($stations as $key => $row)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $row->name }}</td>
-                                        <td>{{ $row->email }}</td>
+                                        <td> <strong>{{ $row->ref_number }}</strong></td>
+                                        <td> <strong>{{ $row->province }}</strong></td>
                                         <td>
-                                            <strong>{{ $row->id }}</strong>
+                                            <strong>{{ $row->district }}</strong>
                                         </td>
                                         <td>
-                                            <strong>{{ $row->id }}</strong>
+                                            <strong>{{ $row->phone }}</strong>
                                         </td>
                                         <td>
-                                            <strong>{{ $row->id }}</strong>
+                                            <strong>{{ $row->user->email }}</strong>
                                         </td>
                                         <td>
                                             <div class="dropleft no-arrow mb-1">
 
-                                                <a class="dropdown-item edit-portfolio" data-toggle="modal"
-                                                    data-target="#modalViewForm" onclick="getTicket({{ $row->id }})"
-                                                    class="btn btn-warning" title="View">
+                                                <a class="dropdown-item edit-portfolio"
+                                                    class="btn btn-warning" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
+                        
                                             </div>
                                         </td>
                                     </tr>
