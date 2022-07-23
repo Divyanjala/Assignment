@@ -35,6 +35,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/police/edit/{id}', [APC::class, "edit"])->name('admin.police.edit');
 
     Route::get('/fine', [AFC::class, "index"])->name('admin.fine.all');
+    Route::get('/fine/new', [AFC::class, "new"])->name('admin.fine.new');
+    Route::post('/fine/create', [AFC::class, "create"])->name('admin.fine.create');
+    Route::post('/fine/update', [AFC::class, "update"])->name('admin.fine.update');
+    Route::get('/fine/edit/{id}', [AFC::class, "edit"])->name('admin.fine.edit');
 });
 
 Route::prefix('/police')->group(function () {
