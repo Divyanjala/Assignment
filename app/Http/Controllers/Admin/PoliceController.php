@@ -43,4 +43,27 @@ class PoliceController extends ParentController
         PoliceFacade::store($request);
         return redirect(route('admin.police.all'))->with('alert-success', 'Police station create successfully');
     }
+
+    public function edit($id)
+    {
+        $res['provinces'] = SriLanka::getProvinces(); // Returns all provinces
+        $res['police'] =  PoliceFacade::get($id);
+        $res['districts'] =SriLanka::getDiscricts($res['police']->province);
+        return view('pages.admin.police.edit')->with($res);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'numeric'],
+            'province' => ['required', 'string', 'max:100'],
+            'district' => ['required', 'string', 'max:100'],
+            'division' => ['required', 'string', 'max:100'],
+            'address' => ['required', 'string', 'max:255'],
+        ]);
+
+        PoliceFacade::update($request);
+        return redirect(route('admin.police.all'))->with('alert-success', 'Police station update successfully');
+    }
 }

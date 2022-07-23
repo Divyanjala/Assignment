@@ -62,10 +62,11 @@
                                             <div class="dropleft no-arrow mb-1">
 
                                                 <a class="dropdown-item edit-portfolio"
+                                                href="{{ route('admin.police.edit', ['id'=> $row->id]) }}"
                                                     class="btn btn-warning" title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                        
+
                                             </div>
                                         </td>
                                     </tr>

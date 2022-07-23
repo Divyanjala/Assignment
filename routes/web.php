@@ -31,6 +31,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/police/new', [APC::class, "new"])->name('admin.police.new');
     Route::get('/police/district', [APC::class, "getDistrict"])->name('admin.police.get.district');
     Route::post('/police/create', [APC::class, "create"])->name('admin.police.create');
+    Route::post('/police/update', [APC::class, "update"])->name('admin.police.update');
+    Route::get('/police/edit/{id}', [APC::class, "edit"])->name('admin.police.edit');
 
     Route::get('/fine', [AFC::class, "index"])->name('admin.fine.all');
 });

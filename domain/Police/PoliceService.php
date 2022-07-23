@@ -23,13 +23,20 @@ class PoliceService
     }
 
     /**
-     * All ticket
+     * All police
      */
     public function all()
     {
-        return $this->police->all();
+        return $this->police->orderBy('id', 'desc')->get();
     }
 
+        /**
+     * get police
+     */
+    public function get($id)
+    {
+        return $this->police->find($id);
+    }
     /**
      * Create police
      * @param  $request
@@ -53,6 +60,21 @@ class PoliceService
         $rescode='POL'.$pol->id.'#';
         $this->police->where('id', $pol->id)
         ->update(array('ref_number' => $rescode));
+    }
+
+    public function update($request)
+    {
+
+        $this->user->where('id', $request->user_id)
+        ->update(array('name'=>$request->name));
+
+        $this->police->where('id', $request->id)
+        ->update(array('province'=>$request['province'],
+                    'district'=>$request['district'],
+                    'division'=>$request['division'],
+                    'address'=>$request['address'],
+                    'phone'=>$request['phone']
+                ));
     }
 
 
