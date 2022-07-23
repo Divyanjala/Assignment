@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('user_details', function (Blueprint $table) {
             $table->id();
-            $table->string('cus_name');
-            $table->text('pro_description');
-            $table->text('reply')->default(0);
-            $table->string('email');
-            $table->integer('phone_number');
-            $table->string('ref_number',50)->nullable();
-            $table->foreignId('agent_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('mobile');
+            $table->integer('licence_number');
+            $table->string('address');
             $table->integer('status')->default(0);
-            $table->boolean('open_status')->default(0);
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('user_details');
     }
 };

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class UserDetail extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cus_name', 'pro_description', 'email',
-        'phone_number','ref_number','status','agent_id'
+        'mobile', 'licence_number', 'user_id',
+        'address'
     ];
 }
