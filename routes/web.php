@@ -28,6 +28,8 @@ Route::get('/', function () {
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
     Route::get('/police', [APC::class, "index"])->name('admin.police.all');
+    Route::get('/police/new', [APC::class, "new"])->name('admin.police.new');
+    Route::get('/police/district', [APC::class, "getDistrict"])->name('admin.police.get.district');
 
     Route::get('/fine', [AFC::class, "index"])->name('admin.fine.all');
 });

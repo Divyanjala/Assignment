@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ef925300e371576eb9dee7e507198d4",
+    "content-hash": "f33303b81752637ada41488e16bb4e72",
     "packages": [
         {
             "name": "brick/math",
@@ -140,6 +140,45 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.1"
             },
             "time": "2021-08-13T13:06:58+00:00"
+        },
+        {
+            "name": "disapamok/srilanka-cities",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/disapamok/sri-lanka-provinces-districts-cities-php-array.git",
+                "reference": "daf0979901d20d917643c3234b68daee222e465d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/disapamok/sri-lanka-provinces-districts-cities-php-array/zipball/daf0979901d20d917643c3234b68daee222e465d",
+                "reference": "daf0979901d20d917643c3234b68daee222e465d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Disapamok\\Modules\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "This has included Sri Lanka's all the provinces, districts, and cities in a PHP array",
+            "keywords": [
+                "Sri Lanka Cities",
+                "php array"
+            ],
+            "support": {
+                "issues": "https://github.com/disapamok/sri-lanka-provinces-districts-cities-php-array/issues",
+                "source": "https://github.com/disapamok/sri-lanka-provinces-districts-cities-php-array/tree/master"
+            },
+            "time": "2019-10-15T12:15:55+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -7816,7 +7855,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "disapamok/srilanka-cities": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

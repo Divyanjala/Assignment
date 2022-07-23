@@ -217,16 +217,7 @@
     <script src="{{ asset('public/js/jquery-2.1.3.min.js') }}"></script>
     {{-- <script src="{{ asset('public/js/jquery-migrate-1.2.1.min.js') }}"></script> --}}
     <script src="{{ asset('public/bootstrap/js/bootstrap.min.js') }}"></script>
-    {{-- <script src="{{ asset('public/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('public/js/jquery.appear.js') }}"></script>
-    <script src="{{ asset('public/js/jquery.fitvids.js') }}"></script>
-    <script src="{{ asset('public/js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('public/js/lightbox.min.js') }}"></script>
-    <script src="{{ asset('public/js/count-to.js') }}"></script>
-    <script src="{{ asset('public/js/styleswitcher.js') }}"></script> --}}
 
-    {{-- <script src="{{ asset('public/js/map.js') }}"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> --}}
     <script src="{{ asset('public/js/script.js') }}"></script>
 
 
