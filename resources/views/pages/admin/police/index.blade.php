@@ -34,7 +34,7 @@
                         <table class="table" id="tickets_tb">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Reference Code</th>
                                     <th>Province</th>
                                     <th>district</th>
@@ -44,29 +44,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($tickets as $key => $ticket)
-                                    <tr class="{{ $ticket->open_status == 0 ? 'view' : '' }}">
+                                @foreach ($stations as $key => $row)
+                                    <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $ticket->cus_name }}</td>
-                                        <td>{{ $ticket->email }}</td>
+                                        <td>{{ $row->name }}</td>
+                                        <td>{{ $row->email }}</td>
                                         <td>
-                                            <strong>{{ $ticket->phone_number }}</strong>
+                                            <strong>{{ $row->id }}</strong>
                                         </td>
                                         <td>
-                                            <strong>{{ $ticket->ref_number }}</strong>
+                                            <strong>{{ $row->id }}</strong>
+                                        </td>
+                                        <td>
+                                            <strong>{{ $row->id }}</strong>
                                         </td>
                                         <td>
                                             <div class="dropleft no-arrow mb-1">
 
                                                 <a class="dropdown-item edit-portfolio" data-toggle="modal"
-                                                    data-target="#modalViewForm" onclick="getTicket({{ $ticket->id }})"
+                                                    data-target="#modalViewForm" onclick="getTicket({{ $row->id }})"
                                                     class="btn btn-warning" title="View">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

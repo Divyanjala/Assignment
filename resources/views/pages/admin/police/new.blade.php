@@ -23,16 +23,18 @@
         <div class="col-xl-12 col-md-12 mb-4">
             <div class="card border shadow ">
                 <div class="card-body">
-
-                    <form>
+                    <x-auth-validation-errors style="color: red;" class="mb-4" :errors="$errors" />
+                    <form method="POST" action="{{ route('admin.police.create') }}">
+                        @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Name of the police station</label>
-                                <input type="text" class="form-control" id="name" required>
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputProvince">Province</label>
-                                <select id="inputProvince" class="form-control" onchange="getDistricts(this.value)" required>
+                                <select id="inputProvince" class="form-control" name="province"
+                                onchange="getDistricts(this.value)" required>
                                     <option selected>Choose...</option>
                                     @foreach ($provinces as $row)
                                         <option value="{{ $row }}">{{ $row }}</option>
@@ -41,7 +43,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputDistrict">District</label>
-                                <select id="inputDistrict" class="form-control" required>
+                                <select id="inputDistrict" class="form-control" name="district" required>
 
                                 </select>
                             </div>
@@ -50,30 +52,30 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="inputDivision">Division</label>
-                                <input type="text" class="form-control" id="inputDivision" required>
+                                <input type="text" class="form-control" id="inputDivision" name="division" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputAddress">Address</label>
-                                <input type="text" class="form-control" id="inputAddress"  required>
+                                <input type="text" class="form-control" id="inputAddress" name="address" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputLandphone">Landphone</label>
-                                <input type="number" class="form-control" id="inputLandphone" required>
+                                <input type="number" class="form-control" id="inputLandphone" name="phone" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputCity">Email</label>
-                                <input type="text" class="form-control" id="inputCity" required>
+                                <input type="email" class="form-control" id="inputCity" name="email" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputCity">Password</label>
-                                <input type="text" class="form-control" id="inputCity" required>
+                                <input type="text" class="form-control" id="inputCity" name="password" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputCity">Repeat Password</label>
-                                <input type="text" class="form-control" id="inputCity" required>
+                                <input type="text" class="form-control" id="inputCity" name="password_confirmation" required>
                             </div>
                         </div>
 

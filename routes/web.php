@@ -30,6 +30,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/police', [APC::class, "index"])->name('admin.police.all');
     Route::get('/police/new', [APC::class, "new"])->name('admin.police.new');
     Route::get('/police/district', [APC::class, "getDistrict"])->name('admin.police.get.district');
+    Route::post('/police/create', [APC::class, "create"])->name('admin.police.create');
 
     Route::get('/fine', [AFC::class, "index"])->name('admin.fine.all');
 });
