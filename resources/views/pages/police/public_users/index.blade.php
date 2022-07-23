@@ -20,35 +20,30 @@
                                     <th>Contact ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Reference Code</th>
+                                    <th>Mobile Number</th>
+                                    <th>Licence Number</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($tickets as $key => $ticket)
-                                    <tr class="{{ $ticket->open_status == 0 ? 'view' : '' }}">
+                                @foreach ($users as $key => $row)
+                                    <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $ticket->cus_name }}</td>
-                                        <td>{{ $ticket->email }}</td>
-                                        <td>
-                                            <strong>{{ $ticket->phone_number }}</strong>
-                                        </td>
-                                        <td>
-                                            <strong>{{ $ticket->ref_number }}</strong>
-                                        </td>
+                                        <td>{{ $row->name }}</td>
+                                        <td>{{ $row->email }}</td>
+                                        <td>{{ $row->user->licence_number }}</td>
+                                        <td>{{ $row->user->licence_number }}</td>
                                         <td>
                                             <div class="dropleft no-arrow mb-1">
 
-                                                <a class="dropdown-item edit-portfolio" data-toggle="modal"
-                                                    data-target="#modalViewForm" onclick="getTicket({{ $ticket->id }})"
+                                                <a class="dropdown-item edit-portfolio"
                                                     class="btn btn-warning" title="View">
-                                                    <i class="fas fa-edit"></i>
+                                                    <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

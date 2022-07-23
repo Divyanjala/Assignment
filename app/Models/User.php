@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_role'
     ];
 
     /**
@@ -42,5 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+    public function user(){
+        return $this->hasOne(UserDetail::class,'user_id');
+    }
+
 }

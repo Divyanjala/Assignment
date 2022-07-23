@@ -24,7 +24,7 @@ class UserService
      */
     public function all()
     {
-        return $this->user->all();
+        return $this->user->where('user_role',0)->orderBy('id', 'desc')->get();
     }
     /**
      * get user
