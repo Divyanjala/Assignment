@@ -4,6 +4,7 @@ namespace domain\Fine;
 
 // use Illuminate\Support\Facades\Auth;
 use App\Models\Fine;
+use App\Models\UserFine;
 use Illuminate\Support\Facades\Hash;
 /**
  * Created by Vs COde.
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Hash;
 class FineService
 {
     protected $fine;
+    protected $user_fine;
 
     public function __construct()
     {
         $this->fine = new Fine();
+        $this->user_fine = new UserFine();
     }
 
     /**
@@ -51,6 +54,25 @@ class FineService
     {
         $this->fine->where('id', $request->id)
         ->update(array('offence'=>$request->offence,'act'=>$request->act,'amount'=>$request->amount));
+    }
+
+    /**
+     * Create user fine
+     * @param  $request
+     */
+    public function storeUserFine($request)
+    {
+        $data['licence_number'] =  $request->licence_number;
+        $data['fine_id'] =  $request->fine_id;
+        $data['police_id'] =  $request->police_id;
+        $data['date'] =  $request->date;
+
+        $fine=$this->get($request->fine_id);
+
+        $data['amount'] =  $fine->amount;
+        $data['expire_date'] =  $request->date;
+        $res=$this->user_fine->create($data);
+
     }
 
 

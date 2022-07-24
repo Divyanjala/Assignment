@@ -45,6 +45,9 @@ Route::prefix('/police')->group(function () {
     Route::get('/', [PHC::class, "index"])->name('police.dashboard');
     Route::get('/fine', [PFC::class, "index"])->name('police.fine.list');
     Route::get('/fine/new', [PFC::class, "new"])->name('police.fine.new');
+    Route::post('/fine/create', [PFC::class, "create"])->name('police.fine.create');
+    Route::post('/fine/update', [PFC::class, "update"])->name('police.fine.update');
+    Route::get('/fine/edit/{id}', [PFC::class, "edit"])->name('police.fine.edit');
 
     Route::get('/publicUsers', [PUC::class, "publicUsers"])->name('police.public-users.list');
 
