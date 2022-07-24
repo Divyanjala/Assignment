@@ -27,4 +27,18 @@ class FineController extends Controller
         FineFacade::storeUserFine($request);
         return redirect(route('police.fine.list'))->with('alert-success', 'User Fine create successfully');
     }
+
+    public function edit($id)
+    {
+        $res['fines'] =  FineFacade::all();
+       $res['police'] =  PoliceFacade::allPolice();
+        $res['fine'] =  FineFacade::getUserFine($id);
+        return view('pages.police.fines.edit')->with($res);
+    }
+
+    public function update(Request $request)
+    {
+        FineFacade::updateUserFine($request);
+        return redirect(route('police.fine.list'))->with('alert-success', 'User Fine update successfully');
+    }
 }

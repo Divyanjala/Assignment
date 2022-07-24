@@ -32,8 +32,8 @@
                                 <tr>
                                     <td>{{ ++$key }}</td>
                                     <td>{{ $row->licence_number }}</td>
-                                    <td>{{ $row->fine_id }}</td>
-                                    <td>{{ $row->police_user_id }}</td>
+                                    <td>{{ $row->fine->offence }}</td>
+                                    <td>{{ $row->police->name }}</td>
                                     <td>{{ $row->amount }}</td>
                                     <td>{{ $row->date }}</td>
                                     <td>{{ $row->expire_date }}</td>
@@ -41,7 +41,7 @@
                                         <div class="dropleft no-arrow mb-1">
 
                                             <a class="dropdown-item edit-portfolio"
-                                            href="{{ route('police.public-users.edit', ['id'=> $row->id]) }}"
+                                            href="{{ route('police.fine.edit', ['id'=> $row->id]) }}"
                                                 class="btn btn-warning" title="View">
                                                 <i class="fas fa-edit"></i>
                                             </a>
