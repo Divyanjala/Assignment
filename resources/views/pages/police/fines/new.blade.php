@@ -30,7 +30,9 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputDivision">Licence Number</label>
-                                <input type="text" class="form-control" id="inputDivision" name="licence_number" required>
+                                <input type="text" class="form-control" onkeyup="getLicences(this.value)"
+                                name="licence_number" required>
+                                <label id="error_msg" style="color: red">Invalied Licence Number</label>
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="inputAddress">Fine</label>
@@ -56,10 +58,42 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button id="btn_submit" type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#error_msg').hide();
+        function getLicences(id) {
+
+            $.ajax({
+                type: 'get',
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/police/fine/licence',
+                data: {
+                    'id': id
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data==1) {
+                        $('#error_msg').hide();
+                        $('#btn_submit').show();
+                    } else {
+                        $('#error_msg').show();
+                        $('#btn_submit').hide();
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        }
+    </script>
 @endsection

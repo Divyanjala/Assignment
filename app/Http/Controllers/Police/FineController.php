@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use domain\Facades\FineFacade;
 use domain\Facades\PoliceFacade;
+use domain\Facades\UserFacade;
 
 class FineController extends Controller
 {
@@ -20,6 +21,17 @@ class FineController extends Controller
        $res['fines'] =  FineFacade::all();
        $res['police'] =  PoliceFacade::allPolice();
        return view('pages.police.fines.new')->with($res);
+    }
+    public function getLicence(Request $request)
+    {
+
+       $licence= UserFacade::getUser($request->id);
+
+       if ($licence) {
+            return 1;
+       }else{
+            return 2;
+        }
     }
 
     public function create(Request $request)

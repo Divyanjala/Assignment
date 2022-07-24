@@ -31,9 +31,12 @@
                             <div class="form-group col-md-4">
                                 <label for="inputDivision">Licence Number</label>
                                 <input type="text" class="form-control"
-                                value="{{ $fine->licence_number }}"  name="licence_number" required>
+                                value="{{ $fine->licence_number }}"  name="licence_number"
+                                onkeyup="getLicences(this.value)"required>
+                                <label id="error_msg" style="color: red">Invalied Licence Number</label>
                                 <input type="hidden" class="form-control"
                                 value="{{ $fine->id }}"  name="id" required>
+
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="inputAddress">Fine</label>
@@ -64,10 +67,43 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button id="btn_submit" type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        $('#error_msg').hide();
+        function getLicences(id) {
+
+            $.ajax({
+                type: 'get',
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/police/fine/licence',
+                data: {
+                    'id': id
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data==1) {
+                        $('#error_msg').hide();
+                        $('#btn_submit').show();
+                    } else {
+                        $('#error_msg').show();
+                        $('#btn_submit').hide();
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+@endsection
+

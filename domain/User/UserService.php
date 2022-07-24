@@ -4,6 +4,7 @@ namespace domain\User;
 
 // use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\UserDetail;
 
 /**
  * Created by Vs COde.
@@ -12,11 +13,13 @@ use App\Models\User;
  */
 class UserService
 {
-    protected $contact;
+    protected $user_details;
+    protected $user;
 
     public function __construct()
     {
         $this->user = new User();
+        $this->user_details = new UserDetail();
     }
 
     /**
@@ -35,6 +38,12 @@ class UserService
     }
 
 
-
+  /**
+     * get user
+     */
+    public function getUser($id)
+    {
+        return $this->user_details->where('licence_number',$id)->first();
+    }
 
 }

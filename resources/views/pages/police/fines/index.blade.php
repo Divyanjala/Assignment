@@ -39,12 +39,14 @@
                                     <td>{{ $row->expire_date }}</td>
                                     <td>
                                         <div class="dropleft no-arrow mb-1">
-
+                                            @if ($row->status==0)
                                             <a class="dropdown-item edit-portfolio"
                                             href="{{ route('police.fine.edit', ['id'=> $row->id]) }}"
                                                 class="btn btn-warning" title="View">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+                                            @endif
+
                                         </div>
                                     </td>
                                 </tr>
