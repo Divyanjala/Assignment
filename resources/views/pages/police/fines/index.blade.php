@@ -17,38 +17,38 @@
                         <table class="table" id="tickets_tb">
                             <thead>
                                 <tr>
-                                    <th>Contact ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Reference Code</th>
+                                    <th>#</th>
+                                    <th>Licence Number</th>
+                                    <th>fine</th>
+                                    <th>Policemen</th>
+                                    <th>Amount</th>
+                                    <th>Created date</th>
+                                    <th>Expire date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($tickets as $key => $ticket)
-                                    <tr class="{{ $ticket->open_status == 0 ? 'view' : '' }}">
-                                        <td>{{ ++$key }}</td>
-                                        <td>{{ $ticket->cus_name }}</td>
-                                        <td>{{ $ticket->email }}</td>
-                                        <td>
-                                            <strong>{{ $ticket->phone_number }}</strong>
-                                        </td>
-                                        <td>
-                                            <strong>{{ $ticket->ref_number }}</strong>
-                                        </td>
-                                        <td>
-                                            <div class="dropleft no-arrow mb-1">
+                                @foreach ($fines as $key => $row)
+                                <tr>
+                                    <td>{{ ++$key }}</td>
+                                    <td>{{ $row->licence_number }}</td>
+                                    <td>{{ $row->fine_id }}</td>
+                                    <td>{{ $row->police_user_id }}</td>
+                                    <td>{{ $row->amount }}</td>
+                                    <td>{{ $row->date }}</td>
+                                    <td>{{ $row->expire_date }}</td>
+                                    <td>
+                                        <div class="dropleft no-arrow mb-1">
 
-                                                <a class="dropdown-item edit-portfolio" data-toggle="modal"
-                                                    data-target="#modalViewForm" onclick="getTicket({{ $ticket->id }})"
-                                                    class="btn btn-warning" title="View">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach --}}
+                                            <a class="dropdown-item edit-portfolio"
+                                            href="{{ route('police.public-users.edit', ['id'=> $row->id]) }}"
+                                                class="btn btn-warning" title="View">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -82,6 +82,6 @@
             });
         });
 
-       
+
     </script>
 @endsection

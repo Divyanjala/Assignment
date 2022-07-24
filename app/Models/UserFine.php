@@ -10,6 +10,6 @@ class UserFine extends Model
     use HasFactory;
     protected $fillable = [
         'licence_number', 'fine_id', 'police_id','amount',
-        'date','expire_date','status','licence_status'
+        'date','expire_date','status','licence_status','police_user_id'
     ];
 }

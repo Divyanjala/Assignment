@@ -6,6 +6,7 @@ namespace domain\Fine;
 use App\Models\Fine;
 use App\Models\UserFine;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 /**
  * Created by Vs COde.
  * Date: 05/07/2022
@@ -64,7 +65,8 @@ class FineService
     {
         $data['licence_number'] =  $request->licence_number;
         $data['fine_id'] =  $request->fine_id;
-        $data['police_id'] =  $request->police_id;
+        $data['police_id'] =  Auth::user()->id;
+        $data['police_user_id'] =  $request->police_id;
         $data['date'] =  $request->date;
 
         $fine=$this->get($request->fine_id);
@@ -75,5 +77,11 @@ class FineService
 
     }
 
-
+    /**
+     * All fine
+     */
+    public function allUserFines()
+    {
+        return $this->user_fine->where('police_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+    }
 }
