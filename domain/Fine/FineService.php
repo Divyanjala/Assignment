@@ -87,6 +87,14 @@ class FineService
         return $this->user_fine->where('police_id', Auth::user()->id)->orderBy('id', 'desc')->get();
     }
 
+
+    /**
+     * All fine
+     */
+    public function getUserFines($licence)
+    {
+        return $this->user_fine->where('licence_number', $licence)->orderBy('id', 'desc')->get();
+    }
          /**
      * get fine
      */
