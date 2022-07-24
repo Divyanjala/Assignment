@@ -5,6 +5,7 @@ namespace domain\Police;
 // use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\PoliceDetail;
+use App\Models\PoliceUser;
 use Illuminate\Support\Facades\Hash;
 /**
  * Created by Vs COde.
@@ -15,11 +16,13 @@ class PoliceService
 {
     protected $police;
     protected $user;
+    protected $police_men;
 
     public function __construct()
     {
         $this->user = new User();
         $this->police = new PoliceDetail();
+        $this->police_men = new PoliceUser();
     }
 
     /**
@@ -77,5 +80,38 @@ class PoliceService
                 ));
     }
 
+    public function policeUserStore($request)
+    {
+        $newdata['name'] =  $request['name'];
+        $newdata['nic'] =  $request['nic'];
+        $newdata['address'] =  $request['address'];
+        $newdata['mobile'] =  $request['mobile'];
+        $pol=$this->police_men->create($newdata);
 
+        $rescode='POL/'.$pol->id;
+        $this->police_men->where('id', $pol->id)
+        ->update(array('code' => $rescode));
+    }
+
+            /**
+     * get policemen
+     */
+    public function getPolice($id)
+    {
+        return $this->police_men->find($id);
+    }
+
+        /**
+     * All police
+     */
+    public function allPolice()
+    {
+        return $this->police_men->orderBy('id', 'desc')->get();
+    }
+
+    public function policeUserUpdate($request)
+    {
+        $this->police_men->where('id', $request->id)
+        ->update(array('name'=>$request->name,'address'=>$request->address,'mobile'=>$request->mobile));
+    }
 }

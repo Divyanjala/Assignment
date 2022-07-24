@@ -47,7 +47,12 @@ Route::prefix('/police')->group(function () {
     Route::get('/fine/new', [PFC::class, "new"])->name('police.fine.new');
 
     Route::get('/publicUsers', [PUC::class, "publicUsers"])->name('police.public-users.list');
+
     Route::get('/policeUsers', [PUC::class, "policeUsers"])->name('police.police-users.list');
+    Route::get('/policeUsers/new', [PUC::class, "policeUsersNew"])->name('police.public-users.new');
+    Route::post('/policeUsers/create', [PUC::class, "policeUsersCreate"])->name('police.public-users.create');
+    Route::post('/policeUsers/update', [PUC::class, "policeUsersUpdate"])->name('police.public-users.update');
+    Route::get('/policeUsers/edit/{id}', [PUC::class, "policeUsersEdit"])->name('police.public-users.edit');
 });
 Route::prefix('/user')->group(function () {
     Route::get('/', [UHC::class, "index"])->name('user.dashboard');
