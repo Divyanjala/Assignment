@@ -24,6 +24,7 @@
                                     <th>Amount</th>
                                     <th>Created date</th>
                                     <th>Expire date</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -37,6 +38,21 @@
                                     <td>{{ $row->amount }}</td>
                                     <td>{{ $row->date }}</td>
                                     <td>{{ $row->expire_date }}</td>
+                                    <td>
+                                        @switch($row->status)
+                                            @case(0)
+                                            <span class="badge badge-primary">PENDING</span>
+                                                @break
+                                            @case(1)
+                                            <span class="badge badge-success">PAID</span>
+                                                @break
+                                            @case(2)
+                                            <span class="badge badge-danger">EXPIRED</span>
+                                                @break
+                                            @default
+
+                                        @endswitch
+                                    </td>
                                     <td>
                                         <div class="dropleft no-arrow mb-1">
                                             @if ($row->status==0)
