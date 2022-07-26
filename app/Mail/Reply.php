@@ -10,15 +10,15 @@ use Illuminate\Queue\SerializesModels;
 class Reply extends Mailable
 {
     use Queueable, SerializesModels;
-    public $ticket;
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($ticket)
+    public function __construct($data)
     {
-        $this->ticket = $ticket;
+        $this->data = $data;
     }
 
     /**
@@ -29,7 +29,7 @@ class Reply extends Mailable
     public function build()
     {
         $subject='X Service';
-        return $this->view('pages.mails.reply',['reply' => $this->ticket->reply])
+        return $this->view('pages.mails.reply',['date' => $this->data['date']])
         ->subject($subject);
     }
 }

@@ -28,7 +28,7 @@
                                                                                         <tr>
                                                                                             <td class="text-24 pb-15"
                                                                                                 style="color:#333333; font-family:'Playfair Display', Arial, sans-serif; font-size:24px; line-height:34px; text-align:left; font-weight:normal; min-width:auto !important; padding-bottom: 15px;">
-                                                                                                Reply - {{$reply}}
+                                                                                                Reply - {{$date}}
                                                                                             </td>
                                                                                         </tr>
 

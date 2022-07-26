@@ -12,6 +12,7 @@ class FineController extends ParentController
     {
        $res['fines'] = FineFacade::all();
        return view('pages.admin.fine.index')->with($res);
+
     }
 
     public function new()

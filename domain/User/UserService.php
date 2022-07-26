@@ -5,7 +5,7 @@ namespace domain\User;
 // use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserDetail;
-
+use App\Events\ReplyEvent;
 /**
  * Created by Vs COde.
  * Date: 05/07/2022
@@ -44,6 +44,12 @@ class UserService
     public function getUser($id)
     {
         return $this->user_details->where('licence_number',$id)->first();
+    }
+
+    public function checkUserFine()
+    {
+        $data=['email'=>'kasun19961201@gmail.com','date'=>1];
+          event(new ReplyEvent($data));
     }
 
 }

@@ -13,15 +13,15 @@ use Illuminate\Queue\SerializesModels;
 class ReplyEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $ticket;
+    public $data;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($ticket)
+    public function __construct($data)
     {
-        $this->ticket = $ticket;
+        $this->data = $data;
     }
 
     /**

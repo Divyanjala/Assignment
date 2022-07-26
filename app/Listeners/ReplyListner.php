@@ -27,7 +27,8 @@ class ReplyListner
      */
     public function handle($event)
     {
-        $ticket = $event->ticket;
-        Mail::to($ticket['email'])->send(new Reply($ticket));
+
+        $data = $event->data;
+        Mail::to($data['email'])->send(new Reply($data));
     }
 }
