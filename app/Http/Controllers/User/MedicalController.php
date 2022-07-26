@@ -9,6 +9,6 @@ class MedicalController extends ParentController
 {
     public function index()
     {
-        return view('pages.user.fines.index');
+        return view('pages.user.medical.index');
     }
 }

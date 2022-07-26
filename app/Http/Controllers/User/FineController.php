@@ -14,4 +14,16 @@ class FineController extends ParentController
         $res['fines'] =  FineFacade::getUserFines(Auth::user()->user->licence_number);
         return view('pages.user.fines.index')->with($res);
     }
+
+    public function payment($id)
+    {
+        $res['fine'] =  FineFacade::getUserFine($id);
+        return view('pages.user.fines.payment')->with($res);
+    }
+
+    public function pay(Request $request)
+    {
+        FineFacade::payment($request);
+        return redirect(route('user.fine.list'))->with('alert-success', 'Your payment was successful!');
+    }
 }

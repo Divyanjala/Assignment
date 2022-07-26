@@ -61,6 +61,9 @@ Route::prefix('/police')->group(function () {
 Route::prefix('/user')->group(function () {
     Route::get('/', [UHC::class, "index"])->name('user.dashboard');
     Route::get('/fine', [UFC::class, "index"])->name('user.fine.list');
+    Route::get('/fine/payment/{id}', [UFC::class, "payment"])->name('user.fine.payment');
+    Route::post('/fine/pay', [UFC::class, "pay"])->name('user.fine.pay');
+
     Route::get('/medical', [UMC::class, "index"])->name('user.medical.list');
 });
 

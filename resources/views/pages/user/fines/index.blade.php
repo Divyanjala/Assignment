@@ -57,9 +57,9 @@
                                         <div class="dropleft no-arrow mb-1">
                                             @if ($row->status==0)
                                             <a class="dropdown-item edit-portfolio"
-                                            href="{{ route('police.fine.edit', ['id'=> $row->id]) }}"
+                                            href="{{ route('user.fine.payment', ['id'=> $row->id]) }}"
                                                 class="btn btn-warning" title="Pay">
-                                                <i class="fas fa-edit"></i>
+                                                <i class="fa-brands fa-cc-apple-pay"></i>
                                             </a>
                                             @endif
 

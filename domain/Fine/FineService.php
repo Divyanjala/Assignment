@@ -118,4 +118,10 @@ class FineService
                     'fine_id'=>$request['fine_id']
                 ));
     }
+
+    public function payment($request)
+    {
+        $this->user_fine->where('id', $request->id)
+        ->update(array('status'=>1));
+    }
 }
