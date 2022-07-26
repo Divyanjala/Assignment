@@ -1,11 +1,27 @@
 @extends('layouts.user')
 
 @section('header')
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">List Of Medical</h1>
+   <!-- Page Heading -->
+   <div class="row align-items-center py-4">
+    <div class="col-lg-6 col-7">
+        <h6 class="h2 text-dark d-inline-block mb-0">Medical Records</h6>
+        <nav aria-label="breadcrumb" class="d-none d-md-block ">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
 
+                <li class="breadcrumb-item active" aria-current="page">Medical Records</li>
+            </ol>
+        </nav>
     </div>
+    <div class="col-lg-6 text-right">
+        <div>
+            <a href="{{ route('user.medical.new') }}"
+                class="btn btn-sm btn-primary float-right mr-3">
+                New Medical Record
+            </a>
+        </div>
+    </div>
+</div>
 @endsection
 @section('content')
     <!-- Content Row -->

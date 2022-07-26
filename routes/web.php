@@ -65,6 +65,10 @@ Route::prefix('/user')->group(function () {
     Route::post('/fine/pay', [UFC::class, "pay"])->name('user.fine.pay');
 
     Route::get('/medical', [UMC::class, "index"])->name('user.medical.list');
+    Route::get('/medical/new', [UMC::class, "new"])->name('user.medical.new');
+    Route::post('/medical/create', [UMC::class, "create"])->name('user.medical.create');
+    Route::post('/medical/update', [UMC::class, "update"])->name('user.medical.update');
+    Route::get('/medical/edit/{id}', [UMC::class, "edit"])->name('user.medical.edit');
 });
 
 
