@@ -11,6 +11,6 @@ class MedicalDetail extends Model
 
     protected $fillable = [
         'birthday', 'hight', 'weight','blood_pressure','em_address',
-        'cholestreol','blood_type','mr_status','em_name','em_phone'
+        'cholestreol','blood_type','mr_status','em_name','em_phone','user_id'
     ];
 }

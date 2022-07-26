@@ -30,42 +30,50 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="inputDivision">Date of Birth</label>
-                                <input type="date" class="form-control"  name="birthday">
+                                <input type="date" class="form-control"  name="birthday"
+                                value="{{Auth::user()->medical?Auth::user()->medical->birthday:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="hight">Hight</label>
                                 <input type="text" class="form-control"
-                                name="hight" required>
+                                name="hight" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->hight:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="weight">Weight</label>
                                 <input type="text" class="form-control"
-                                name="weight" required>
+                                name="weight" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->weight:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="blood_pressure">Blood Pressure</label>
                                 <input type="text" class="form-control"
-                                name="blood_pressure" required>
+                                name="blood_pressure" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->blood_pressure:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="cholestreol">Cholestreol</label>
                                 <input type="text" class="form-control"
-                                name="cholestreol" required>
+                                name="cholestreol" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->cholestreol:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="blood_type">Blood Type</label>
                                 <input type="text" class="form-control"
-                                name="blood_type" required>
+                                name="blood_type" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->blood_type:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="mr_status">Marital status</label>
                                 <input type="text" class="form-control"
-                                name="mr_status" required>
+                                name="mr_status" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->mr_status:''}}">
                             </div>
                             <div class="form-group col-md-7">
                                 <label for="address">Address</label>
                                 <input type="text" class="form-control"
-                                name="address" required>
+                                name="address" required
+                                value="{{Auth::user()->user->address}}">
                             </div>
                             <div class="form-group col-md-12">
                                 <label ><b> case of Emergancy</b></label>
@@ -73,17 +81,20 @@
                             <div class="form-group col-md-3">
                                 <label for="em_name">Name</label>
                                 <input type="text" class="form-control"
-                                name="em_name" required>
+                                name="em_name" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->em_name:''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="em_phone">Phone</label>
-                                <input type="text" class="form-control"
-                                name="em_phone" required>
+                                <input type="number" class="form-control"
+                                name="em_phone" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->em_phone:''}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="em_address">Address</label>
                                 <input type="text" class="form-control"
-                                name="em_address" required>
+                                name="em_address" required
+                                value="{{Auth::user()->medical?Auth::user()->medical->em_address:''}}">
                             </div>
                         </div>
 
