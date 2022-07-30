@@ -29,6 +29,6 @@ class ReplyListner
     {
 
         $data = $event->data;
-        Mail::to($data['email'])->send(new Reply($data));
+        Mail::to($data->user->email)->send(new Reply($data));
     }
 }

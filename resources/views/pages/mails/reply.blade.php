@@ -5,49 +5,15 @@
             <td class="pb-10" style="padding-bottom: 10px;">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tbody>
-                        <tr>
-                            <th class="column-top brr-15" width="320" bgcolor="#ffffff"
-                                style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; border-radius:15px;">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tbody>
-                                        <tr>
-                                            <td class="p-10" style="padding: 10px 10px 10px 10px;">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <table width="100%" border="0" cellspacing="0"
-                                                                    cellpadding="0">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="p-20"
-                                                                                style="padding: 20px 20px 20px 20px;">
-                                                                                <table width="100%" border="0"
-                                                                                    cellspacing="0" cellpadding="0">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td class="text-24 pb-15"
-                                                                                                style="color:#333333; font-family:'Playfair Display', Arial, sans-serif; font-size:24px; line-height:34px; text-align:left; font-weight:normal; min-width:auto !important; padding-bottom: 15px;">
-                                                                                                Reply - {{$date}}
-                                                                                            </td>
-                                                                                        </tr>
-
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </th>
-                        </tr>
+                        <p>Dear {{$data->user->name}},</p>
+                        <br>
+                        <p>You didn't pay the fine.You will be submitted to court</p>
+                        <p>Licence Number : {{$data->licence_number}}</p>
+                        <p>Fine : {{$data->fine->offence}}</p>
+                        <p>Amount : {{$data->amount}}</p>
+                        <p>Expired date : {{$data->expire_date}}</p>
+                        <br>
+                        <p>Thank You</p>
                     </tbody>
                 </table>
             </td>

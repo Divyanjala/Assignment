@@ -8,6 +8,7 @@ use App\Models\UserFine;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use domain\Facades\UserFacade;
 /**
  * Created by Vs COde.
  * Date: 05/07/2022
@@ -64,18 +65,26 @@ class FineService
      */
     public function storeUserFine($request)
     {
-        $data['licence_number'] =  $request->licence_number;
-        $data['fine_id'] =  $request->fine_id;
-        $data['police_id'] =  Auth::user()->id;
-        $data['police_user_id'] =  $request->police_id;
-        $data['date'] =  $request->date;
+        $user=UserFacade::getUser($request->licence_number);
+        if ($user) {
+            $data['licence_number'] =  $request->licence_number;
+            $data['fine_id'] =  $request->fine_id;
+            $data['police_id'] =  Auth::user()->id;
+            $data['police_user_id'] =  $request->police_id;
+            $data['date'] =  $request->date;
 
-        $fine=$this->get($request->fine_id);
+            $data['user_id'] =  $user->id;
 
-        $data['amount'] =  $fine->amount;
-        $endMonth = Carbon::parse($request->date)->addMonth(1)->format('Y-m-d');
-        $data['expire_date'] =  $endMonth;
-        $res=$this->user_fine->create($data);
+            $fine=$this->get($request->fine_id);
+
+            $data['amount'] =  $fine->amount;
+            $endMonth = Carbon::parse($request->date)->addMonth(1)->format('Y-m-d');
+            $data['expire_date'] =  $endMonth;
+            $res=$this->user_fine->create($data);
+            return 1;
+        }return 0;
+
+
 
     }
 

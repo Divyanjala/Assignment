@@ -9,7 +9,7 @@ class UserFine extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'licence_number', 'fine_id', 'police_id','amount',
+        'licence_number', 'fine_id', 'police_id','amount','user_id',
         'date','expire_date','status','licence_status','police_user_id'
     ];
 
@@ -32,5 +32,16 @@ class UserFine extends Model
     public function police()
     {
         return $this->belongsTo(PoliceUser::class, 'police_user_id');
+    }
+
+
+    /**
+     * get user data
+     *
+     * @return void
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

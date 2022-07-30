@@ -5,6 +5,7 @@ namespace domain\User;
 // use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Models\UserFine;
 use App\Events\ReplyEvent;
 /**
  * Created by Vs COde.
@@ -15,11 +16,13 @@ class UserService
 {
     protected $user_details;
     protected $user;
+    protected $user_fine;
 
     public function __construct()
     {
         $this->user = new User();
         $this->user_details = new UserDetail();
+        $this->user_fine = new UserFine();
     }
 
     /**
@@ -46,10 +49,25 @@ class UserService
         return $this->user_details->where('licence_number',$id)->first();
     }
 
+        /**
+     * All allPendingFine
+     */
+    public function allPendingFine()
+    {
+        return $this->user_fine->where('status',0)->get();
+    }
+
     public function checkUserFine()
     {
-        $data=['email'=>'kasun19961201@gmail.com','date'=>1];
-          event(new ReplyEvent($data));
+        $fines=$this->allPendingFine();
+        foreach ($fines as $key => $fine) {
+
+            if ($fine->expire_date==date('Y-m-d')) {
+                event(new ReplyEvent($fine));
+            }
+        }
+
+
     }
 
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('fine_id')->constrained('fines')->onDelete('cascade');
             $table->foreignId('police_user_id')->constrained('police_users');
             $table->foreignId('police_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->double('amount', 2);
             $table->date('date');
             $table->date('expire_date');

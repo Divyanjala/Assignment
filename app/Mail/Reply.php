@@ -28,8 +28,8 @@ class Reply extends Mailable
      */
     public function build()
     {
-        $subject='X Service';
-        return $this->view('pages.mails.reply',['date' => $this->data['date']])
+        $subject='Fine payment expired';
+        return $this->view('pages.mails.reply',['date' => $this->data])
         ->subject($subject);
     }
 }
