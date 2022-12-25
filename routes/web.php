@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
+use App\Http\Controllers\Admin\EmployeeController as AEC;
 
 use App\Http\Controllers\User\HomeController as UHC;
 /*
@@ -19,7 +20,10 @@ Route::get('/', function () {
 });
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
-
+    Route::get('/employee', [AEC::class, "index"])->name('admin.employee');
+    Route::get('/employee/new', [AEC::class, "new"])->name('admin.employee.new');
+    Route::post('/employee/store', [AEC::class, "store"])->name('admin.employee.store');
+    Route::get('/validate/email', [AEC::class, "validateEmail"])->name('admin.validate-email');
 });
 
 Route::prefix('/user')->group(function () {

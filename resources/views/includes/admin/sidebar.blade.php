@@ -13,7 +13,12 @@
      <hr class="sidebar-divider my-0">
 
      <!-- Nav Item - Dashboard -->
-
+     <li class="nav-item {{ in_array($curr_url, ['admin.dashboard']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.dashboard') }}" >
+            <i class="fas fa-fw fa-file"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
      <!-- Divider -->
      <hr class="sidebar-divider">
 
@@ -23,14 +28,12 @@
      </div>
 
      <!-- Nav Item - Pages Collapse Menu -->
-     {{-- <li class="nav-item {{ in_array($curr_url, ['admin.police.all']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.police.all') }}"  >
-             <i class="fas fa-fw fa-house"></i>
-             <span>Police Station</span>
+     <li class="nav-item {{ in_array($curr_url, ['admin.employee']) ? 'active' : '' }}">
+         <a class="nav-link collapsed"  href="{{ route('admin.employee') }}" >
+             <i class="fas fa-fw fa-users"></i>
+             <span>Employee</span>
          </a>
-
-
-     </li> --}}
+     </li>
      <!-- Nav Item - Pages Collapse Menu -->
      {{-- <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.fine.all') }}">
@@ -39,6 +42,15 @@
          </a>
 
      </li> --}}
+     {{-- <div class="sidebar-heading">
+        Settings
+    </div>
+    <li class="nav-item {{ in_array($curr_url, ['admin.employee']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.employee') }}" >
+            <i class="fas fa-fw fa-users"></i>
+            <span>Inventory Item</span>
+        </a>
+    </li> --}}
      <!-- Divider -->
      <hr class="sidebar-divider">
 
