@@ -37,8 +37,6 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'mobile' => ['required', 'numeric', 'unique:user_details'],
-            'licence_number' => ['required', 'string', 'max:100', 'unique:user_details'],
             'address' => ['required', 'string', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -49,22 +47,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user_details = UserDetail::create([
-            'mobile' => $request->mobile,
-            'licence_number' => $request->licence_number,
-            'user_id' => $user->id,
-            'address' => $request->address
-        ]);
 
-        event(new Registered($user));
 
         Auth::login($user);
         if (Auth::user()->user_role == User::TYPES['USER']) {
             return redirect(route('user.dashboard'));
-        }
-
-        if (Auth::user()->user_role == User::TYPES['POLICE']) {
-            return redirect(route('police.dashboard'));
         }
 
         if (Auth::user()->user_role == User::TYPES['ADMIN']) {

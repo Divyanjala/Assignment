@@ -13,11 +13,6 @@
      <hr class="sidebar-divider my-0">
 
      <!-- Nav Item - Dashboard -->
-     <li class="nav-item {{ in_array($curr_url, ['police.dashboard']) ? 'active' : '' }}">
-         <a class="nav-link" href="{{ route('police.dashboard') }}">
-             <i class="fas fa-fw fa-tachometer-alt"></i>
-             <span>Dashboard</span></a>
-     </li>
 
      <!-- Divider -->
      <hr class="sidebar-divider">
@@ -28,22 +23,22 @@
      </div>
 
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item {{ in_array($curr_url, ['admin.police.all']) ? 'active' : '' }}">
+     {{-- <li class="nav-item {{ in_array($curr_url, ['admin.police.all']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.police.all') }}"  >
              <i class="fas fa-fw fa-house"></i>
              <span>Police Station</span>
          </a>
 
 
-     </li>
+     </li> --}}
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
+     {{-- <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.fine.all') }}">
              <i class="fas fa-fw fa-file-lines"></i>
              <span>Fine</span>
          </a>
 
-     </li>
+     </li> --}}
      <!-- Divider -->
      <hr class="sidebar-divider">
 

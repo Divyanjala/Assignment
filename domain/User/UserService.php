@@ -14,15 +14,13 @@ use App\Events\ReplyEvent;
  */
 class UserService
 {
-    protected $user_details;
+
     protected $user;
-    protected $user_fine;
 
     public function __construct()
     {
         $this->user = new User();
-        $this->user_details = new UserDetail();
-        $this->user_fine = new UserFine();
+
     }
 
     /**
@@ -41,33 +39,5 @@ class UserService
     }
 
 
-  /**
-     * get user
-     */
-    public function getUser($id)
-    {
-        return $this->user_details->where('licence_number',$id)->first();
-    }
-
-        /**
-     * All allPendingFine
-     */
-    public function allPendingFine()
-    {
-        return $this->user_fine->where('status',0)->get();
-    }
-
-    public function checkUserFine()
-    {
-        $fines=$this->allPendingFine();
-        foreach ($fines as $key => $fine) {
-
-            if ($fine->expire_date==date('Y-m-d')) {
-                event(new ReplyEvent($fine));
-            }
-        }
-
-
-    }
 
 }

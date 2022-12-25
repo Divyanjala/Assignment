@@ -37,9 +37,6 @@ class AuthenticatedSessionController extends Controller
             return redirect(route('user.dashboard'));
         }
 
-        if (Auth::user()->user_role == User::TYPES['POLICE']) {
-            return redirect(route('police.dashboard'));
-        }
 
         if (Auth::user()->user_role == User::TYPES['ADMIN']) {
             return redirect(route('admin.dashboard'));

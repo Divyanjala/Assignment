@@ -25,9 +25,7 @@ class AdminValidate
             if (Auth::user()->user_role == User::TYPES['USER']) {
                 return redirect(route('user.dashboard'));
             }
-            if (Auth::user()->user_role == User::TYPES['POLICE']) {
-                return redirect(route('police.dashboard'));
-            }
+           
         }
         return $next($request);
     }
