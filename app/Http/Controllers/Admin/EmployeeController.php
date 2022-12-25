@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use domain\Facades\EmployeeFacade;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class EmployeeController extends ParentController
 {
     public function index()
     {

@@ -42,15 +42,15 @@
          </a>
 
      </li> --}}
-     {{-- <div class="sidebar-heading">
+     <div class="sidebar-heading">
         Settings
     </div>
-    <li class="nav-item {{ in_array($curr_url, ['admin.employee']) ? 'active' : '' }}">
-        <a class="nav-link collapsed"  href="{{ route('admin.employee') }}" >
+    <li class="nav-item {{ in_array($curr_url, ['admin.inventory-item']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.inventory-item') }}" >
             <i class="fas fa-fw fa-users"></i>
             <span>Inventory Item</span>
         </a>
-    </li> --}}
+    </li>
      <!-- Divider -->
      <hr class="sidebar-divider">
 
