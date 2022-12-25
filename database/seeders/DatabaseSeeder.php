@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +17,44 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        DB::table('departments')->insert([
+            'name' => 'Sales & Marketing',
+            'code' => '#1SALES'
+        ]);
+        DB::table('departments')->insert( [
+            'name' => 'Purchasing,',
+            'code' => '#2PURCHASING'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'Finance,',
+            'code' => '#3FINANCE'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'IT,',
+            'code' => '#4IT'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'HR,',
+            'code' => '#5HR'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'R&D,',
+            'code' => '#6R&D'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'Engineering Design',
+            'code' => '#7DESIGN'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'Engineering',
+            'code' => '#8ENGINEERING'
+        ]);
+        DB::table('departments')->insert([
+            'name' => 'Factory Management',
+            'code' => '#9MANAGEMENT'
+        ]);
+
+
+
     }
 }
