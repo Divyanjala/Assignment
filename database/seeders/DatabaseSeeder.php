@@ -55,6 +55,27 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        //units
+        DB::table('units')->insert([
+            'name' => 'Unit 1',
+            'code' => '#1UNIT',
+            'department_id'=>7
+        ]);
+        DB::table('units')->insert([
+            'name' => 'Unit 2',
+            'code' => '#2UNIT',
+            'department_id'=>7
+        ]);
+        DB::table('units')->insert([
+            'name' => 'Unit 3',
+            'code' => '#3UNIT',
+            'department_id'=>7
+        ]);
+        DB::table('units')->insert([
+            'name' => 'Unit 4',
+            'code' => '#4UNIT',
+            'department_id'=>8
+        ]);
 
     }
 }
