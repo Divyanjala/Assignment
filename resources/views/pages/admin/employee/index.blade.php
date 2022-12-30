@@ -27,7 +27,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Full name</th>
-                    <th>Email</th>
+                    <th>Unit</th>
                     <th>Level</th>
                     <th>Created At</th>
                     <th>Status</th>
@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{$key+1}}</td>
                         <td>{{$employee->name}}</td>
-                        <td>{{$employee->email}}</td>
+                        <td>{{$employee->unit->name}}</td>
                         <td>
                             @switch($employee->level)
                             @case(1)

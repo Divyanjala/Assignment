@@ -15,7 +15,8 @@ class EmployeeController extends ParentController
     }
     public function new()
     {
-       return view('pages.admin.employee.new');
+        $response['units']=EmployeeFacade::allUnits();
+       return view('pages.admin.employee.new')->with($response);
     }
        /**
      * Store a newly created customer in storage.

@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-9">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="email"><b>Email</b></label>
                                     <input type="text" class="form-control form-control-alternative" name="email"
@@ -44,13 +44,21 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
+                                    <label for="unit_id"><b>Unit</b></label>
+                                    <select class="form-control" id="unit_id" name="unit_id">
+                                      @foreach ($units as $unit)
+                                      <option value="{{$unit->id}}">{{$unit->name}}</option>
+                                      @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
                                     <label for="level"><b>Level</b></label>
                                     <select class="form-control" id="level" name="level">
                                         <option value="1">Level 1</option>
                                         <option value="2">Level 2</option>
                                         <option value="3">Level 3</option>
-                                        <option value="4">Level 4</option>
-                                        <option value="5">Level 5</option>
                                     </select>
                                 </div>
                             </div>

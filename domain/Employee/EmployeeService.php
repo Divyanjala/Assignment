@@ -4,7 +4,9 @@ namespace domain\employee;
 
 // use Illuminate\Support\Facades\Auth;
 
+use App\Models\Department;
 use App\Models\Employee;
+use App\Models\Unit;
 
 /**
  * Created by Vs COde.
@@ -19,7 +21,8 @@ class EmployeeService
     public function __construct()
     {
         $this->employee = new Employee();
-
+        $this->department = new Department();
+        $this->unit =new Unit();
     }
 
     /**
@@ -28,6 +31,13 @@ class EmployeeService
     public function all()
     {
         return $this->employee->where('status',1)->orderBy('id', 'desc')->get();
+    }
+       /**
+     * All employee
+     */
+    public function allUnits()
+    {
+        return $this->unit->orderBy('id', 'desc')->get();
     }
     /**
      * get employee
