@@ -28,7 +28,7 @@
                     <th>ID</th>
                     <th>Full name</th>
                     <th>Unit</th>
-                    <th>Level</th>
+                    <th>Role</th>
                     <th>Created At</th>
                     <th>Status</th>
                     <th>Actions</th>

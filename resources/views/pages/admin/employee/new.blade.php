@@ -54,11 +54,11 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label for="level"><b>Level</b></label>
+                                    <label for="level"><b>Employee Role</b></label>
                                     <select class="form-control" id="level" name="level">
-                                        <option value="1">Level 1</option>
-                                        <option value="2">Level 2</option>
-                                        <option value="3">Level 3</option>
+                                        <option value="1">Role 1</option>
+                                        <option value="2">Role 2</option>
+                                        <option value="3">Role 3</option>
                                     </select>
                                 </div>
                             </div>
