@@ -31,9 +31,15 @@
      <li class="nav-item {{ in_array($curr_url, ['admin.employee']) ? 'active' : '' }}">
          <a class="nav-link collapsed"  href="{{ route('admin.employee') }}" >
              <i class="fas fa-fw fa-users"></i>
-             <span>Employee</span>
+             <span>Employees</span>
          </a>
      </li>
+     <li class="nav-item {{ in_array($curr_url, ['admin.customer']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.customer') }}" >
+            <i class="fas fa-fw fa-users"></i>
+            <span>Customers</span>
+        </a>
+    </li>
      <!-- Nav Item - Pages Collapse Menu -->
      {{-- <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.fine.all') }}">

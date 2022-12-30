@@ -5,12 +5,12 @@
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
             <div class="col-lg-6 col-7">
-                <h6 class="h4 text-dark d-inline-block mb-0">Employee Management</h6>
+                <h6 class="h4 text-dark d-inline-block mb-0">Customer Management</h6>
 
             </div>
             <div class="col-lg-4 text-right">
 
-                <a href="{{ route('admin.employee.new') }}" class=" btn btn-sm btn-primary float-right">
+                <a href="{{ route('admin.customer.new') }}" class=" btn btn-sm btn-primary float-right">
                     <i class="fas fa-plus-circle"></i> Add New
                 </a>
             </div>
@@ -27,37 +27,22 @@
                 <tr>
                     <th>ID</th>
                     <th>Full name</th>
-                    <th>Unit</th>
-                    <th>Role</th>
+                    <th>Code</th>
                     <th>Created At</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($employees as $key=>$employee)
+                @foreach ($customers as $key=>$customer)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$employee->name}}</td>
-                        <td>{{$employee->unit->name}}</td>
-                        <td>
-                            @switch($employee->level)
-                            @case(1)
-                              <span class="badge badge-pill badge-primary">ROLE 1</span>
-                            @break
-                            @case(2)
-                               <span class="badge badge-pill badge-primary">ROLE 2</span>
-                               @break
-                            @case(3)
-                               <span class="badge badge-pill badge-primary">ROLE 3</span>
-                               @break
-                           
-                            @break
-                            @endswitch
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->code}}
                         </td>
-                        <td>{{$employee->created_at}}</td>
+                        <td>{{$customer->created_at}}</td>
                         <td>
-                            @switch($employee->status)
+                            @switch($customer->status)
                             @case(0)
                             <span class="badge badge-pill badge-danger">Deactivated</span>
                             @break
@@ -80,23 +65,6 @@
                                         title="">
                                         <i class="fas fa-edit text-info"></i>&nbsp;Edit
                                     </a>
-                                    {{-- @if (!$customer->email_verified_at)
-                                    <a class="dropdown-item" href="{{route('admin-verify-member',$customer->id)}}"><i
-                                            class="fas fa-user-check text-success"></i>&nbsp;Verify</a>
-                                    @endif
-                                    <a class="dropdown-item" target="_blank"
-                                        href="{{route('customer.simulate',$customer->id)}}"><i
-                                            class="fas fa-user-check text-success"></i>&nbsp;Simulate</a>
-                                    <a class="dropdown-item delete-customer" href="javascript:void(0)"
-                                        class="btn btn-danger" title=""
-                                        onclick="delconf('{{ route('customers.delete', $customer->id) }}')">
-                                    <i class="fas fa-trash text-danger"></i>&nbsp;&nbsp;&nbsp;Delete
-                                    </a>
-                                    @if ($customer->status ==0)
-                                    <a class="dropdown-item delete-customer" href="javascript:void(0)" title=""
-                                        onclick="delconf('{{ route('customers.deactivated',$customer->id) }}','Do You Want To Deactivate This Customer?','Yes,Deactivate','Customer Deactivated Successfully')">
-                                        <i class="fas fa-trash text-danger"></i>&nbsp;Deactivate</a>
-                                    @endif --}}
 
                                 </div>
                             </div>

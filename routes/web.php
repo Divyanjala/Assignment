@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
 use App\Http\Controllers\Admin\EmployeeController as AEC;
+use App\Http\Controllers\Admin\CustomerController as ACC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 
 use App\Http\Controllers\User\HomeController as UHC;
@@ -25,6 +26,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/employee/new', [AEC::class, "new"])->name('admin.employee.new');
     Route::post('/employee/store', [AEC::class, "store"])->name('admin.employee.store');
     Route::get('/validate/email', [AEC::class, "validateEmail"])->name('admin.validate-email');
+
+    Route::get('/customer', [ACC::class, "index"])->name('admin.customer');
+    Route::get('/customer/new', [ACC::class, "new"])->name('admin.customer.new');
+    Route::post('/customer/store', [ACC::class, "store"])->name('admin.customer.store');
 
     Route::get('/inventoryItem', [AIIC::class, "index"])->name('admin.inventory-item');
     Route::get('/inventoryItem/new', [AIIC::class, "new"])->name('admin.inventory-item.new');
