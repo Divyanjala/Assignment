@@ -43,6 +43,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/material-store', [ASC::class, "materialStore"])->name('admin.material-store');
     Route::get('/material-store/new', [ASC::class, "newMaterialStore"])->name('admin.material-store.new');
     Route::post('/material-store/store', [ASC::class, "createMaterialStore"])->name('admin.material-store.store');
+    Route::get('/material-store/approve/{id}', [ASC::class, "approveMaterial"])->name('admin.material-store.approve');
 });
 
 Route::prefix('/user')->group(function () {

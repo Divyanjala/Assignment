@@ -42,7 +42,7 @@
                         <td>{{$store->date}}
                         </td>
                         <td>{{$store->user->name}}</td>
-                        <td>{{$store->approve_by?$store->approve->name:'-'}}</td>
+                        <td>{{$store->approved_by?$store->approve->name:'-'}}</td>
                         <td>
                             @switch($store->status)
                             @case(0)
@@ -62,11 +62,14 @@
                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
                                     aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
                                     style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                    <a class="dropdown-item edit-product"
-                                        href="" class="btn btn-warning"
-                                        title="">
-                                        <i class="fas fa-edit text-info"></i>&nbsp;Edit
-                                    </a>
+                                    @if ( $store->status==0)
+                                    <a class="dropdown-item delete-customer" href="javascript:void(0)"
+                                    class="btn btn-danger" title=""
+                                    onclick="approve('{{ route('admin.material-store.approve', $store->id) }}')">
+                                <i class="fas fa-trash text-danger"></i>&nbsp;&nbsp;&nbsp;Approve
+                                </a>
+                                    @endif
+
 
                                 </div>
                             </div>
@@ -93,9 +96,32 @@
                 "sEmptyTable": "No data available in the table"
             }
         });
-    });
+});
 
 
+
+function approve(url, title = "Do You Want To Approve It") {
+                $.confirm({
+                    title: 'Are you sure,',
+                    content: title,
+                    autoClose: 'cancel|8000',
+                    type: 'green',
+                    theme: 'material',
+                    backgroundDismiss: false,
+                    backgroundDismissAnimation: 'glow',
+                    buttons: {
+                        'Yes, Publish IT': function() {
+                            window.location.href = url;
+                            confirmButton: "Yes";
+                            cancelButton: "Cancel";
+                        },
+                        cancel: function() {
+
+                        },
+
+                    }
+                });
+            }
 
 </script>
 @endsection

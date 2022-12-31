@@ -28,6 +28,7 @@
                         <th>ID</th>
                         <th>Material name</th>
                         <th>Material Code</th>
+                        <th>Available Qty</th>
                         <th>Created At</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -39,7 +40,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->item_name }}</td>
                             <td>{{ $item->item_code }}</td>
-
+                            <td>{{ $item->avg_qty }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>
                                 @switch($item->status)

@@ -2,6 +2,7 @@
 
 namespace domain\Store;
 
+use App\Models\InventoryItem;
 use App\Models\Store;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,7 @@ class StoreService
     public function __construct()
     {
         $this->store = new Store();
+        $this->material = new InventoryItem();
     }
 
     /**
@@ -39,6 +41,15 @@ class StoreService
         return $this->store->find($id);
     }
 
+       /**
+     * get store
+     */
+    public function approve($id)
+    {
+        $item=$this->get($id);
+        $this->material->where('id',$id)->update(['avg_qty'=>$item->qty]);
+        return $this->store->where('id',$id)->update(['status'=>1,'approved_by'=>Auth::user()->id]);
+    }
 
     /**
      * Make store Array

@@ -35,6 +35,12 @@ class StoreController extends ParentController
         StoreFacade::makeMaterialSore($request->all());
         return redirect()->route('admin.material-store')->with('alert-success', 'Material Added Successfully');;
    }
+
+   public function approveMaterial($id)
+   {
+        StoreFacade::approve($id);
+        return redirect()->route('admin.material-store')->with('alert-success', 'Material Request Approved Successfully');;
+   }
    public function createProductStore(Request $request)
    {
         StoreFacade::make($request->all());

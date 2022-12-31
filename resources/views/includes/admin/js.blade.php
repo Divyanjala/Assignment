@@ -1,9 +1,21 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('theme/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('theme/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('theme/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.0.0/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+    <!-- Ckeditor JS -->
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <!--toast -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('theme/js/sb-admin-2.min.js') }}"></script>
@@ -19,7 +31,7 @@
     <script src="{{ asset('theme/js/js/notify/index.js') }}"></script>
     <!-- Datatables JS -->
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-   
+
     <script type='text/javascript'>
         $(document).ready(function() {
 
