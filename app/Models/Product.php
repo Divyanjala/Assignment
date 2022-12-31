@@ -12,4 +12,9 @@ class Product extends Model
         'des','status','name','code',
         'created_by','approved_by'
     ];
+
+    public function approve()
+    {
+        return $this->belongsTo(User::class, 'approved_by');
+    }
 }

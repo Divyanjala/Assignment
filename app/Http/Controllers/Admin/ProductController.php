@@ -26,6 +26,12 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         ProductFacade::make($request->all());
-        return redirect()->route('admin.order')->with('alert-success', 'Product Added Successfully');
+        return redirect()->route('admin.product')->with('alert-success', 'Product Added Successfully');
+    }
+
+    public function approveProduct($id)
+    {
+        ProductFacade::approve($id);
+         return redirect()->route('admin.product')->with('alert-success', 'Product Approved Successfully');;
     }
 }

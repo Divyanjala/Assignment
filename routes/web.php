@@ -50,6 +50,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/product', [APC::class, "index"])->name('admin.product');
     Route::get('/product/new', [APC::class, "new"])->name('admin.product.new');
     Route::post('/product/store', [APC::class, "store"])->name('admin.product.store');
+    Route::get('/product/approve/{id}', [APC::class, "approveProduct"])->name('admin.product.approve');
 
     Route::get('/order', [AOC::class, "index"])->name('admin.order');
     Route::get('/order/new', [AOC::class, "new"])->name('admin.order.new');
