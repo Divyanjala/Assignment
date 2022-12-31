@@ -2,7 +2,7 @@
 @section('header')
  <!-- Page Heading -->
  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Order</h1>
+    <h1 class="h3 mb-0 text-gray-800">Product</h1>
 
 </div>
 @endsection

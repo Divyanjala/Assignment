@@ -5,12 +5,12 @@
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
             <div class="col-lg-6 col-7">
-                <h6 class="h4 text-dark d-inline-block mb-0">Order Management</h6>
+                <h6 class="h4 text-dark d-inline-block mb-0">Product Management</h6>
 
             </div>
             <div class="col-lg-4 text-right">
 
-                <a href="{{ route('admin.order.new') }}" class=" btn btn-sm btn-primary float-right">
+                <a href="{{ route('admin.product.new') }}" class=" btn btn-sm btn-primary float-right">
                     <i class="fas fa-plus-circle"></i> Add New
                 </a>
             </div>
@@ -34,15 +34,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($orders as $key=>$order)
+                @foreach ($products as $key=>$product)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$order->name}}</td>
-                        <td>{{$order->code}}
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->code}}
                         </td>
-                        <td>{{$order->created_at}}</td>
+                        <td>{{$product->created_at}}</td>
                         <td>
-                            @switch($order->status)
+                            @switch($product->status)
                             @case(0)
                             <span class="badge badge-pill badge-danger">Deactivated</span>
                             @break

@@ -40,6 +40,12 @@
             <span>Customers</span>
         </a>
     </li>
+    <li class="nav-item {{ in_array($curr_url, ['admin.product']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.product') }}" >
+            <i class="fas fa-fw fa-truck"></i>
+            <span>Products</span>
+        </a>
+    </li>
     <li class="nav-item {{ in_array($curr_url, ['admin.order']) ? 'active' : '' }}">
         <a class="nav-link collapsed"  href="{{ route('admin.order') }}" >
             <i class="fas fa-fw fa-calendar"></i>
