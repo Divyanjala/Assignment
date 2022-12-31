@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\HomeController as AHC;
 use App\Http\Controllers\Admin\EmployeeController as AEC;
 use App\Http\Controllers\Admin\CustomerController as ACC;
 use App\Http\Controllers\Admin\StoreController as ASC;
+use App\Http\Controllers\Admin\OrderController as AOC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 
 use App\Http\Controllers\User\HomeController as UHC;
@@ -44,6 +45,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/material-store/new', [ASC::class, "newMaterialStore"])->name('admin.material-store.new');
     Route::post('/material-store/store', [ASC::class, "createMaterialStore"])->name('admin.material-store.store');
     Route::get('/material-store/approve/{id}', [ASC::class, "approveMaterial"])->name('admin.material-store.approve');
+
+    Route::get('/order', [AOC::class, "index"])->name('admin.order');
+    Route::get('/order/new', [AOC::class, "new"])->name('admin.order.new');
+    Route::post('/order/store', [AOC::class, "store"])->name('admin.order.store');
 });
 
 Route::prefix('/user')->group(function () {

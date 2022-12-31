@@ -5,12 +5,12 @@
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
             <div class="col-lg-6 col-7">
-                <h6 class="h4 text-dark d-inline-block mb-0">Material Store Management</h6>
+                <h6 class="h4 text-dark d-inline-block mb-0">Customer Management</h6>
 
             </div>
             <div class="col-lg-4 text-right">
 
-                <a href="{{ route('admin.material-store.new') }}" class=" btn btn-sm btn-primary float-right">
+                <a href="{{ route('admin.order.new') }}" class=" btn btn-sm btn-primary float-right">
                     <i class="fas fa-plus-circle"></i> Add New
                 </a>
             </div>
@@ -26,32 +26,28 @@
             <thead class="thead-light">
                 <tr>
                     <th>ID</th>
-                    <th>Material</th>
-                    <th>Date</th>
-                    <th>Qty</th>
-                    <th>Created by</th>
-                    <th>Approved by</th>
+                    <th>Full name</th>
+                    <th>Code</th>
+                    <th>Created At</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($stores as $key=>$store)
+                @foreach ($orders as $key=>$order)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$store->item->item_name}}</td>
-                        <td>{{$store->date}}
+                        <td>{{$order->name}}</td>
+                        <td>{{$order->code}}
                         </td>
-                        <td>{{$store->qty}}</td>
-                        <td>{{$store->user->name}}</td>
-                        <td>{{$store->approved_by?$store->approve->name:'-'}}</td>
+                        <td>{{$order->created_at}}</td>
                         <td>
-                            @switch($store->status)
+                            @switch($order->status)
                             @case(0)
-                            <span class="badge badge-pill badge-danger">Pending</span>
+                            <span class="badge badge-pill badge-danger">Deactivated</span>
                             @break
                             @case(1)
-                            <span class="badge badge-pill badge-primary">Approved</span>
+                            <span class="badge badge-pill badge-primary">Active</span>
                             @break
                             @endswitch
                         </td>
@@ -64,14 +60,11 @@
                                 <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
                                     aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
                                     style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                    @if ( $store->status==0)
-                                    <a class="dropdown-item delete-customer" href="javascript:void(0)"
-                                    class="btn btn-danger" title=""
-                                    onclick="approve('{{ route('admin.material-store.approve', $store->id) }}')">
-                                <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Approve
-                                </a>
-                                    @endif
-
+                                    <a class="dropdown-item edit-product"
+                                        href="" class="btn btn-warning"
+                                        title="">
+                                        <i class="fas fa-edit text-info"></i>&nbsp;Edit
+                                    </a>
 
                                 </div>
                             </div>
@@ -98,32 +91,9 @@
                 "sEmptyTable": "No data available in the table"
             }
         });
-});
+    });
 
 
-
-function approve(url, title = "Do You Want To Approve It") {
-                $.confirm({
-                    title: 'Are you sure,',
-                    content: title,
-                    autoClose: 'cancel|8000',
-                    type: 'green',
-                    theme: 'material',
-                    backgroundDismiss: false,
-                    backgroundDismissAnimation: 'glow',
-                    buttons: {
-                        'Yes, Publish IT': function() {
-                            window.location.href = url;
-                            confirmButton: "Yes";
-                            cancelButton: "Cancel";
-                        },
-                        cancel: function() {
-
-                        },
-
-                    }
-                });
-            }
 
 </script>
 @endsection
