@@ -30,7 +30,7 @@
      <!-- Nav Item - Pages Collapse Menu -->
      <li class="nav-item {{ in_array($curr_url, ['admin.employee']) ? 'active' : '' }}">
          <a class="nav-link collapsed"  href="{{ route('admin.employee') }}" >
-             <i class="fas fa-fw fa-users"></i>
+             <i class="fas fa-fw fa-user-plus"></i>
              <span>Employees</span>
          </a>
      </li>
@@ -38,6 +38,22 @@
         <a class="nav-link collapsed"  href="{{ route('admin.customer') }}" >
             <i class="fas fa-fw fa-users"></i>
             <span>Customers</span>
+        </a>
+    </li>
+     <!-- Heading -->
+     <div class="sidebar-heading">
+        Store
+    </div>
+    <li class="nav-item {{ in_array($curr_url, ['admin.product-store']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.product-store') }}" >
+            <i class="fas fa-fw fa-shopping-bag"></i>
+            <span>Products Store</span>
+        </a>
+    </li>
+    <li class="nav-item {{ in_array($curr_url, ['admin.material-store']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.material-store') }}" >
+            <i class="fas fa-fw fa-product-hunt"></i>
+            <span>Material Store</span>
         </a>
     </li>
      <!-- Nav Item - Pages Collapse Menu -->
@@ -54,7 +70,7 @@
     <li class="nav-item {{ in_array($curr_url, ['admin.inventory-item']) ? 'active' : '' }}">
         <a class="nav-link collapsed"  href="{{ route('admin.inventory-item') }}" >
             <i class="fas fa-fw fa-users"></i>
-            <span>Inventory Item</span>
+            <span>Material</span>
         </a>
     </li>
      <!-- Divider -->

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
 use App\Http\Controllers\Admin\EmployeeController as AEC;
 use App\Http\Controllers\Admin\CustomerController as ACC;
+use App\Http\Controllers\Admin\StoreController as ASC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 
 use App\Http\Controllers\User\HomeController as UHC;
@@ -34,6 +35,14 @@ Route::prefix('/admin')->group(function () {
     Route::get('/inventoryItem', [AIIC::class, "index"])->name('admin.inventory-item');
     Route::get('/inventoryItem/new', [AIIC::class, "new"])->name('admin.inventory-item.new');
     Route::post('/inventoryItem/store', [AIIC::class, "store"])->name('admin.inventory-item.store');
+
+    Route::get('/product-store', [ASC::class, "productStore"])->name('admin.product-store');
+    Route::get('/product-store/new', [ASC::class, "newProductStore"])->name('admin.product-store.new');
+    Route::post('/product-store/store', [ASC::class, "createProductStore"])->name('admin.product-store.store');
+
+    Route::get('/material-store', [ASC::class, "materialStore"])->name('admin.material-store');
+    Route::get('/material-store/new', [ASC::class, "newMaterialStore"])->name('admin.material-store.new');
+    Route::post('/material-store/store', [ASC::class, "createMaterialStore"])->name('admin.material-store.store');
 });
 
 Route::prefix('/user')->group(function () {

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use domain\Facades\CustomerFacade;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class CustomerController extends ParentController
 {
     public function index()
     {
@@ -26,7 +26,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         CustomerFacade::make($request->all());
-        return redirect()->route('admin.customer')->with('alert-success', 'Customer Added Successfully');;
+        return redirect()->route('admin.customer')->with('alert-success', 'Customer Added Successfully');
     }
 
 

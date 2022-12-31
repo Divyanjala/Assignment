@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <div class="col-lg-6 col-7">
-                    <h6 class="h4 text-dark d-inline-block mb-0">Inventory Item</h6>
+                    <h6 class="h4 text-dark d-inline-block mb-0">Material</h6>
 
                 </div>
                 <div class="col-lg-4 text-right">
@@ -26,8 +26,8 @@
                 <thead class="thead-light">
                     <tr>
                         <th>ID</th>
-                        <th>Item name</th>
-                        <th>Item Code</th>
+                        <th>Material name</th>
+                        <th>Material Code</th>
                         <th>Created At</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -65,7 +65,7 @@
                                             title="">
                                             <i class="fas fa-edit text-info"></i>&nbsp;Edit
                                         </a>
-                                   
+
                                     </div>
                                 </div>
                             </td>
