@@ -30,7 +30,13 @@ class ProductService
     {
         return $this->product->orderBy('id', 'desc')->get();
     }
-
+   /**
+     * All approveProduct
+     */
+    public function approveProduct()
+    {
+        return $this->product->where('status',1)->orderBy('id', 'desc')->get();
+    }
     /**
      * get order
      */

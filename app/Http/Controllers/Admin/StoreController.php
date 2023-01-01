@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use domain\Facades\InventoryItemFacade;
+use domain\Facades\ProductFacade;
 use domain\Facades\StoreFacade;
 use Illuminate\Http\Request;
 
@@ -10,18 +11,19 @@ class StoreController extends ParentController
 {
    public function productStore()
    {
-        $response['stores']=StoreFacade::all();
+        $response['stores']=StoreFacade::allProductStore();
         return view('pages.admin.store.productStore.index')->with($response);
    }
 
    public function newProductStore()
    {
-        return view('pages.admin.store.productStore.new');
+        $response['products']=ProductFacade::approveProduct();
+        return view('pages.admin.store.productStore.new')->with($response);
    }
 
    public function materialStore()
    {
-        $response['stores']=StoreFacade::all();
+        $response['stores']=StoreFacade::allMaterialSore();
         return view('pages.admin.store.materialStore.index')->with($response);
    }
 

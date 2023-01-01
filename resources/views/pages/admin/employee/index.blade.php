@@ -29,6 +29,7 @@
                     <th>Full name</th>
                     <th>Unit</th>
                     <th>Role</th>
+                    <th>Month Salary</th>
                     <th>Created At</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -51,10 +52,11 @@
                             @case(3)
                                <span class="badge badge-pill badge-primary">ROLE 3</span>
                                @break
-                           
+
                             @break
                             @endswitch
                         </td>
+                         <td>$ {{$employee->salary}}</td>
                         <td>{{$employee->created_at}}</td>
                         <td>
                             @switch($employee->status)
@@ -66,6 +68,7 @@
                             @break
                             @endswitch
                         </td>
+
                         <td>
                             <div class="dropdown no-arrow mb-1">
                                 <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button" data-toggle="dropdown"

@@ -15,7 +15,7 @@ class Store extends Model
     protected $fillable = [
         'item_id','created_by','qty',
         'des','status','approved_by',
-        'type','in_out_status','date'
+        'type','in_out_status','date','product_id'
     ];
 
     public function item()
@@ -31,5 +31,10 @@ class Store extends Model
     public function approve()
     {
         return $this->belongsTo(User::class, 'approved_by');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }

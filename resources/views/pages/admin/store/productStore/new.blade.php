@@ -16,29 +16,40 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="first_name"><b>Full Name</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="name"
-                                        id="inp_firstname" aria-describedby="helpId" placeholder="" required>
+                                    <label for="product_id"><b>Product</b></label>
+                                    <select class="form-control" id="product_id" name="product_id">
+                                        @foreach ($products as $product)
+                                        <option value="{{$product->id}}">{{$product->name}} - {{$product->code}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label for="email"><b>Telephone</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="tel"
-                                        id="tel"  aria-describedby="helpId"
+                                    <label for="email"><b>Start date</b></label>
+                                    <input type="date" class="form-control form-control-alternative" name="date"
+                                        id="date"  aria-describedby="helpId"
+                                        placeholder="" required>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="qty"><b>Qty</b></label>
+                                    <input type="number" class="form-control form-control-alternative" name="qty"
+                                        id="qty"  aria-describedby="helpId"
                                         placeholder="" required>
                                 </div>
                             </div>
                         </div>
 
-
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="email"><b>Address</b></label>
-                                    <textarea name="address"  class="form-control form-control-alternative"
+                                    <label for="email"><b>Description</b></label>
+                                    <textarea name="des"  class="form-control form-control-alternative"
                                     cols="30" rows="3" required></textarea>
 
                                 </div>
@@ -50,7 +61,7 @@
                                 <div class="form-group">
                                     <h6 class="text-center responsive-moblile">
                                         <button id="submit-btn" type="submit" class="btn btn-primary di">
-                                            Save Customer
+                                            Save
                                         </button>
                                     </h6>
                                 </div>

@@ -10,6 +10,6 @@ class InventoryItem extends Model
     use HasFactory;
     protected $fillable = [
         'item_name','item_code',
-        'status','avg_qty'
+        'status','avg_qty','price'
     ];
 }

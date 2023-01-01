@@ -74,14 +74,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="form-group">
+                                    <label for="first_name"><b>Salary</b></label>
+                                    <input type="number" class="form-control form-control-alternative" name="salary"
+                                        id="inp_firstname" aria-describedby="helpId" placeholder="" required>
+                                </div>
+                            </div>
 
+                        </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <h6 class="text-center responsive-moblile">
                                         <button id="submit-btn" type="submit" class="btn btn-primary di"
                                             onmouseover="validateEmail()">
-                                            Save Customer
+                                            Save Employee
                                         </button>
                                     </h6>
                                 </div>

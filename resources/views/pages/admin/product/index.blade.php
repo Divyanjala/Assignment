@@ -27,6 +27,7 @@
                         <th>ID</th>
                         <th>Product name</th>
                         <th>Code</th>
+                        <th>Price</th>
                         <th>Created At</th>
                         <th>Approved By</th>
                         <th>Status</th>
@@ -40,6 +41,7 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->code }}
                             </td>
+                            <td><b>$ </b>{{ $product->price }}</td>
                             <td>{{ $product->created_at }}</td>
                             <td>{{$product->approved_by?$product->approve->name:'-'}}</td>
                             <td>

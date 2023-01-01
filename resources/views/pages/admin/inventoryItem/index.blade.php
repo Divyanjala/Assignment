@@ -28,6 +28,7 @@
                         <th>ID</th>
                         <th>Material name</th>
                         <th>Material Code</th>
+                        <th>Price</th>
                         <th>Available Qty</th>
                         <th>Created At</th>
                         <th>Status</th>
@@ -40,6 +41,7 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->item_name }}</td>
                             <td>{{ $item->item_code }}</td>
+                            <td>$ {{ $item->price }}</td>
                             <td>{{ $item->avg_qty }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>
@@ -96,6 +98,11 @@
                             <label for="first_name"><b>Item Name</b></label>
                             <input type="text" class="form-control form-control-alternative" name="item_name"
                                 id="inp_firstname" aria-describedby="helpId" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name"><b>Item Price</b></label>
+                            <input type="number" class="form-control form-control-alternative" name="price"
+                                id="price" aria-describedby="helpId" placeholder="" required>
                         </div>
                     </div>
                     <div class="modal-footer">

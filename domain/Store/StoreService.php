@@ -28,9 +28,17 @@ class StoreService
     /**
      * All store
      */
-    public function all()
+    public function allMaterialSore()
     {
-        return $this->store->orderBy('id', 'desc')->get();
+        return $this->store->where('type',Store::TYPES['MATERIAL'])->orderBy('id', 'desc')->get();
+    }
+
+     /**
+     * All store
+     */
+    public function allProductStore()
+    {
+        return $this->store->where('type',Store::TYPES['PRODUCT'])->orderBy('id', 'desc')->get();
     }
 
     /**
@@ -58,6 +66,10 @@ class StoreService
      */
     public function make($data)
     {
+        $data['created_by']=Auth::user()->id;
+        $data['type']=Store::TYPES['PRODUCT'];
+        $data['in_out_status']=Store::INOUTSTATUS['IN'];
+        $data['status']=Store::STATUS['PENDING'];
         $store= $this->store->create($data);
         return $store;
     }
