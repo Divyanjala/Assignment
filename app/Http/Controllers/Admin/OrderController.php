@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use domain\Facades\CustomerFacade;
 use domain\Facades\OrderFacade;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class OrderController extends Controller
     }
     public function new()
     {
-       return view('pages.admin.order.new');
+        $response['customers']=CustomerFacade::all();
+       return view('pages.admin.order.new')->with($response);
     }
        /**
      * Store a newly created order in storage.

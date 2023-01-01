@@ -26,7 +26,7 @@ class OrderService
      */
     public function all()
     {
-        return $this->order->where('status',1)->orderBy('id', 'desc')->get();
+        return $this->order->orderBy('id', 'desc')->get();
     }
 
     /**

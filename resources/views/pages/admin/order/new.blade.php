@@ -18,16 +18,19 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="form-group">
-                                    <label for="first_name"><b>Full Name</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="name"
-                                        id="inp_firstname" aria-describedby="helpId" placeholder="" required>
+                                    <label for="customer_id"><b>Customer</b></label>
+                                    <select class="form-control" id="item_id" name="item_id">
+                                        @foreach ($customers as $customer)
+                                        <option value="{{$customer->id}}">{{$customer->name}} - {{$customer->code}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
-                                    <label for="email"><b>Telephone</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="tel"
-                                        id="tel"  aria-describedby="helpId"
+                                    <label for="email"><b>Date</b></label>
+                                    <input type="date" class="form-control form-control-alternative" name="date"
+                                        id="date"  aria-describedby="helpId"
                                         placeholder="" required>
                                 </div>
                             </div>
@@ -37,8 +40,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="email"><b>Address</b></label>
-                                    <textarea name="address"  class="form-control form-control-alternative"
+                                    <label for="des"><b>Description</b></label>
+                                    <textarea name="des"  class="form-control form-control-alternative"
                                     cols="30" rows="3" required></textarea>
 
                                 </div>

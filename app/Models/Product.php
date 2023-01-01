@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
     protected $fillable = [
         'des','status','name','code',
-        'created_by','approved_by'
+        'created_by','approved_by','price'
     ];
 
     public function approve()
