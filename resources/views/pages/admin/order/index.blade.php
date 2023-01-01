@@ -26,8 +26,9 @@
             <thead class="thead-light">
                 <tr>
                     <th>ID</th>
-                    <th>Full name</th>
-                    <th>Code</th>
+                    <th>Customer name</th>
+                    <th>Amount</th>
+                    <th>Approved BY</th>
                     <th>Created At</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -37,9 +38,9 @@
                 @foreach ($orders as $key=>$order)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$order->name}}</td>
-                        <td>{{$order->code}}
-                        </td>
+                        <td>{{$order->customer->name}}</td>
+                        <td><b>$ </b>{{$order->amount}}</td>
+                        <td>{{$order->approve?$order->approve->name:'-'}}</td>
                         <td>{{$order->created_at}}</td>
                         <td>
                             @switch($order->status)

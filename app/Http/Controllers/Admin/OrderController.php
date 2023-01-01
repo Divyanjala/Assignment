@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use domain\Facades\CustomerFacade;
 use domain\Facades\OrderFacade;
+use domain\Facades\ProductFacade;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -16,6 +17,7 @@ class OrderController extends Controller
     }
     public function new()
     {
+        $response['products']=ProductFacade::approveProducts();
         $response['customers']=CustomerFacade::all();
        return view('pages.admin.order.new')->with($response);
     }

@@ -17,6 +17,11 @@ class ProductController extends Controller
     {
        return view('pages.admin.product.new');
     }
+    public function getProduct(Request $request)
+    {
+       $product= ProductFacade::get($request->all()['id']);
+       return ['name'=>$product['name'],'price'=>$product['price']];
+    }
        /**
      * Store a newly created order in storage.
      *

@@ -48,6 +48,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/material-store/approve/{id}', [ASC::class, "approveMaterial"])->name('admin.material-store.approve');
 
     Route::get('/product', [APC::class, "index"])->name('admin.product');
+    Route::get('/product/get', [APC::class, "getProduct"])->name('admin.product.get');
     Route::get('/product/new', [APC::class, "new"])->name('admin.product.new');
     Route::post('/product/store', [APC::class, "store"])->name('admin.product.store');
     Route::get('/product/approve/{id}', [APC::class, "approveProduct"])->name('admin.product.approve');
