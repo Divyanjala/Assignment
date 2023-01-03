@@ -14,7 +14,7 @@ class Store extends Model
 
     protected $fillable = [
         'item_id','created_by','qty',
-        'des','status','approved_by',
+        'des','status','approved_by','order_id',
         'type','in_out_status','date','product_id'
     ];
 

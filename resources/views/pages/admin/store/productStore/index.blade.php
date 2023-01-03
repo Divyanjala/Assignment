@@ -10,9 +10,9 @@
             </div>
             <div class="col-lg-4 text-right">
 
-                <a href="{{ route('admin.product-store.new') }}" class=" btn btn-sm btn-primary float-right">
+                {{-- <a href="{{ route('admin.product-store.new') }}" class=" btn btn-sm btn-primary float-right">
                     <i class="fas fa-plus-circle"></i> Add New
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
@@ -71,7 +71,12 @@
                                 <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Approve
                                 </a>
                                     @endif
-
+                                    <hr>
+                                    <a class="dropdown-item delete-customer"
+                                    class="btn btn-danger" title=""
+                                    href="{{ route('admin.order.view', $store->order_id) }}">
+                                <i class="fas fa-eye text-primary"></i>&nbsp;&nbsp;&nbsp;View Order
+                                </a>
 
                                 </div>
                             </div>

@@ -18,6 +18,7 @@ class StoreService
 {
 
     protected $store;
+    protected $material;
 
     public function __construct()
     {

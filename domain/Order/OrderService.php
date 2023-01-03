@@ -67,5 +67,13 @@ class OrderService
         $order= $this->order->where('id',$order->id)->update(['amount'=>$amount]);
         return $order;
     }
+    public function updateOrderItem($id)
+    {
+        $order= $this->order_item->where('id',$id)->update(['store_status'=>1]);
+        return $order;
+    }
+
+
+
 
 }

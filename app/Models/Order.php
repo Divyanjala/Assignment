@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
     const STATUS = ['PENDING' => 0,  'APPROVED' => 1];
     protected $fillable = [
-        'des','status','customer_id','amount',
+        'des','status','customer_id','amount','id',
         'issue_date','created_by','approved_by'
     ];
 
@@ -27,5 +27,9 @@ class Order extends Model
     public function customer()
     {
         return $this->belongsTo(User::class, 'customer_id');
+    }
+
+    public function items(){
+        return $this->hasMany(OrderItems::class,'order_id');
     }
 }

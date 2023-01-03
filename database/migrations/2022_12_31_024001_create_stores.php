@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('approved_by')->nullable();
             $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
             $table->integer('qty');
-            $table->string('des');
+            $table->string('des')->nullable();
             $table->string('type');
             $table->string('in_out_status');
             $table->string('date');

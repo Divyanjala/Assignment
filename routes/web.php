@@ -55,7 +55,9 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/order', [AOC::class, "index"])->name('admin.order');
     Route::get('/order/new', [AOC::class, "new"])->name('admin.order.new');
+    Route::get('/order/view/{id}', [AOC::class, "view"])->name('admin.order.view');
     Route::post('/order/store', [AOC::class, "store"])->name('admin.order.store');
+    Route::get('/order/add/store/{id}', [AOC::class, "addStore"])->name('admin.order.add-store');
 });
 
 Route::prefix('/user')->group(function () {
