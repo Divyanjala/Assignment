@@ -4,9 +4,8 @@ namespace domain\User;
 
 // use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\UserDetail;
-use App\Models\UserFine;
-use App\Events\ReplyEvent;
+use Illuminate\Support\Facades\Hash;
+
 /**
  * Created by Vs COde.
  * Date: 05/07/2022
@@ -28,7 +27,7 @@ class UserService
      */
     public function all()
     {
-        return $this->user->where('user_role',0)->orderBy('id', 'desc')->get();
+        return $this->user->orderBy('id', 'desc')->get();
     }
     /**
      * get user
@@ -38,6 +37,36 @@ class UserService
         return $this->user->find($id);
     }
 
+    public function make($data)
+    {
 
+        $user = $this->user->create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'user_role' => $data['user_role']
+        ]);
 
+        return  $user;
+    }
+
+               /**
+     * Validate Email user
+     *
+     * @param Edit $edit
+     * @param Email $email
+     * @return mixed
+     */
+    public function validateEmail($request)
+    {
+        if ($request->get('email')) {
+            $email = $request->get('email');
+            $data = $this->user->where('email', $email)->count();
+            if ($data > 0) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
 }

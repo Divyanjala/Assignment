@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     const TYPES = ['USER' => 0,  'ADMIN' => 1, 'SUPERVISOR' => 2];
+    const STATUS = ['ACTIVE' => 0,  'DEACTIVATED' => 1];
     /**
      * The attributes that are mass assignable.
      *

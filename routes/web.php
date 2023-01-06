@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\OrderController as AOC;
 use App\Http\Controllers\Admin\ProductController as APC;
 use App\Http\Controllers\Admin\TaskController as ATC;
 use App\Http\Controllers\Admin\PaymentController as APYC;
+use App\Http\Controllers\Admin\UserController as AUC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 
 use App\Http\Controllers\User\HomeController as UHC;
@@ -72,6 +73,11 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/payment/new/{id}', [APYC::class, "new"])->name('admin.payment.new');
     Route::post('/payment/store', [APYC::class, "store"])->name('admin.payment.store');
+
+    Route::get('/user', [AUC::class, "index"])->name('admin.user');
+    Route::get('/user/new', [AUC::class, "new"])->name('admin.user.new');
+    Route::post('/user/store', [AUC::class, "store"])->name('admin.user.store');
+    Route::get('/user/email', [AUC::class, "validateEmail"])->name('admin.validate-user');
 });
 
 Route::prefix('/user')->group(function () {

@@ -34,6 +34,12 @@
              <span>Employees</span>
          </a>
      </li>
+     <li class="nav-item {{ in_array($curr_url, ['admin.user']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.user') }}" >
+            <i class="fas fa-fw fa-user-plus"></i>
+            <span>Users</span>
+        </a>
+    </li>
      <li class="nav-item {{ in_array($curr_url, ['admin.customer']) ? 'active' : '' }}">
         <a class="nav-link collapsed"  href="{{ route('admin.customer') }}" >
             <i class="fas fa-fw fa-users"></i>
