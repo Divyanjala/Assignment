@@ -12,7 +12,9 @@ class TaskController extends Controller
 {
     public function index()
     {
-        # code...
+        
+        $response['tasks']=TaskFacade::all();
+        return view('pages.admin.task.index')->with($response);
     }
 
     public function new($id)

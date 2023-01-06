@@ -52,6 +52,12 @@
             <span>Orders</span>
         </a>
     </li>
+    <li class="nav-item {{ in_array($curr_url, ['admin.task']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.task') }}" >
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Task</span>
+        </a>
+    </li>
      <!-- Heading -->
      <div class="sidebar-heading">
         Store
