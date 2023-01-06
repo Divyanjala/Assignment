@@ -81,7 +81,7 @@
                                         @if ($store->status == 1)
                                             <a class="dropdown-item delete-customer"
                                                 class="btn btn-danger" title=""
-                                                href="{{ route('admin.task.new', $store->order_id) }}">
+                                                href="{{ route('admin.task.new', $store->id) }}">
                                                 <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Manage Task
                                             </a>
                                         @endif

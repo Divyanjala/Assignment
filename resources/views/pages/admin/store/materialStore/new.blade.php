@@ -59,7 +59,7 @@
                                 <div class="form-group">
                                     <h6 class="text-center responsive-moblile">
                                         <button id="submit-btn" type="submit" class="btn btn-primary di">
-                                            Save Customer
+                                            Save 
                                         </button>
                                     </h6>
                                 </div>

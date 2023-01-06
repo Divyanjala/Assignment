@@ -66,6 +66,7 @@ class TaskService
      */
     public function make($data)
     {
+
         $count=count($data['item_id']);
         $data['created_by']=Auth::user()->id;
         $data['status']=Task::STATUS['PENDING'];
@@ -79,6 +80,11 @@ class TaskService
             'item_id'=>$data['item_id'][$i],
             'task_id'=>$task->id
            ];
+           $mat=$this->material->find($data['item_id'][$i]);
+           if ($mat) {
+              $newQty= $mat->avg_qty-$data['qty'][$i];
+              $this->material->where('id',$mat->id)->update(['avg_qty'=>$newQty]);
+           }
            $this->task_material->create($obj);
         }
 
