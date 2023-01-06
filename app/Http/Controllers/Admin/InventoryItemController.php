@@ -13,7 +13,11 @@ class InventoryItemController extends ParentController
        return view('pages.admin.inventoryItem.index')->with($response);
     }
 
-
+    public function getItem(Request $request)
+    {
+       $product= InventoryItemFacade::get($request->all()['id']);
+       return ['name'=>$product['item_name'],'price'=>$product['price']];
+    }
 
        /**
      * Store a newly created customer in storage.
@@ -24,7 +28,7 @@ class InventoryItemController extends ParentController
     public function store(Request $request)
     {
         InventoryItemFacade::make($request->all());
-        return redirect()->route('admin.inventory-item')->with('alert-success', 'Item Added Successfully');;
+        return redirect()->route('admin.inventory-item')->with('alert-success', 'Item Added Successfully');
     }
 
 

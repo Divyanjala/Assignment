@@ -44,11 +44,11 @@
                             <td>
                                 @switch($order->status)
                                     @case(0)
-                                        <span class="badge badge-pill badge-danger">Deactivated</span>
+                                        <span class="badge badge-pill badge-danger">Pending</span>
                                     @break
 
                                     @case(1)
-                                        <span class="badge badge-pill badge-primary">Active</span>
+                                        <span class="badge badge-pill badge-primary">Approved</span>
                                     @break
                                 @endswitch
                             </td>
@@ -72,7 +72,15 @@
                                             <i class="fas fa-eye text-info"></i>&nbsp;View
                                         </a>
                                         <hr>
-                                        <a class="dropdown-item edit-product"
+                                        @if ($order->status == 0)
+                                        <a class="dropdown-item approve-order" href="javascript:void(0)"
+                                            class="btn btn-danger" title=""
+                                            onclick="approve('{{ route('admin.order.approve', $order->id) }}')">
+                                            <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Approve
+                                        </a>
+                                        <hr>
+                                        @endif
+                                        <a class="dropdown-item edit-order"
                                             href="{{ route('admin.order.add-store', ['id' => $order->id]) }}"
                                             class="btn btn-warning" title="">
                                             <i class="fas fa-file text-info"></i>&nbsp;Add Store
@@ -102,5 +110,29 @@
                 }
             });
         });
+
+
+        function approve(url, title = "Do You Want To Approve It") {
+            $.confirm({
+                title: 'Are you sure,',
+                content: title,
+                autoClose: 'cancel|8000',
+                type: 'green',
+                theme: 'material',
+                backgroundDismiss: false,
+                backgroundDismissAnimation: 'glow',
+                buttons: {
+                    'Yes, Publish IT': function() {
+                        window.location.href = url;
+                        confirmButton: "Yes";
+                        cancelButton: "Cancel";
+                    },
+                    cancel: function() {
+
+                    },
+
+                }
+            });
+        }
     </script>
 @endsection

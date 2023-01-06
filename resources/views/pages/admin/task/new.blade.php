@@ -2,7 +2,7 @@
 @section('header')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">NEW ORDER</h1>
+        <h1 class="h3 mb-0 text-gray-800">TASK</h1>
 
     </div>
 @endsection
@@ -18,20 +18,16 @@
                             <div class="row">
                                 <div class="col-lg-7">
                                     <div class="form-group">
-                                        <label for="customer_id"><b>Customer</b></label>
-                                        <select class="form-control" id="customer_id" name="customer_id">
-                                            @foreach ($customers as $customer)
-                                                <option value="{{ $customer->id }}">{{ $customer->name }} -
-                                                    {{ $customer->code }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="task_name"><b>Task name</b></label>
+                                        <input type="text" class="form-control form-control-alternative" name="task_name"
+                                            id="task_name" aria-describedby="helpId" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group">
-                                        <label for="email"><b>Date</b></label>
-                                        <input type="date" class="form-control form-control-alternative" name="issue_date"
-                                            id="issue_date" aria-describedby="helpId" placeholder="" required>
+                                        <label for="ast_time"><b>Astimate Time (hours)</b></label>
+                                        <input type="number" class="form-control form-control-alternative" name="ast_time"
+                                            id="ast_time" aria-describedby="helpId" placeholder="" required>
                                     </div>
                                 </div>
                             </div>
@@ -54,10 +50,10 @@
                                         <h6 class="text-center responsive-moblile">
                                             <button id="product-btn" type="button" class="btn btn-secondary di"
                                                 data-toggle="modal" data-target="#exampleModal">
-                                                + Add Product
+                                                + Add Material
                                             </button>
                                             <button id="submit-btn" type="submit" class="btn btn-primary di" disabled>
-                                                Save Order
+                                                Save
                                             </button>
                                         </h6>
                                     </div>
@@ -77,7 +73,7 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
-                                                    <th scope="col">Product name </th>
+                                                    <th scope="col">Material name </th>
                                                     <th scope="col">Qty</th>
                                                 </tr>
                                             </thead>
@@ -97,7 +93,64 @@
             </div>
         </form>
     </div>
+    <br>
+    <div class="card border-0 shadow">
+        <div class="table-responsive py-4">
+            <table id="employees" class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Task name</th>
+                        <th>Amount</th>
+                        <th>Approved BY</th>
+                        <th>Created At</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($tasks as $key => $task)
+                        {{-- <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $order->customer->name }}</td>
+                            <td><b>$ </b>{{ $order->amount }}</td>
+                            <td>{{ $order->approve ? $order->approve->name : '-' }}</td>
+                            <td>{{ $order->created_at }}</td>
+                            <td>
+                                @switch($order->status)
+                                    @case(0)
+                                        <span class="badge badge-pill badge-danger">Pending</span>
+                                    @break
 
+                                    @case(1)
+                                        <span class="badge badge-pill badge-primary">Approved</span>
+                                    @break
+                                @endswitch
+                            </td>
+                            <td>
+                                <div class="dropdown no-arrow mb-1">
+                                    <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-cog"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
+                                        style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                        <a class="dropdown-item edit-product" href="" class="btn btn-warning"
+                                            title="">
+                                            <i class="fas fa-edit text-info"></i>&nbsp;Edit
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr> --}}
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -113,16 +166,16 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="first_name"><b>Product</b></label>
-                        <select class="form-control" id="product_id" name="product_id">
-                            @foreach ($products as $product)
-                                <option value="{{ $product->id }}">{{ $product->name }} - {{ $product->code }}</option>
+                        <label for="first_name"><b>Material</b></label>
+                        <select class="form-control" id="item_id" name="item_id">
+                            @foreach ($materials as $material)
+                                <option value="{{ $material->id }}">{{ $material->item_name }} - {{ $material->item_code }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="first_name"><b>Qty</b></label>
-                        <input type="number" class="form-control form-control-alternative" name="qty" id="product_qty"
+                        <input type="number" class="form-control form-control-alternative" name="qty" id="item_qty"
                             aria-describedby="helpId" placeholder="" required>
                     </div>
 
@@ -140,13 +193,13 @@
     <script>
 
         function addProduct() {
-            qty=$('#product_qty').val();
+            qty=$('#item_qty').val();
             if (qty=='') {
                 return false;
             }
-            pro_id=$('#product_id').val();
+            pro_id=$('#item_id').val();
             $.ajax({
-            url: "{{ route('admin.product.get') }}?id=" +pro_id,
+            url: "{{ route('admin.inventory-item.get') }}?id=" +pro_id,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

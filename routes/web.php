@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CustomerController as ACC;
 use App\Http\Controllers\Admin\StoreController as ASC;
 use App\Http\Controllers\Admin\OrderController as AOC;
 use App\Http\Controllers\Admin\ProductController as APC;
+use App\Http\Controllers\Admin\TaskController as ATC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 
 use App\Http\Controllers\User\HomeController as UHC;
@@ -37,6 +38,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/inventoryItem', [AIIC::class, "index"])->name('admin.inventory-item');
     Route::get('/inventoryItem/new', [AIIC::class, "new"])->name('admin.inventory-item.new');
     Route::post('/inventoryItem/store', [AIIC::class, "store"])->name('admin.inventory-item.store');
+    Route::get('/inventoryItem/get', [AIIC::class, "getItem"])->name('admin.inventory-item.get');
 
     Route::get('/product-store', [ASC::class, "productStore"])->name('admin.product-store');
     Route::get('/product-store/new', [ASC::class, "newProductStore"])->name('admin.product-store.new');
@@ -58,10 +60,16 @@ Route::prefix('/admin')->group(function () {
     Route::get('/order/view/{id}', [AOC::class, "view"])->name('admin.order.view');
     Route::post('/order/store', [AOC::class, "store"])->name('admin.order.store');
     Route::get('/order/add/store/{id}', [AOC::class, "addStore"])->name('admin.order.add-store');
+    Route::get('/order/approve/{id}', [AOC::class, "approveOrder"])->name('admin.order.approve');
+
+    Route::get('/task', [ATC::class, "index"])->name('admin.task');
+    Route::get('/task/new/{id}', [ATC::class, "new"])->name('admin.task.new');
+    Route::post('/task/store', [ATC::class, "store"])->name('admin.task.store');
 });
 
 Route::prefix('/user')->group(function () {
     Route::get('/', [UHC::class, "index"])->name('user.dashboard');
+
 
 });
 

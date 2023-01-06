@@ -74,6 +74,13 @@ class OrderService
     }
 
 
+           /**
+     * get store
+     */
+    public function approve($id)
+    {
 
+        return $this->order->where('id',$id)->update(['status'=>1,'approved_by'=>Auth::user()->id]);
+    }
 
 }

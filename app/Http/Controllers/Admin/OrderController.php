@@ -60,4 +60,10 @@ class OrderController extends Controller
         return redirect()->route('admin.order')->with('alert-success', 'Order Added to Store Successfully');
     }
 
+
+    public function approveOrder($id)
+    {
+        OrderFacade::approve($id);
+         return redirect()->route('admin.order')->with('alert-success', 'Order Approved Successfully');;
+    }
 }
