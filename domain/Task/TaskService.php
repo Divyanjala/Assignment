@@ -68,4 +68,23 @@ class TaskService
 
         return $task;
     }
+
+    public function assign($data)
+    {
+        $this->task->where('id',$data['task_id'])->update([
+            'start_date'=>$data['start_date'],
+            'emp_id'=>$data['emp_id'],
+            'task_status'=>Task::STATUS['ASSIGNED']
+        ]);
+    }
+
+    public function complete($data)
+    {
+      
+        $this->task->where('id',$data['task_id'])->update([
+            'end_date'=>$data['end_date'],
+            'spd_time'=>$data['spd_time'],
+            'task_status'=>Task::STATUS['COMPLETED']
+        ]);
+    }
 }

@@ -65,6 +65,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/task', [ATC::class, "index"])->name('admin.task');
     Route::get('/task/new/{id}', [ATC::class, "new"])->name('admin.task.new');
     Route::post('/task/store', [ATC::class, "store"])->name('admin.task.store');
+    Route::post('/task/assign', [ATC::class, "assign"])->name('admin.task.assign');
+    Route::post('/task/complete', [ATC::class, "complete"])->name('admin.task.complete');
 });
 
 Route::prefix('/user')->group(function () {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use domain\Facades\EmployeeFacade;
 use domain\Facades\InventoryItemFacade;
 use domain\Facades\ProductFacade;
 use domain\Facades\TaskFacade;
@@ -12,8 +13,9 @@ class TaskController extends Controller
 {
     public function index()
     {
-        
+
         $response['tasks']=TaskFacade::all();
+        $response['employees']=EmployeeFacade::all();
         return view('pages.admin.task.index')->with($response);
     }
 
@@ -21,6 +23,7 @@ class TaskController extends Controller
     {
         $response['materials']=InventoryItemFacade::all();
         $response['tasks']=TaskFacade::all();
+        $response['store_id']=$id;
         return view('pages.admin.task.new')->with($response);
     }
 
@@ -28,5 +31,17 @@ class TaskController extends Controller
     {
         TaskFacade::make($request->all());
         return redirect()->back()->with('alert-success', 'Item Added Successfully');;
+    }
+
+    public function assign(Request $request)
+    {
+        TaskFacade::assign($request->all());
+        return redirect()->back()->with('alert-success', 'Task Assigned Successfully');;
+    }
+
+    public function complete(Request $request)
+    {
+        TaskFacade::complete($request->all());
+        return redirect()->back()->with('alert-success', 'Task Completed Successfully');;
     }
 }

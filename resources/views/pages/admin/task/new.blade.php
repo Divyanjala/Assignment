@@ -21,6 +21,7 @@
                                         <label for="task_name"><b>Task name</b></label>
                                         <input type="text" class="form-control form-control-alternative" name="task_name"
                                             id="task_name" aria-describedby="helpId" placeholder="" required>
+                                            <input type="hidden" class="form-control form-control-alternative" name="store_id" value="{{$store_id}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
@@ -119,13 +120,13 @@
                                 <td>{{ $task->task_code }}</td>
 
                                 <td>
-                                    @switch($task->status)
+                                    @switch($task->task_status)
                                         @case(0)
                                             <span class="badge badge-pill badge-danger">Pending</span>
                                         @break
-
                                         @case(1)
                                             <span class="badge badge-pill badge-primary">Assigned</span>
+                                            @break
                                         @case(2)
                                             <span class="badge badge-pill badge-success">Completed</span>
                                         @break
