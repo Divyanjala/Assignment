@@ -17,4 +17,10 @@ class HomeController extends ParentController
       $response['pending_tasks']=TaskFacade::taskPending();
       return view('pages.admin.dashboard')->with($response);
    }
+
+   public function department()
+   {
+      $response['departments']=TaskFacade::departments();
+      return view('pages.admin.department.index')->with($response);
+   }
 }

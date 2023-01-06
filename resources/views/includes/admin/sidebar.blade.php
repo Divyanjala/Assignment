@@ -97,6 +97,12 @@
             <span>Material</span>
         </a>
     </li>
+    <li class="nav-item {{ in_array($curr_url, ['admin.department']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.department') }}" >
+            <i class="fas fa-fw fa-users"></i>
+            <span>Department</span>
+        </a>
+    </li>
      <!-- Divider -->
      <hr class="sidebar-divider">
 

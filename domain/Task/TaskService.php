@@ -2,6 +2,7 @@
 
 namespace domain\Task;
 
+use App\Models\Department;
 use App\Models\InventoryItem;
 use App\Models\Task;
 use App\Models\TaskMaterial;
@@ -18,10 +19,12 @@ class TaskService
     protected $task;
     protected $material;
     protected $task_material;
+    protected $department;
 
     public function __construct()
     {
         $this->task = new Task();
+        $this->department = new Department();
         $this->material = new InventoryItem();
         $this->task_material = new TaskMaterial();
     }
@@ -34,6 +37,13 @@ class TaskService
         return $this->task->orderBy('id', 'desc')->get();
     }
 
+        /**
+     * All task
+     */
+    public function departments()
+    {
+        return $this->department->orderBy('id', 'desc')->get();
+    }
         /**
      * All task
      */

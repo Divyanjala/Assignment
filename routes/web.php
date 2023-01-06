@@ -28,6 +28,8 @@ Route::get('/', function () {
 });
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
+    Route::get('/department', [AHC::class, "department"])->name('admin.department');
+
     Route::get('/employee', [AEC::class, "index"])->name('admin.employee');
     Route::get('/employee/new', [AEC::class, "new"])->name('admin.employee.new');
     Route::post('/employee/store', [AEC::class, "store"])->name('admin.employee.store');
