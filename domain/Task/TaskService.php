@@ -4,6 +4,7 @@ namespace domain\Task;
 
 use App\Models\InventoryItem;
 use App\Models\Task;
+use App\Models\TaskMaterial;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -16,11 +17,13 @@ class TaskService
 
     protected $task;
     protected $material;
+    protected $task_material;
 
     public function __construct()
     {
         $this->task = new Task();
         $this->material = new InventoryItem();
+        $this->task_material = new TaskMaterial();
     }
 
     /**
@@ -40,18 +43,29 @@ class TaskService
         return $this->task->find($id);
     }
 
-     /**
-     * Make item Array
+       /**
+     * Make user Array
      * @param array $data
      * @return mixed
      */
     public function make($data)
     {
+        $count=count($data['item_id']);
         $data['created_by']=Auth::user()->id;
         $data['status']=Task::STATUS['PENDING'];
-
         $task= $this->task->create($data);
-        $task= $this->task->where('id',$task->id)->update(['code'=>'PRO'.(string)$task->id]);
+        $this->task->where('id',$task->id)->update(['task_code'=>'TSK'.(string)$task->id]);
+
+        for ($i=0; $i < $count ; $i++) {
+
+           $obj=[
+            'qty'=>$data['qty'][$i],
+            'item_id'=>$data['item_id'][$i],
+            'task_id'=>$task->id
+           ];
+           $this->task_material->create($obj);
+        }
+
         return $task;
     }
 }

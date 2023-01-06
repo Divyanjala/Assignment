@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <form action="{{ route('admin.order.store') }}" method="post">
+        <form action="{{ route('admin.task.store') }}" method="post">
             @csrf
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="form-group">
-                                        <label for="ast_time"><b>Astimate Time (hours)</b></label>
+                                        <label for="ast_time"><b>Estimation Time(hours)</b></label>
                                         <input type="number" class="form-control form-control-alternative" name="ast_time"
                                             id="ast_time" aria-describedby="helpId" placeholder="" required>
                                     </div>
@@ -77,7 +77,7 @@
                                                     <th scope="col">Qty</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="products">
+                                            <tbody id="task_material">
 
 
                                             </tbody>
@@ -94,61 +94,50 @@
         </form>
     </div>
     <br>
-    <div class="card border-0 shadow">
-        <div class="table-responsive py-4">
-            <table id="employees" class="table align-items-center table-flush">
-                <thead class="thead-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Task name</th>
-                        <th>Amount</th>
-                        <th>Approved BY</th>
-                        <th>Created At</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($tasks as $key => $task)
-                        {{-- <tr>
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $order->customer->name }}</td>
-                            <td><b>$ </b>{{ $order->amount }}</td>
-                            <td>{{ $order->approve ? $order->approve->name : '-' }}</td>
-                            <td>{{ $order->created_at }}</td>
-                            <td>
-                                @switch($order->status)
-                                    @case(0)
-                                        <span class="badge badge-pill badge-danger">Pending</span>
-                                    @break
+    <div class="row justify-content-center">
+        <div class="col-lg-11">
+            <div class="card border-0 shadow">
+                <div class="table-responsive py-4">
+                    <table id="employees" class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Task name</th>
+                                <th>Estimation Time</th>
+                                <th>Task Code</th>
+                                <th>Status</th>
+                                <th>Created At</th>
 
-                                    @case(1)
-                                        <span class="badge badge-pill badge-primary">Approved</span>
-                                    @break
-                                @endswitch
-                            </td>
-                            <td>
-                                <div class="dropdown no-arrow mb-1">
-                                    <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-cog"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
-                                        aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
-                                        style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                        <a class="dropdown-item edit-product" href="" class="btn btn-warning"
-                                            title="">
-                                            <i class="fas fa-edit text-info"></i>&nbsp;Edit
-                                        </a>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tasks as $key => $task)
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $task->task_name }}</td>
+                                <td>{{ $task->ast_time }}<b> h</b></td>
+                                <td>{{ $task->task_code }}</td>
 
-                                    </div>
-                                </div>
-                            </td>
+                                <td>
+                                    @switch($task->status)
+                                        @case(0)
+                                            <span class="badge badge-pill badge-danger">Pending</span>
+                                        @break
 
-                        </tr> --}}
-                    @endforeach
-                </tbody>
-            </table>
+                                        @case(1)
+                                            <span class="badge badge-pill badge-primary">Assigned</span>
+                                        @case(2)
+                                            <span class="badge badge-pill badge-success">Completed</span>
+                                        @break
+                                    @endswitch
+                                </td>
+                                <td>{{ $task->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Modal -->
@@ -169,7 +158,8 @@
                         <label for="first_name"><b>Material</b></label>
                         <select class="form-control" id="item_id" name="item_id">
                             @foreach ($materials as $material)
-                                <option value="{{ $material->id }}">{{ $material->item_name }} - {{ $material->item_code }}</option>
+                                <option value="{{ $material->id }}">{{ $material->item_name }} - {{ $material->item_code }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -191,36 +181,36 @@
 @endsection
 @section('js')
     <script>
-
         function addProduct() {
-            qty=$('#item_qty').val();
-            if (qty=='') {
+            qty = $('#item_qty').val();
+            if (qty == '') {
                 return false;
             }
-            pro_id=$('#item_id').val();
+            pro_id = $('#item_id').val();
             $.ajax({
-            url: "{{ route('admin.inventory-item.get') }}?id=" +pro_id,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type: 'GET',
-            success: function (response) {
+                url: "{{ route('admin.inventory-item.get') }}?id=" + pro_id,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'GET',
+                success: function(response) {
 
-                if (response!=[]) {
-                    $('#submit-btn').attr('disabled',false);
-                    html = ' <tr>'+
-                        '  <th scope="row">1</th>'+
-                        ' <td>'+response['name']+'</td>'+
-                        ' <td>'+qty+'</td>'+
-                        ' <input type="hidden" class="form-control" name="product_id[]" value="'+pro_id+'">'+
-                        ' <input type="hidden" class="form-control" name="qty[]"'+' value="'+qty+'">'+
-                        ' <input type="hidden" class="form-control" name="price[]"'+' value="'+response['price']+'">'+
-                        ' </tr>';
-                    $("#products").append(html);
-                    $('#exampleModal').modal('toggle');
+                    if (response != []) {
+                        $('#submit-btn').attr('disabled', false);
+                        html = ' <tr>' +
+                            '  <th scope="row">1</th>' +
+                            ' <td>' + response['name'] + '</td>' +
+                            ' <td>' + qty + '</td>' +
+                            ' <input type="hidden" class="form-control" name="item_id[]" value="' + pro_id +
+                            '">' +
+                            ' <input type="hidden" class="form-control" name="qty[]"' + ' value="' + qty +
+                            '">'
+                            ' </tr>';
+                        $("#task_material").append(html);
+                        $('#exampleModal').modal('toggle');
+                    }
                 }
-            }
-        });
+            });
 
         }
     </script>
