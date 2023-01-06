@@ -113,7 +113,7 @@
                                                     <td>{{ $key }}</td>
                                                     <td>{{ $item->product->name }} </td>
                                                     <td>{{ $item->qty }}</td>
-                                                    <td><b>$ </b>{{ $item->amount }}</td>
+                                                    <td><b>$ </b>{{number_format( $item->amount, 2, '.', ',')  }}</td>
                                                 </tr>
                                             @endforeach
 
@@ -148,7 +148,7 @@
                                                 <tr>
                                                     <td>{{ $key }}</td>
                                                     <td>{{ $payment->date }}</td>
-                                                    <td><b>$ </b>{{ $payment->amount }} </td>
+                                                    <td><b>$ </b>{{number_format( $payment->amount, 2, '.', ',')}} </td>
 
                                                 </tr>
                                             @endforeach

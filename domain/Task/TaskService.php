@@ -34,7 +34,23 @@ class TaskService
         return $this->task->orderBy('id', 'desc')->get();
     }
 
+        /**
+     * All task
+     */
+    public function taskPercentage()
+    {
+       $complete= $this->task->where('task_status',2)->count();
+       $all= $this->task->count();
+       return round(($complete/$all)*100,2);
+    }
 
+           /**
+     * All task
+     */
+    public function taskPending()
+    {
+       return $this->task->where('task_status',0)->count();
+    }
     /**
      * get task
      */
@@ -80,7 +96,7 @@ class TaskService
 
     public function complete($data)
     {
-      
+
         $this->task->where('id',$data['task_id'])->update([
             'end_date'=>$data['end_date'],
             'spd_time'=>$data['spd_time'],

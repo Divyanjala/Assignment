@@ -6,7 +6,7 @@ namespace domain\Payment;
 
 use App\Models\Order;
 use App\Models\Payment;
-
+use Carbon\Carbon;
 
 /**
  * Created by Vs COde.
@@ -31,6 +31,29 @@ class PaymentService
     public function all()
     {
         return $this->payment->orderBy('id', 'desc')->get();
+    }
+
+      /**
+     * All payment
+     */
+    public function paymentMonthly()
+    {
+        $startDate = Carbon::now(); //returns current day
+        $firstDay = $startDate->firstOfMonth()->format('Y-m-d');
+        $lastDay = $startDate->lastOfMonth()->format('Y-m-d');
+        return $this->payment->orWhereBetween('date', [$firstDay, $lastDay])->sum('amount');
+    }
+
+
+      /**
+     * All payment
+     */
+    public function paymentAnnualy()
+    {
+        $startDate = Carbon::now(); //returns current day
+        $firstDay = $startDate->firstOfYear()->format('Y-m-d');
+        $lastDay = $startDate->lastOfYear()->format('Y-m-d');
+        return $this->payment->orWhereBetween('date', [$firstDay, $lastDay])->sum('amount');
     }
 
    /**

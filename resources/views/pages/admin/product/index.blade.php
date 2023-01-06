@@ -41,7 +41,7 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->code }}
                             </td>
-                            <td><b>$ </b>{{ $product->price }}</td>
+                            <td><b>$ </b>{{ number_format($product->price, 2, '.', ',') }}</td>
                             <td>{{ $product->created_at }}</td>
                             <td>{{$product->approved_by?$product->approve->name:'-'}}</td>
                             <td>

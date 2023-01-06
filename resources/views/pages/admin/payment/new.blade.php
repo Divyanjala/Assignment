@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                     <label for="name"><b>Full Amount</b></label>
                                     <input type="number" class="form-control form-control-alternative"
-                                    value="{{$order->amount}}" disabled>
+                                    value="{{number_format( $order->amount, 2, '.', ',') }}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                     <label for="name"><b>Paid Amount</b></label>
                                     <input type="number" disabled class="form-control form-control-alternative" name="price"
-                                    value="{{$order->paid_amount}}">
+                                    value="{{number_format($order->paid_amount, 2, '.', ',') }}">
                                 </div>
                             </div>
                             <div class="col-lg-4">
