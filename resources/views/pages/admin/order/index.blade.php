@@ -63,13 +63,13 @@
                                         style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
                                         <a class="dropdown-item edit-product" href="" class="btn btn-warning"
                                             title="">
-                                            <i class="fas fa-edit text-info"></i>&nbsp;Edit
+                                            <i class="fas fa-edit text-primary"></i>&nbsp;Edit
                                         </a>
                                         <hr>
                                         <a class="dropdown-item edit-product"
                                             href="{{ route('admin.order.view', ['id' => $order->id]) }}"
                                             class="btn btn-warning" title="">
-                                            <i class="fas fa-eye text-info"></i>&nbsp;View
+                                            <i class="fas fa-eye text-primary"></i>&nbsp;View
                                         </a>
                                         <hr>
                                         @if ($order->status == 0)
@@ -83,8 +83,16 @@
                                         <a class="dropdown-item edit-order"
                                             href="{{ route('admin.order.add-store', ['id' => $order->id]) }}"
                                             class="btn btn-warning" title="">
-                                            <i class="fas fa-file text-info"></i>&nbsp;Add Store
+                                            <i class="fas fa-file text-primary"></i>&nbsp;Add Store
                                         </a>
+                                        @if ($order->status == 1)
+                                        <hr>
+                                        <a class="dropdown-item approve-order" href="{{ route('admin.payment.new', ['id' => $order->id]) }}"
+                                            class="btn btn-danger" title="">
+                                            <i class="fas fa-bank text-primary"></i>&nbsp;&nbsp;&nbsp;Payment
+                                        </a>
+                                        <hr>
+                                        @endif
                                     </div>
                                 </div>
                             </td>

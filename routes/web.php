@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\StoreController as ASC;
 use App\Http\Controllers\Admin\OrderController as AOC;
 use App\Http\Controllers\Admin\ProductController as APC;
 use App\Http\Controllers\Admin\TaskController as ATC;
+use App\Http\Controllers\Admin\PaymentController as APYC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 
 use App\Http\Controllers\User\HomeController as UHC;
@@ -67,6 +68,9 @@ Route::prefix('/admin')->group(function () {
     Route::post('/task/store', [ATC::class, "store"])->name('admin.task.store');
     Route::post('/task/assign', [ATC::class, "assign"])->name('admin.task.assign');
     Route::post('/task/complete', [ATC::class, "complete"])->name('admin.task.complete');
+
+    Route::get('/payment/new/{id}', [APYC::class, "new"])->name('admin.payment.new');
+    Route::post('/payment/store', [APYC::class, "store"])->name('admin.payment.store');
 });
 
 Route::prefix('/user')->group(function () {

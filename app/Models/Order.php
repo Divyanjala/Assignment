@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
     const STATUS = ['PENDING' => 0,  'APPROVED' => 1];
     protected $fillable = [
-        'des','status','customer_id','amount',
+        'des','status','customer_id','amount','paid_amount',
         'issue_date','created_by','approved_by'
     ];
 

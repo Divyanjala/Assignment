@@ -21,7 +21,6 @@
                                 <th>Status</th>
                                 <th>Stated At</th>
                                 <th>End At</th>
-
                                 <th>Actions</th>
                             </tr>
                         </thead>
