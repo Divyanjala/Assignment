@@ -17,6 +17,8 @@ class EmployeeService
 {
 
     protected $employee;
+    protected $department;
+    protected $unit;
 
     public function __construct()
     {

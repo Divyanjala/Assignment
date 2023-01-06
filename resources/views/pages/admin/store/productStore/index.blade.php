@@ -67,7 +67,7 @@
                                         @if ($store->status == 0)
                                             <a class="dropdown-item delete-customer" href="javascript:void(0)"
                                                 class="btn btn-danger" title=""
-                                                onclick="approve('{{ route('admin.material-store.approve', $store->id) }}')">
+                                                onclick="approve('{{ route('admin.product-store.approve', $store->id) }}')">
                                                 <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Approve
                                             </a>
                                             <hr>
@@ -79,7 +79,7 @@
                                         </a>
                                         <br>
                                         @if ($store->status == 1)
-                                            <a class="dropdown-item delete-customer" 
+                                            <a class="dropdown-item delete-customer"
                                                 class="btn btn-danger" title=""
                                                 href="{{ route('admin.task.new', $store->order_id) }}">
                                                 <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Manage Task

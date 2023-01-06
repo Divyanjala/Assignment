@@ -44,6 +44,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/product-store', [ASC::class, "productStore"])->name('admin.product-store');
     Route::get('/product-store/new', [ASC::class, "newProductStore"])->name('admin.product-store.new');
     Route::post('/product-store/store', [ASC::class, "createProductStore"])->name('admin.product-store.store');
+    Route::get('/product-store/approve/{id}', [ASC::class, "approveProductStore"])->name('admin.product-store.approve');
 
     Route::get('/material-store', [ASC::class, "materialStore"])->name('admin.material-store');
     Route::get('/material-store/new', [ASC::class, "newMaterialStore"])->name('admin.material-store.new');

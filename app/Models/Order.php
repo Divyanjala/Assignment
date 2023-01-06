@@ -19,14 +19,14 @@ class Order extends Model
         return $this->belongsTo(User::class, 'approved_by');
     }
 
-    public function create()
-    {
-        return $this->belongsTo(User::class, 'created_by');
-    }
+    // public function createUser()
+    // {
+    //     return $this->belongsTo(User::class, 'created_by');
+    // }
 
     public function customer()
     {
-        return $this->belongsTo(User::class, 'customer_id');
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
 
     public function items(){
