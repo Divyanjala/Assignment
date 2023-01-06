@@ -74,8 +74,7 @@
                                                   <hr>
                                                 @endif
                                                 <a class="dropdown-item edit-product" href="javaScript.void(0)"
-                                                class="btn btn-warning" data-toggle="modal" data-target="#exampleModal"
-                                                onclick="addTask({{ $task->id }})">
+                                                class="btn btn-warning" >
                                                 <i class="fas fa-eye text-info"></i>&nbsp;View
                                                   </a>
 

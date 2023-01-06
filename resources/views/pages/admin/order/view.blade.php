@@ -126,6 +126,7 @@
 
                     </div>
                 </div>
+                <br>
                 <h5>Payment details</h5>
                 <div class="card">
                     <div class="card-body">
