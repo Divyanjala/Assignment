@@ -55,11 +55,20 @@ class StoreService
      */
     public function approve($id)
     {
-        $item=$this->get($id);
-        $this->material->where('id',$id)->update(['avg_qty'=>$item->qty]);
+        $store=$this->store->find($id);
+        $item=$this->material->find($store->item_id);
+        $this->material->where('id',$store->item_id)->update(['avg_qty'=>$item->avg_qty+ $store->qty]);
         return $this->store->where('id',$id)->update(['status'=>1,'approved_by'=>Auth::user()->id]);
     }
 
+          /**
+     * get store
+     */
+    public function approveProduct($id)
+    {
+        $item=$this->get($id);
+        return $this->store->where('id',$id)->update(['status'=>1,'approved_by'=>Auth::user()->id]);
+    }
     /**
      * Make store Array
      * @param array $data

@@ -46,7 +46,7 @@ class StoreController extends ParentController
 
    public function approveProductStore($id)
    {
-        StoreFacade::approve($id);
+        StoreFacade::approveProduct($id);
         return redirect()->route('admin.product-store')->with('alert-success', 'Product Request Approved Successfully');;
    }
    public function createProductStore(Request $request)
