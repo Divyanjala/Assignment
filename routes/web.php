@@ -14,6 +14,14 @@ use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 use App\Http\Controllers\Admin\IncomeReportController as IRC;
 
 use App\Http\Controllers\User\HomeController as UHC;
+
+use App\Http\Controllers\User\StoreController as USC;
+use App\Http\Controllers\User\OrderController as UOC;
+use App\Http\Controllers\User\ProductController as UPC;
+use App\Http\Controllers\User\TaskController as UTC;
+use App\Http\Controllers\User\PaymentController as UPYC;
+use App\Http\Controllers\User\InventoryItemController as UIIC;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,7 +102,36 @@ Route::prefix('/admin')->group(function () {
 Route::prefix('/user')->group(function () {
     Route::get('/', [UHC::class, "index"])->name('user.dashboard');
 
+    Route::get('/material-store', [USC::class, "materialStore"])->name('user.material-store');
+    Route::get('/material-store/new', [USC::class, "newMaterialStore"])->name('user.material-store.new');
+    Route::post('/material-store/store', [USC::class, "createMaterialStore"])->name('user.material-store.store');
+    Route::get('/material-store/approve/{id}', [USC::class, "approveMaterial"])->name('user.material-store.approve');
 
+    Route::get('/product-store', [USC::class, "productStore"])->name('user.product-store');
+    Route::get('/product-store/new', [USC::class, "newProductStore"])->name('user.product-store.new');
+    Route::post('/product-store/store', [USC::class, "createProductStore"])->name('user.product-store.store');
+    Route::get('/product-store/approve/{id}', [USC::class, "approveProductStore"])->name('user.product-store.approve');
+    Route::get('/product-store/complete/{id}', [USC::class, "completeStore"])->name('user.product-store.complete');
+
+
+    Route::get('/product', [UPC::class, "index"])->name('user.product');
+    Route::get('/product/get', [UPC::class, "getProduct"])->name('user.product.get');
+    Route::get('/product/new', [UPC::class, "new"])->name('user.product.new');
+    Route::post('/product/store', [UPC::class, "store"])->name('user.product.store');
+
+    Route::get('/order', [UOC::class, "index"])->name('user.order');
+    Route::get('/order/new', [UOC::class, "new"])->name('user.order.new');
+    Route::get('/order/view/{id}', [UOC::class, "view"])->name('user.order.view');
+    Route::post('/order/store', [UOC::class, "store"])->name('user.order.store');
+    Route::get('/order/add/store/{id}', [UOC::class, "addStore"])->name('user.order.add-store');
+
+    Route::get('/task', [UTC::class, "index"])->name('user.task');
+    Route::get('/task/new/{id}', [UTC::class, "new"])->name('user.task.new');
+    Route::post('/task/store', [UTC::class, "store"])->name('user.task.store');
+    Route::post('/task/assign', [UTC::class, "assign"])->name('user.task.assign');
+
+    Route::get('/payment/new/{id}', [UPYC::class, "new"])->name('user.payment.new');
+    Route::post('/payment/store', [UPYC::class, "store"])->name('user.payment.store');
 });
 
 
