@@ -173,13 +173,11 @@
         </div>
     </div>
 @endsection
-@php
-    $data=['s'];
-@endphp
+
 
 @section('js')
     <script>
-const data = '{{json_encode($chartdata)}}';
+    const data = @json($chartdata);;
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart2");
