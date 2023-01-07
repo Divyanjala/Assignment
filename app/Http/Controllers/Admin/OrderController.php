@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use domain\Facades\CustomerFacade;
 use domain\Facades\OrderFacade;
 use domain\Facades\ProductFacade;
@@ -43,12 +44,14 @@ class OrderController extends Controller
     public function addStore($id)
     {
         $order=OrderFacade::get($id);
-        foreach ($order->items as  $item) {
+
+        foreach ($order->orderItems as  $item) {
+
             if ( $item->store_status==0) {
                 $data['order_id']= $order->id;
                 $data['product_id']= $item->product_id;
                 $data['qty']=$item->qty;
-                $data['date']='2023-01-01 07:55:52';
+                $data['date']=Carbon::now();
                 StoreFacade::make($data);
                 OrderFacade::updateOrderItem($item->id);
             }else{

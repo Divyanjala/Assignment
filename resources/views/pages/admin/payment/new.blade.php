@@ -28,8 +28,8 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="name"><b>Full Amount</b></label>
-                                    <input type="number" class="form-control form-control-alternative"
-                                    value="{{number_format( $order->amount, 2, '.', ',') }}" disabled>
+                                    <input type="text" class="form-control form-control-alternative"
+                                    value="{{number_format($order->amount, 2, '.', ',') }}" readonly>
                                 </div>
                             </div>
                         </div>
