@@ -53,6 +53,9 @@
                                     @case(1)
                                         <span class="badge badge-pill badge-primary">Approved</span>
                                     @break
+                                    @case(2)
+                                    <span class="badge badge-pill badge-success">Manufactured</span>
+                                    @break
                                 @endswitch
                             </td>
                             <td>
@@ -77,12 +80,19 @@
                                             href="{{ route('admin.order.view', $store->order_id) }}">
                                             <i class="fas fa-eye text-primary"></i>&nbsp;&nbsp;&nbsp;View Order
                                         </a>
-                                        <br>
+
                                         @if ($store->status == 1)
+                                        <hr>
                                             <a class="dropdown-item delete-customer"
                                                 class="btn btn-danger" title=""
                                                 href="{{ route('admin.task.new', $store->id) }}">
                                                 <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Manage Task
+                                            </a>
+                                            <hr>
+                                            <a class="dropdown-item approve-order" href="javascript:void(0)"
+                                            class="btn btn-danger"
+                                            onclick="approve('{{ route('admin.product-store.complete', $store->id) }}')">
+                                            <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Complete
                                             </a>
                                         @endif
                                     </div>

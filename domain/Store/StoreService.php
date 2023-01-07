@@ -99,4 +99,10 @@ class StoreService
         $store= $this->store->create($data);
         return $store;
     }
+
+    public function update($id,$status)
+    {
+        $store= $this->store->where('id',$id)->update(['status'=>$status]);
+        return $store;
+    }
 }

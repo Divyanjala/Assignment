@@ -22,14 +22,13 @@
 @section('content')
 <div class="card border-0 shadow">
     <div class="table-responsive py-4">
-        <table id="users" class="table align-items-center table-flush">
+        <table id="task" class="table align-items-center table-flush">
             <thead class="thead-light">
                 <tr>
                     <th>ID</th>
                     <th>Full name</th>
                     <th>Email</th>
                     <th>User Role</th>
-
                     <th>Created At</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -100,7 +99,7 @@
 @section('js')
 <script>
  $(document).ready(function () {
-        $('#users').dataTable({
+        $('#task').dataTable({
             "language": {
                 "emptyTable": "No data available in the table",
                 "paginate": {

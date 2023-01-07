@@ -54,4 +54,9 @@ class StoreController extends ParentController
         StoreFacade::make($request->all());
         return redirect()->route('admin.product-store')->with('alert-success', 'Product Added Successfully');;
    }
+   public function completeStore($id)
+   {
+        StoreFacade::update($id,2);
+        return redirect()->route('admin.product-store')->with('alert-success', 'Product Completed Successfully');;
+   }
 }
