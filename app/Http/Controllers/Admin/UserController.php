@@ -7,7 +7,7 @@ use domain\Facades\UserFacade;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 
-class UserController extends Controller
+class UserController extends ParentController
 {
     public function index()
     {
@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-       
+
         UserFacade::make($request->all());
         return redirect()->route('admin.user')->with('alert-success', 'User Added Successfully');;
     }
