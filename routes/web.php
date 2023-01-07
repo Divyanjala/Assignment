@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TaskController as ATC;
 use App\Http\Controllers\Admin\PaymentController as APYC;
 use App\Http\Controllers\Admin\UserController as AUC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
+use App\Http\Controllers\Admin\IncomeReportController as IRC;
 
 use App\Http\Controllers\User\HomeController as UHC;
 /*
@@ -86,6 +87,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/units', [AHC::class, "units"])->name('admin.units');
     Route::get('/units/new', [AHC::class, "new"])->name('admin.units.new');
     Route::post('/units/store', [AHC::class, "store"])->name('admin.units.store');
+
+    Route::get('/income-report', [IRC::class, "index"])->name('admin.income-report');
 });
 
 Route::prefix('/user')->group(function () {
