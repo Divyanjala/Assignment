@@ -50,6 +50,9 @@
                                     @case(1)
                                         <span class="badge badge-pill badge-primary">Approved</span>
                                     @break
+                                    @case(2)
+                                    <span class="badge badge-pill badge-warning">Producing</span>
+                                @break
                                 @endswitch
                             </td>
                             <td>
@@ -91,7 +94,7 @@
                                             class="btn btn-danger" title="">
                                             <i class="fas fa-bank text-primary"></i>&nbsp;&nbsp;&nbsp;Payment
                                         </a>
-                                        <hr>
+
                                         @endif
                                     </div>
                                 </div>

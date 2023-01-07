@@ -12,7 +12,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <h5>Order Details</h5>
                 <div class="card">
                     <div class="card-body">
@@ -20,31 +20,38 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="customer_id"><b>Customer</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="customer"
+                                    <input type="text" class="form-control form-control-alternative" readonly
                                         id="customer" value="{{ $order->customer->name }}">
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="email"><b>Date</b></label>
-                                    <input type="date" class="form-control form-control-alternative" name="issue_date"
+                                    <input type="date" class="form-control form-control-alternative" readonly
                                         value="{{ $order->issue_date }}">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="customer_id"><b>Full Amount</b></label>
-                                    <input type="text" class="form-control form-control-alternative" name="customer"
+                                    <input type="text" class="form-control form-control-alternative" readonly
                                         id="customer" value="{{ $order->amount }}">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="customer_id"><b>Paid Amount</b></label>
+                                    <input type="text" class="form-control form-control-alternative" readonly
+                                        id="customer" value="{{ $order->paid_amount }}">
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="email"><b>Created At </b></label>
 
-                                    <input type="text" class="form-control form-control-alternative" name="issue_date"
+                                    <input type="text" class="form-control form-control-alternative" readonly
                                         value="{{ $order->created_at }}">
                                 </div>
                             </div>
@@ -53,7 +60,7 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="customer_id"><b>Status</b></label>
-                                    <br>
+                                  
                                     @switch($order->status)
                                         @case(0)
                                             <span class="badge badge-pill badge-danger">Deactivated</span>
@@ -62,6 +69,9 @@
                                         @case(1)
                                             <span class="badge badge-pill badge-primary">Active</span>
                                         @break
+                                        @case(2)
+                                        <span class="badge badge-pill badge-warning">Producing</span>
+                                    @break
                                     @endswitch
                                 </div>
                             </div>
@@ -90,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <h5>Product Item</h5>
                 <div class="card">
                     <div class="card-body">

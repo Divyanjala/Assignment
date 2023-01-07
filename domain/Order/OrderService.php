@@ -73,6 +73,12 @@ class OrderService
         return $order;
     }
 
+    public function update($id,$status)
+    {
+        $order= $this->order->where('id',$id)->update(['status'=>$status]);
+        return $order;
+    }
+
 
            /**
      * get store
