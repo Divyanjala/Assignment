@@ -23,4 +23,27 @@ class HomeController extends ParentController
       $response['departments']=TaskFacade::departments();
       return view('pages.admin.department.index')->with($response);
    }
+
+   public function units()
+   {
+      $response['units']=TaskFacade::units();
+      return view('pages.admin.units.index')->with($response);
+   }
+
+   public function new()
+   {
+      $response['departments']=TaskFacade::departments();
+      return view('pages.admin.units.new')->with($response);
+   }
+      /**
+    * Store a newly created customer in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+   public function store(Request $request)
+   {
+        TaskFacade::makeUnit($request->all());
+       return redirect()->route('admin.units')->with('alert-success', 'Workshop Added Successfully');;
+   }
 }

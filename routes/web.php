@@ -80,6 +80,10 @@ Route::prefix('/admin')->group(function () {
     Route::get('/user/new', [AUC::class, "new"])->name('admin.user.new');
     Route::post('/user/store', [AUC::class, "store"])->name('admin.user.store');
     Route::get('/user/email', [AUC::class, "validateEmail"])->name('admin.validate-user');
+
+    Route::get('/units', [AHC::class, "units"])->name('admin.units');
+    Route::get('/units/new', [AHC::class, "new"])->name('admin.units.new');
+    Route::post('/units/store', [AHC::class, "store"])->name('admin.units.store');
 });
 
 Route::prefix('/user')->group(function () {

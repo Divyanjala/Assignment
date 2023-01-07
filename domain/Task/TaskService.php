@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Models\InventoryItem;
 use App\Models\Task;
 use App\Models\TaskMaterial;
+use App\Models\Unit;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -20,10 +21,12 @@ class TaskService
     protected $material;
     protected $task_material;
     protected $department;
+    protected $unit;
 
     public function __construct()
     {
         $this->task = new Task();
+        $this->unit = new Unit();
         $this->department = new Department();
         $this->material = new InventoryItem();
         $this->task_material = new TaskMaterial();
@@ -44,6 +47,15 @@ class TaskService
     {
         return $this->department->orderBy('id', 'desc')->get();
     }
+
+    /**
+     * All unit
+     */
+    public function units()
+    {
+        return $this->unit->orderBy('id', 'desc')->get();
+    }
+
         /**
      * All task
      */
@@ -118,5 +130,19 @@ class TaskService
             'spd_time'=>$data['spd_time'],
             'task_status'=>Task::STATUS['COMPLETED']
         ]);
+    }
+
+
+
+        /**
+     * Make user Array
+     * @param array $data
+     * @return mixed
+     */
+    public function makeUnit($data)
+    {
+        $unit= $this->unit->create($data);
+        $employee= $this->unit->where('id',$unit->id)->update(['code'=>'#'.(string)$unit->id.'UNIT']);
+        return $employee;
     }
 }

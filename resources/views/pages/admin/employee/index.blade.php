@@ -27,7 +27,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Full name</th>
-                    <th>Unit</th>
+                    <th>Unit/Workshop</th>
                     <th>Role</th>
                     <th>Month Salary</th>
                     <th>Created At</th>
@@ -82,6 +82,12 @@
                                         href="" class="btn btn-warning"
                                         title="">
                                         <i class="fas fa-edit text-info"></i>&nbsp;Edit
+                                    </a>
+                                    <hr>
+                                    <a class="dropdown-item edit-product"
+                                        href="" class="btn btn-warning"
+                                        title="">
+                                        <i class="fas fa-eye text-info"></i>&nbsp;View
                                     </a>
                                     {{-- @if (!$customer->email_verified_at)
                                     <a class="dropdown-item" href="{{route('admin-verify-member',$customer->id)}}"><i

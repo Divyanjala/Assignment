@@ -42,17 +42,8 @@
                                     <span class="invalid-feedback" id="email_msg"></span>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label for="unit_id"><b>Unit</b></label>
-                                    <select class="form-control" id="unit_id" name="unit_id">
-                                      @foreach ($units as $unit)
-                                      <option value="{{$unit->id}}">{{$unit->name}}</option>
-                                      @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
+
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="level"><b>Employee Role</b></label>
                                     <select class="form-control" id="level" name="level">
@@ -76,6 +67,28 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-7">
+                                <div class="form-group">
+                                    <label for="unit_id"><b>Unit/Workshop</b></label>
+                                    <select class="form-control" id="unit_id" name="unit_id">
+                                      @foreach ($units as $unit)
+                                      <option value="{{$unit->id}}">{{$unit->name}}-
+                                        @switch($unit->factory)
+                                        @case(0)
+                                        <span class="badge badge-pill badge-danger">Factory 1</span>
+                                        @break
+                                        @case(1)
+                                        <span class="badge badge-pill badge-primary">Factory 2</span>
+                                        @break
+                                        @case(2)
+                                        <span class="badge badge-pill badge-primary">Factory 3</span>
+                                        @break
+                                        @endswitch
+                                        </option>
+                                      @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
                                 <div class="form-group">
                                     <label for="first_name"><b>Salary</b></label>
                                     <input type="number" class="form-control form-control-alternative" name="salary"

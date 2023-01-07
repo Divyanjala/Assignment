@@ -93,14 +93,20 @@
     </div>
     <li class="nav-item {{ in_array($curr_url, ['admin.inventory-item']) ? 'active' : '' }}">
         <a class="nav-link collapsed"  href="{{ route('admin.inventory-item') }}" >
-            <i class="fas fa-fw fa-users"></i>
+            <i class="fas fa-fw fa-folder-open"></i>
             <span>Material</span>
         </a>
     </li>
     <li class="nav-item {{ in_array($curr_url, ['admin.department']) ? 'active' : '' }}">
         <a class="nav-link collapsed"  href="{{ route('admin.department') }}" >
-            <i class="fas fa-fw fa-users"></i>
+            <i class="fas fa-fw fa-home"></i>
             <span>Department</span>
+        </a>
+    </li>
+    <li class="nav-item {{ in_array($curr_url, ['admin.units']) ? 'active' : '' }}">
+        <a class="nav-link collapsed"  href="{{ route('admin.units') }}" >
+            <i class="fas fa-fw fa-database"></i>
+            <span>Workshop/Unit</span>
         </a>
     </li>
      <!-- Divider -->
