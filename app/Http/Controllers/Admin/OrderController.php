@@ -43,19 +43,19 @@ class OrderController extends Controller
     public function addStore($id)
     {
         $order=OrderFacade::get($id);
-        // foreach ($order->items as  $item) {
-        //     if ( $item->store_status==0) {
-        //         $data['order_id']= $order->id;
-        //         $data['product_id']= $item->product_id;
-        //         $data['qty']=$item->qty;
-        //         $data['date']='2023-01-01 07:55:52';
-        //         StoreFacade::make($data);
-        //         OrderFacade::updateOrderItem($item->id);
-        //     }else{
-        //         return redirect()->route('admin.order')->with('alert-danger', 'Already Added');
-        //     }
+        foreach ($order->items as  $item) {
+            if ( $item->store_status==0) {
+                $data['order_id']= $order->id;
+                $data['product_id']= $item->product_id;
+                $data['qty']=$item->qty;
+                $data['date']='2023-01-01 07:55:52';
+                StoreFacade::make($data);
+                OrderFacade::updateOrderItem($item->id);
+            }else{
+                return redirect()->route('admin.order')->with('alert-danger', 'Already Added');
+            }
 
-        // }
+        }
         OrderFacade::update($id,2);
         return redirect()->route('admin.order')->with('alert-success', 'Order Added to Store Successfully');
     }
