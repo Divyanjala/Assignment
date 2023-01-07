@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('order_items', function (Blueprint $table) {
-            $table->string('store_status')->nullable();
+            $table->string('store_status')->default(0);
         });
     }
 
