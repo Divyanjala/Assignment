@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use domain\Facades\CustomerFacade;
+use domain\Facades\EmployeeFacade;
 use domain\Facades\OrderFacade;
 use domain\Facades\ProductFacade;
 use domain\Facades\StoreFacade;
@@ -20,6 +21,7 @@ class OrderController extends Controller
     }
     public function new()
     {
+        $response['units']=EmployeeFacade::allUnits();
         $response['products']=ProductFacade::approveProducts();
         $response['customers']=CustomerFacade::all();
        return view('pages.admin.order.new')->with($response);
