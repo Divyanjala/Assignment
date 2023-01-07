@@ -10,7 +10,7 @@ class Unit extends Model
     use HasFactory;
     const FACTORY = ['FACTORY 1' => 0,  'FACTORY 2' => 1 ,'FACTORY 3' => 2];
     protected $fillable = [
-        'name',
+        'name','space','use_space',
         'status',
         'department_id','factory'
     ];

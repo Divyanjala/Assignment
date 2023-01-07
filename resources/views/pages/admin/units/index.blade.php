@@ -29,6 +29,9 @@
                         <th>Code</th>
                         <th>Factory</th>
                         <th>Department</th>
+                        <th>Space</th>
+                        <th>Available Space</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -52,6 +55,8 @@
                                 @endswitch
                             </td>
                             <td>{{ $unit->department->name }}</td>
+                            <td>{{ $unit->space }}</td>
+                            <td>{{ $unit->space-$unit->user_space }}</td>
                         </tr>
                     @endforeach
                 </tbody>

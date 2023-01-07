@@ -12,13 +12,13 @@
     <form action="{{ route('admin.units.store') }}" method="post">
         @csrf
         <div class="row justify-content-center">
-            <div class="col-lg-12">
+            <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
 
                         <div class="row">
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="user_role"><b>Factory</b></label>
                                     <select class="form-control" id="factory" name="factory">
@@ -28,7 +28,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="email"><b>Department</b></label>
                                     <select class="form-control" id="department_id" name="department_id">
@@ -39,7 +39,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="email"><b>Unit name</b></label>
                                     <input type="text" class="form-control form-control-user"
@@ -47,7 +47,14 @@
 
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="email"><b>Space Qty</b></label>
+                                    <input type="number" class="form-control form-control-user"
+                                    id="exampleInputPassword" name="space">
 
+                                </div>
+                            </div>
                         </div>
 
 
