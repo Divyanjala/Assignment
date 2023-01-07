@@ -70,7 +70,7 @@ class TaskService
     {
        $complete= $this->task->where('task_status',2)->count();
        $all= $this->task->count();
-       return round(($complete/$all)*100,2);
+       return $complete?round(($complete/$all)*100,2):0;
     }
 
            /**
