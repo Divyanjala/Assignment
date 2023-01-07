@@ -71,7 +71,7 @@
     <li class="nav-item {{ in_array($curr_url, ['admin.product-store']) ? 'active' : '' }}">
         <a class="nav-link collapsed"  href="{{ route('admin.product-store') }}" >
             <i class="fas fa-fw fa-shopping-bag"></i>
-            <span>Products Store</span>
+            <span>Inventory</span>
         </a>
     </li>
     <li class="nav-item {{ in_array($curr_url, ['admin.material-store']) ? 'active' : '' }}">
