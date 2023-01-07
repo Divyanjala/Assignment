@@ -63,6 +63,9 @@
                                     @case(2)
                                     <span class="badge badge-pill badge-warning">Producing</span>
                                 @break
+                                @case(3)
+                                <span class="badge badge-pill badge-success">Complete</span>
+                            @break
                                 @endswitch
                             </td>
                             <td>
@@ -101,7 +104,7 @@
                                         </a>
                                         <hr>
                                         @endif
-                                        @if ($order->amount==$order->paid_amount)
+                                        @if ($order->amount==$order->paid_amount && $order->status == 2)
                                         <a class="dropdown-item approve-order" href="javascript:void(0)"
                                         class="btn btn-danger"
                                         onclick="approve('{{ route('admin.order.complete', $order->id) }}')">
