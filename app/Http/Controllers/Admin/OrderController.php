@@ -57,12 +57,12 @@ class OrderController extends Controller
                 StoreFacade::make($data);
                 OrderFacade::updateOrderItem($item->id);
             }else{
-                return redirect()->route('admin.order')->with('alert-danger', 'Already Added');
+                return redirect()->route('admin.product-store')->with('alert-warning', 'Already Added');
             }
 
         }
         OrderFacade::update($id,2);
-        return redirect()->route('admin.order')->with('alert-success', 'Order Added to Store Successfully');
+        return redirect()->route('admin.product-store')->with('alert-success', 'Order Added to Store Successfully');
     }
 
 
