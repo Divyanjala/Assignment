@@ -13,6 +13,7 @@ class HomeController extends ParentController
    {
       $response['monthEarn']=PaymentFacade::paymentMonthly();
       $response['annualEarn']=PaymentFacade::paymentAnnualy();
+      $response['chartdata']=PaymentFacade::chartdata();
       $response['tasks']=TaskFacade::taskPercentage();
       $response['pending_tasks']=TaskFacade::taskPending();
       return view('pages.admin.dashboard')->with($response);

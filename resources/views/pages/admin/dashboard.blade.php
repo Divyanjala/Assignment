@@ -95,6 +95,7 @@
         </div>
     </div>
 
+
     <!-- Content Row -->
 
     <div class="row">
@@ -149,6 +150,7 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </div>
+
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -171,10 +173,13 @@
         </div>
     </div>
 @endsection
-
+@php
+    $data=['s'];
+@endphp
 
 @section('js')
     <script>
+const data = '{{json_encode($chartdata)}}';
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart2");
@@ -195,7 +200,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 50000, 7000, 15000, 10000, 20000, 65000, 25000, 20000, 30000, 25000, 40000],
+      data: data,
     }],
   },
   options: {

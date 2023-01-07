@@ -56,6 +56,30 @@ class PaymentService
         return $this->payment->orWhereBetween('date', [$firstDay, $lastDay])->sum('amount');
     }
 
+        /**
+     * All payment
+     */
+    public function chartdata()
+    {
+        $array = [];
+        // return $arra
+        $startDate = Carbon::now(); //returns current day
+        $firstDay = $startDate->firstOfMonth()->format('Y-m-d');
+        $lastDay = $startDate->lastOfMonth()->format('Y-m-d');
+        $sum=$this->payment->orWhereBetween('date', [$firstDay, $lastDay])->sum('amount');
+        array_push($array, $sum);
+
+        for ($i=1; $i <12 ; $i++) {
+            $newDateTime = Carbon::now()->addMonths($i);
+            $firstDay = $newDateTime->firstOfMonth()->format('Y-m-d');
+            $lastDay = $newDateTime->lastOfMonth()->format('Y-m-d');
+            $sum=$this->payment->orWhereBetween('date', [$firstDay, $lastDay])->sum('amount');
+            array_push($array, $sum);
+        }
+
+        return $array;
+    }
+
    /**
      * Make item Array
      * @param array $data
