@@ -12,7 +12,7 @@ use domain\Facades\StoreFacade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 
-class OrderController extends Controller
+class OrderController extends ParentController
 {
     public function index()
     {

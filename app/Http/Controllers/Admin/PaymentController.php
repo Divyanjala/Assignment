@@ -7,7 +7,7 @@ use domain\Facades\OrderFacade;
 use domain\Facades\PaymentFacade;
 use Illuminate\Http\Request;
 
-class PaymentController extends Controller
+class PaymentController extends ParentController
 {
     public function new($id)
     {

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use domain\Facades\ProductFacade;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends ParentController
 {
     public function index()
     {

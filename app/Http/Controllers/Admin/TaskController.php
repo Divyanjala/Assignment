@@ -9,7 +9,7 @@ use domain\Facades\ProductFacade;
 use domain\Facades\TaskFacade;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class TaskController extends ParentController
 {
     public function index()
     {
