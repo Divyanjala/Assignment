@@ -3,6 +3,7 @@
 namespace domain\Task;
 
 use App\Models\Department;
+use App\Models\Employee;
 use App\Models\InventoryItem;
 use App\Models\Task;
 use App\Models\TaskMaterial;
@@ -22,11 +23,13 @@ class TaskService
     protected $task_material;
     protected $department;
     protected $unit;
+    protected $emp;
 
     public function __construct()
     {
         $this->task = new Task();
         $this->unit = new Unit();
+        $this->emp = new Employee();
         $this->department = new Department();
         $this->material = new InventoryItem();
         $this->task_material = new TaskMaterial();
@@ -122,6 +125,11 @@ class TaskService
 
     public function assign($data)
     {
+        $emp=$this->emp->find($data['emp_id']);
+        $unit= $this->unit->find($emp->unit_id);
+        $qty= $unit->use_space+1;
+
+        $this->unit->where('id',$emp->unit_id)->update(['use_space'=>$qty]);
         $this->task->where('id',$data['task_id'])->update([
             'start_date'=>$data['start_date'],
             'emp_id'=>$data['emp_id'],
@@ -131,6 +139,16 @@ class TaskService
 
     public function complete($data)
     {
+
+        $task= $this->task->find($data['task_id']);
+    
+        $emp=$this->emp->find($task->emp_id);
+
+        $unit= $this->unit->find($emp->unit_id);
+
+        $qty= $unit->use_space-1;
+
+        $this->unit->where('id',$emp->unit_id)->update(['use_space'=>$qty]);
 
         $this->task->where('id',$data['task_id'])->update([
             'end_date'=>$data['end_date'],

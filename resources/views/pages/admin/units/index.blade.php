@@ -56,7 +56,7 @@
                             </td>
                             <td>{{ $unit->department->name }}</td>
                             <td>{{ $unit->space }}</td>
-                            <td>{{ $unit->space-$unit->user_space }}</td>
+                            <td>{{ $unit->space - $unit->use_space }}</td>
                         </tr>
                     @endforeach
                 </tbody>
