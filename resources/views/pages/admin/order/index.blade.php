@@ -101,9 +101,9 @@
                                         </a>
                                         <hr>
                                         @endif
-                                        @if ($order->status == 2)
+                                        @if ($order->amount==$order->paid_amount)
                                         <a class="dropdown-item approve-order" href="javascript:void(0)"
-                                        class="btn btn-danger" 
+                                        class="btn btn-danger"
                                         onclick="approve('{{ route('admin.order.complete', $order->id) }}')">
                                         <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Complete
                                         </a>
