@@ -82,18 +82,22 @@
                                         </a>
 
                                         @if ($store->status == 1)
-                                        <hr>
-                                            <a class="dropdown-item delete-customer"
-                                                class="btn btn-danger" title=""
-                                                href="{{ route('admin.task.new', $store->id) }}">
-                                                <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Manage Task
-                                            </a>
+
                                             <hr>
                                             <a class="dropdown-item approve-order" href="javascript:void(0)"
                                             class="btn btn-danger"
                                             onclick="approve('{{ route('admin.product-store.complete', $store->id) }}')">
                                             <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Complete
                                             </a>
+                                        @endif
+                                        @if ($store->status == 1||$store->status == 2)
+                                        <hr>
+                                            <a class="dropdown-item delete-customer"
+                                                class="btn btn-danger" title=""
+                                                href="{{ route('admin.task.new', $store->id) }}">
+                                                <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Manage Task
+                                            </a>
+                                           
                                         @endif
                                     </div>
                                 </div>

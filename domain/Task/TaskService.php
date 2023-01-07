@@ -40,6 +40,13 @@ class TaskService
         return $this->task->orderBy('id', 'desc')->get();
     }
 
+       /**
+     * All task
+     */
+    public function allByOrder($id)
+    {
+        return $this->task->where('store_id',$id)->orderBy('id', 'desc')->get();
+    }
         /**
      * All task
      */

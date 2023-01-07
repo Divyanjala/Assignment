@@ -22,7 +22,7 @@ class TaskController extends Controller
     public function new($id)
     {
         $response['materials']=InventoryItemFacade::all();
-        $response['tasks']=TaskFacade::all();
+        $response['tasks']=TaskFacade::allByOrder($id);
         $response['store_id']=$id;
         return view('pages.admin.task.new')->with($response);
     }

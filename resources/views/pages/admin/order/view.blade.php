@@ -129,7 +129,7 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Product name </th>
                                                 <th scope="col">Qty</th>
-                                                <th scope="col">Amount</th>
+                                       
                                                 <th scope="col">Status</th>
                                             </tr>
                                         </thead>
@@ -139,7 +139,7 @@
                                                     <td>{{ $key }}</td>
                                                     <td>{{ $item->product->name }} </td>
                                                     <td>{{ $item->qty }}</td>
-                                                    <td><b>$ </b>{{ number_format($item->amount, 2, '.', ',') }}</td>
+
                                                     <td>
                                                         @switch($item->status)
                                                             @case(0)
@@ -148,6 +148,9 @@
 
                                                             @case(1)
                                                                 <span class="badge badge-pill badge-primary">Approved</span>
+                                                            @break
+                                                            @case(2)
+                                                            <span class="badge badge-pill badge-success">Manufactured</span>
                                                             @break
                                                         @endswitch
                                                     </td>
@@ -215,5 +218,5 @@
         </div>
 
     </div>
-  
+
 @endsection
