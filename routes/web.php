@@ -66,6 +66,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/order/store', [AOC::class, "store"])->name('admin.order.store');
     Route::get('/order/add/store/{id}', [AOC::class, "addStore"])->name('admin.order.add-store');
     Route::get('/order/approve/{id}', [AOC::class, "approveOrder"])->name('admin.order.approve');
+    Route::get('/order/complete/{id}', [AOC::class, "completeOrder"])->name('admin.order.complete');
 
     Route::get('/task', [ATC::class, "index"])->name('admin.task');
     Route::get('/task/new/{id}', [ATC::class, "new"])->name('admin.task.new');

@@ -66,4 +66,10 @@ class OrderController extends Controller
         OrderFacade::approve($id);
          return redirect()->route('admin.order')->with('alert-success', 'Order Approved Successfully');;
     }
+
+    public function completeOrder($id)
+    {
+        OrderFacade::update($id,3);
+         return redirect()->route('admin.order')->with('alert-success', 'Order Completed Successfully');;
+    }
 }
