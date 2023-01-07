@@ -43,7 +43,7 @@
                         <td>
                             @switch($user->user_role)
                             @case(0)
-                              <span class="badge badge-pill badge-primary">USER</span>
+                              <span class="badge badge-pill badge-primary">DEPARTMENT HEAD</span>
                             @break
                             @case(1)
                                <span class="badge badge-pill badge-primary">ADMIN</span>

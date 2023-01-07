@@ -54,7 +54,7 @@
                                     <label for="user_role"><b>User Role</b></label>
                                     <select class="form-control" id="user_role" name="user_role">
                                         <option value="1">Admin</option>
-                                        <option value="0">User</option>
+                                        <option value="0">Deaprtment Head</option>
                                         <option value="2">Supervisor</option>
                                     </select>
                                 </div>
