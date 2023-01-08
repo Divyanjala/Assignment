@@ -15,4 +15,9 @@ class Task extends Model
         'task_code','start_date','end_date','emp_id',
         'ast_time','task_status','store_id'
     ];
+
+    public function emp()
+    {
+        return $this->belongsTo(Employee::class, 'emp_id');
+    }
 }

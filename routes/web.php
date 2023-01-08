@@ -84,6 +84,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/task/store', [ATC::class, "store"])->name('admin.task.store');
     Route::post('/task/assign', [ATC::class, "assign"])->name('admin.task.assign');
     Route::post('/task/complete', [ATC::class, "complete"])->name('admin.task.complete');
+    Route::get('/task/view/{id}', [ATC::class, "view"])->name('admin.task.view');
 
     Route::get('/payment/new/{id}', [APYC::class, "new"])->name('admin.payment.new');
     Route::post('/payment/store', [APYC::class, "store"])->name('admin.payment.store');

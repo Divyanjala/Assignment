@@ -27,6 +27,11 @@ class TaskController extends ParentController
         return view('pages.admin.task.new')->with($response);
     }
 
+    public function view($id)
+    {
+        $response['task']=TaskFacade::get($id);
+        return view('pages.admin.task.view')->with($response);
+    }
     public function store(Request $request)
     {
         TaskFacade::make($request->all());

@@ -73,7 +73,7 @@
                                                   </a>
                                                   <hr>
                                                 @endif
-                                                <a class="dropdown-item edit-product" href="javaScript.void(0)"
+                                                <a class="dropdown-item edit-product"  href="{{ route('admin.task.view', $task->id) }}"
                                                 class="btn btn-warning" >
                                                 <i class="fas fa-eye text-info"></i>&nbsp;View
                                                   </a>
