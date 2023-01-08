@@ -99,7 +99,7 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/income-report', [IRC::class, "index"])->name('admin.income-report');
 
-    Route::get('/available-space', [src::class, "getAvailableSpaces"])->name('available-space');
+    Route::get('/available-space', [src::class, "getAvailableSpaces"])->name('admin.available-space');
 });
 
 Route::prefix('/user')->group(function () {
