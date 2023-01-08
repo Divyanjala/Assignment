@@ -32,6 +32,8 @@
     <!-- Datatables JS -->
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
+    <script src="js/table2excelv2.js"></script>
+
     <script type='text/javascript'>
         $(document).ready(function() {
 

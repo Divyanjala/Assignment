@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PaymentController as APYC;
 use App\Http\Controllers\Admin\UserController as AUC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 use App\Http\Controllers\Admin\IncomeReportController as IRC;
+use App\Http\Controllers\Admin\ScheduleReportController as SRC;
 
 use App\Http\Controllers\User\HomeController as UHC;
 
@@ -97,6 +98,8 @@ Route::prefix('/admin')->group(function () {
     Route::post('/units/store', [AHC::class, "store"])->name('admin.units.store');
 
     Route::get('/income-report', [IRC::class, "index"])->name('admin.income-report');
+
+    Route::get('/available-space', [src::class, "getAvailableSpaces"])->name('available-space');
 });
 
 Route::prefix('/user')->group(function () {

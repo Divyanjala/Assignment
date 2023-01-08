@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <div class="col-lg-6 col-7">
-                    <h6 class="h4 text-dark d-inline-block mb-0">Income Report</h6>
+                    <h6 class="h4 text-dark d-inline-block mb-0">Available Space Report</h6>
 
                 </div>
                 <div class="col-lg-4 text-right">
@@ -25,40 +25,28 @@
                 <thead class="thead-light">
                     <tr>
                         <th>ID</th>
-                        <th>Product</th>
-                        <th align="right">Unit price</th>
-                        <th>Qty</th>
-                        <th align="right">Amount</th>
+                        <th>Unit</th>
+                        <th align ="right">Space</th>
+                        <th align ="right">Space Use</th>
+                        <th align="right">Available</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $total = 0;
-                    @endphp
                     @foreach ($results as $key => $record)
-                        @php
-                            $total += $record->amount;
-                        @endphp
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $record->name }}</td>
-                            <td>{{ number_format($record->price, 2) }}</td>
-                            <td>{{ $record->qty }}</td>
-                            <td>{{ number_format($record->amount, 2) }}</td>
+                            <td>{{ number_format($record->space , 2) }}</td>
+                            <td>{{ number_format($record->use_space , 2) }}</td>
+                            <td >{{ number_format($record->available , 2)}}</td>
                         </tr>
                     @endforeach
-                    <tr>
-                        <th align="center" colspan="4">Total</th>
-                        <th align="right">{{ number_format($total, 2) }}</th>
-                    </tr>
                 </tbody>
             </table>
             {{-- {{implode(" ",$results)}} --}}
         </div>
     </div>
 @endsection
-
-
 @section('js')
     <script>
         $(document).ready(function() {
@@ -72,7 +60,6 @@
                     "sEmptyTable": "No data available in the table"
                 }
             });
-
         });
 
         function importReport() {
@@ -80,7 +67,7 @@
                 // exclude CSS class
                 exclude: ".noExl",
                 name: "Worksheet Name",
-                filename: "income report", //do not include extension
+                filename: "space report", //do not include extension
                 fileext: ".xls" // file extension
             });
         }
