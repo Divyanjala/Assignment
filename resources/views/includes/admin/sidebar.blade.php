@@ -3,8 +3,8 @@
 
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-         <div class="sidebar-brand-icon rotate-n-15">
-             <i class="fas fa-laugh-wink"></i>
+         <div class="sidebar-brand-icon ">
+             <i class="fas fa-user"></i>
          </div>
          <div class="sidebar-brand-text mx-3">Admin </div>
      </a>
@@ -28,42 +28,33 @@
      </div>
 
      <!-- Nav Item - Pages Collapse Menu -->
-     <li class="nav-item {{ in_array($curr_url, ['admin.employee']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.employee') }}">
-             <i class="fas fa-fw fa-user-plus"></i>
-             <span>Employees</span>
-         </a>
-     </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.user']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.user') }}">
-             <i class="fas fa-fw fa-user-plus"></i>
-             <span>Users</span>
-         </a>
-     </li>
+
+
      <li class="nav-item {{ in_array($curr_url, ['admin.customer']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.customer') }}">
              <i class="fas fa-fw fa-users"></i>
              <span>Customers</span>
          </a>
      </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.product']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.product') }}">
-             <i class="fas fa-fw fa-truck"></i>
-             <span>Products</span>
+     <li class="nav-item {{ in_array($curr_url, ['admin.plant']) ? 'active' : '' }}">
+         <a class="nav-link collapsed" href="{{ route('admin.plant') }}">
+             <i class="fas fa-fw fa-tree"></i>
+             <span>Plants</span>
          </a>
      </li>
+     <li class="nav-item {{ in_array($curr_url, ['admin.plant']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('admin.plant') }}">
+            <i class="fas fa-fw fa-fish"></i>
+            <span>Fish</span>
+        </a>
+    </li>
      <li class="nav-item {{ in_array($curr_url, ['admin.order']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.order') }}">
              <i class="fas fa-fw fa-calendar"></i>
              <span>Orders</span>
          </a>
      </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.task']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.task') }}">
-             <i class="fas fa-fw fa-address-card"></i>
-             <span>Task</span>
-         </a>
-     </li>
+
      <!-- Heading -->
      <div class="sidebar-heading">
          Store
@@ -71,13 +62,13 @@
      <li class="nav-item {{ in_array($curr_url, ['admin.product-store']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.product-store') }}">
              <i class="fas fa-fw fa-shopping-bag"></i>
-             <span>Inventory</span>
+             <span>Fish Store</span>
          </a>
      </li>
      <li class="nav-item {{ in_array($curr_url, ['admin.material-store']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.material-store') }}">
              <i class="fas fa-fw fa-product-hunt"></i>
-             <span>Material Store</span>
+             <span>Plants Store</span>
          </a>
      </li>
      <!-- Nav Item - Pages Collapse Menu -->
@@ -97,35 +88,7 @@
                 <span>Income Report</span>
             </a>
         </li>
-        <li class="nav-item {{ in_array($curr_url, ['admin.available-space']) ? 'active' : '' }}">
-            <a class="nav-link collapsed" href="{{ route('admin.available-space') }}">
-                <i class="fas fa-fw fa-folder-open"></i>
-                <span>Available Space</span>
-            </a>
-        </li>
 
-
-     <div class="sidebar-heading">
-         Settings
-     </div>
-     <li class="nav-item {{ in_array($curr_url, ['admin.inventory-item']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.inventory-item') }}">
-             <i class="fas fa-fw fa-folder-open"></i>
-             <span>Material</span>
-         </a>
-     </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.department']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.department') }}">
-             <i class="fas fa-fw fa-home"></i>
-             <span>Department</span>
-         </a>
-     </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.units']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.units') }}">
-             <i class="fas fa-fw fa-database"></i>
-             <span>Workshop/Unit</span>
-         </a>
-     </li>
      <!-- Divider -->
      <hr class="sidebar-divider">
 

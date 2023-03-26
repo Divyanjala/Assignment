@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Lock Hood- Register</title>
+    <title>E-Aquascape- Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('theme/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -32,7 +32,7 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block">
-                        <img src="{{ asset('img/traffic-police-officer.jpg')}}" alt="" width="400" height="560">
+                        <img src="{{ asset('img/aquascape-logo.avif')}}" alt="" width="400" height="560">
                     </div>
                     <div class="col-lg-7">
                         <x-auth-validation-errors style="color: red;" class="mb-4" :errors="$errors" />

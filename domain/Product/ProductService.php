@@ -65,7 +65,7 @@ class ProductService
         $data['status']=Store::STATUS['PENDING'];
 
         $product= $this->product->create($data);
-        $product= $this->product->where('id',$product->id)->update(['code'=>'PRO'.(string)$product->id]);
+        $product= $this->product->where('id',$product->id)->update(['code'=>'PLA'.(string)$product->id]);
         return $product;
     }
 
