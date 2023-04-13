@@ -20,6 +20,11 @@ use App\Http\Controllers\User\ProductController as UPC;
 use App\Http\Controllers\User\TaskController as UTC;
 use App\Http\Controllers\User\PaymentController as UPYC;
 
+use App\Http\Controllers\User\GrowthController as GTC;
+use App\Http\Controllers\User\DiseasesController as DTC;
+use App\Http\Controllers\User\HealthController as HTC;
+use App\Http\Controllers\User\TipsController as TTC;
+use App\Http\Controllers\User\TreatmentController as TRC;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -122,6 +127,21 @@ Route::prefix('/user')->group(function () {
 
     Route::get('/payment/new/{id}', [UPYC::class, "new"])->name('user.payment.new');
     Route::post('/payment/store', [UPYC::class, "store"])->name('user.payment.store');
+
+
+    Route::get('/growth', [GTC::class, "index"])->name('user.growth');
+
+
+    Route::get('/health', [HTC::class, "index"])->name('user.health');
+
+
+    Route::get('/diseases', [DTC::class, "index"])->name('user.diseases');
+
+
+    Route::get('/tips', [TTC::class, "index"])->name('user.tips');
+
+    
+    Route::get('/treatment', [TRC::class, "index"])->name('user.treatment');
 });
 
 

@@ -28,20 +28,20 @@
     </div>
 
 
-   <li class="nav-item {{ in_array($curr_url, ['user.product']) ? 'active' : '' }}">
-       <a class="nav-link collapsed"  href="{{ route('user.product') }}" >
+   <li class="nav-item {{ in_array($curr_url, ['user.growth']) ? 'active' : '' }}">
+       <a class="nav-link collapsed"  href="{{ route('user.growth') }}" >
            <i class="fa fa-line-chart"></i>
            <span>Growth Rate</span>
        </a>
    </li>
-   <li class="nav-item {{ in_array($curr_url, ['user.order']) ? 'active' : '' }}">
-       <a class="nav-link collapsed"  href="{{ route('user.order') }}" >
+   <li class="nav-item {{ in_array($curr_url, ['user.health']) ? 'active' : '' }}">
+       <a class="nav-link collapsed"  href="{{ route('user.health') }}" >
            <i class="fa fa-heartbeat"></i>
            <span>Health Plan</span>
        </a>
    </li>
-   <li class="nav-item {{ in_array($curr_url, ['user.task']) ? 'active' : '' }}">
-       <a class="nav-link collapsed"  href="{{ route('user.task') }}" >
+   <li class="nav-item {{ in_array($curr_url, ['user.diseases']) ? 'active' : '' }}">
+       <a class="nav-link collapsed"  href="{{ route('user.diseases') }}" >
            <i class="fa fa-dashcube"></i>
            <span>Diseases</span>
        </a>
@@ -50,14 +50,14 @@
     <div class="sidebar-heading">
        Other
    </div>
-   <li class="nav-item {{ in_array($curr_url, ['user.product-store']) ? 'active' : '' }}">
-       <a class="nav-link collapsed"  href="{{ route('user.product-store') }}" >
+   <li class="nav-item {{ in_array($curr_url, ['user.treatment']) ? 'active' : '' }}">
+       <a class="nav-link collapsed"  href="{{ route('user.treatment') }}" >
            <i class="fas fa fa-plus-square"></i>
            <span>Treatment</span>
        </a>
    </li>
-   <li class="nav-item {{ in_array($curr_url, ['user.material-store']) ? 'active' : '' }}">
-       <a class="nav-link collapsed"  href="{{ route('user.material-store') }}" >
+   <li class="nav-item {{ in_array($curr_url, ['user.tips']) ? 'active' : '' }}">
+       <a class="nav-link collapsed"  href="{{ route('user.tips') }}" >
            <i class="fas fa fa-certificate"></i>
            <span>Aquascape Tips</span>
        </a>
