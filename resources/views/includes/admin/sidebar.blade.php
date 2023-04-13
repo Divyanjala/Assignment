@@ -3,8 +3,8 @@
 
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-         <div class="sidebar-brand-icon rotate-n-15">
-             <i class="fas fa-laugh-wink"></i>
+         <div class="sidebar-brand-icon ">
+             <i class="fas fa-user"></i>
          </div>
          <div class="sidebar-brand-text mx-3">Admin </div>
      </a>
@@ -43,10 +43,16 @@
      </li>
      <li class="nav-item {{ in_array($curr_url, ['admin.plant']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.plant') }}">
-             <i class="fas fa-fw fa-truck"></i>
+             <i class="fas fa-fw fa-tree"></i>
              <span>Plants</span>
          </a>
      </li>
+     <li class="nav-item {{ in_array($curr_url, ['admin.plant']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('admin.plant') }}">
+            <i class="fas fa-fw fa-fish"></i>
+            <span>Fish</span>
+        </a>
+    </li>
      <li class="nav-item {{ in_array($curr_url, ['admin.order']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.order') }}">
              <i class="fas fa-fw fa-calendar"></i>
@@ -61,13 +67,13 @@
      <li class="nav-item {{ in_array($curr_url, ['admin.product-store']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.product-store') }}">
              <i class="fas fa-fw fa-shopping-bag"></i>
-             <span>Inventory</span>
+             <span>Fish Store</span>
          </a>
      </li>
      <li class="nav-item {{ in_array($curr_url, ['admin.material-store']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.material-store') }}">
              <i class="fas fa-fw fa-product-hunt"></i>
-             <span>Material Store</span>
+             <span>Plants Store</span>
          </a>
      </li>
      <!-- Nav Item - Pages Collapse Menu -->
@@ -87,7 +93,6 @@
                 <span>Income Report</span>
             </a>
         </li>
-    
      <!-- Divider -->
      <hr class="sidebar-divider">
 

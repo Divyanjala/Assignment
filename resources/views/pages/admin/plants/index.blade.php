@@ -29,8 +29,7 @@
                         <th>Code</th>
                         <th>Price</th>
                         <th>Created At</th>
-                        <th>Approved By</th>
-                        <th>Status</th>
+
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -55,6 +54,9 @@
                                     @break
                                 @endswitch
                             </td>
+                            <td><b>$ </b>{{ number_format($plant->price, 2, '.', ',') }}</td>
+                            <td>{{ $plant->created_at }}</td>
+
                             <td>
                                 <div class="dropdown no-arrow mb-1">
                                     <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
