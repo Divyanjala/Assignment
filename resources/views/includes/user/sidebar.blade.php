@@ -3,10 +3,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            <img src="{{ asset('img/aquascape-logo.avif')}}" alt="" width="30" height="30">
         </div>
-        <div class="sidebar-brand-text mx-3">User </div>
+        <div class="sidebar-brand-text mx-3">E-Aquascape </div>
     </a>
 
     <!-- Divider -->
@@ -27,39 +27,39 @@
         Interface
     </div>
 
-  
+
    <li class="nav-item {{ in_array($curr_url, ['user.product']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.product') }}" >
-           <i class="fas fa-fw fa-truck"></i>
-           <span>Products</span>
+           <i class="fa fa-line-chart"></i>
+           <span>Growth Rate</span>
        </a>
    </li>
    <li class="nav-item {{ in_array($curr_url, ['user.order']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.order') }}" >
-           <i class="fas fa-fw fa-calendar"></i>
-           <span>Orders</span>
+           <i class="fa fa-heartbeat"></i>
+           <span>Health Plan</span>
        </a>
    </li>
    <li class="nav-item {{ in_array($curr_url, ['user.task']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.task') }}" >
-           <i class="fas fa-fw fa-address-card"></i>
-           <span>Task</span>
+           <i class="fa fa-dashcube"></i>
+           <span>Diseases</span>
        </a>
    </li>
     <!-- Heading -->
     <div class="sidebar-heading">
-       Store
+       Other
    </div>
    <li class="nav-item {{ in_array($curr_url, ['user.product-store']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.product-store') }}" >
-           <i class="fas fa-fw fa-shopping-bag"></i>
-           <span>Inventory</span>
+           <i class="fas fa fa-plus-square"></i>
+           <span>Treatment</span>
        </a>
    </li>
    <li class="nav-item {{ in_array($curr_url, ['user.material-store']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.material-store') }}" >
-           <i class="fas fa-fw fa-product-hunt"></i>
-           <span>Material Store</span>
+           <i class="fas fa fa-certificate"></i>
+           <span>Aquascape Tips</span>
        </a>
    </li>
 
