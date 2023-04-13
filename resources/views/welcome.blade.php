@@ -6,7 +6,7 @@
 <head>
 
     <!-- Basic -->
-    <title>lOCK HOOD HOME</title>
+    <title>E-Aquascape HOME</title>
 
     <!-- Define Charset -->
     <meta charset="utf-8">
@@ -58,7 +58,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-- End Toggle Nav Link For Mobiles -->
-                    <a class="navbar-brand" href="index.html">LOCK HOOD</a>
+                    <a class="navbar-brand" href="index.html">E-AQUASCAPE</a>
                 </div>
                 <div class="navbar-collapse collapse">
 
@@ -75,12 +75,12 @@
                                 <a href="{{ route('login') }}"
                                     class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
                             </li>
-                            {{-- @if (Route::has('register'))
+                            @if (Route::has('register'))
                                 <li>
                                     <a href="{{ route('register') }}"
                                         class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                                 </li>
-                            @endif --}}
+                            @endif
                         @endauth
 
 
@@ -99,7 +99,7 @@
         <div class="overlay">
             <div class="container">
                 <div class="intro-text">
-                    <h1>Welcome To The <span>LOCK HOOD</span></h1>
+                    <h1>Welcome To The <span>AQUASCAPE</span></h1>
 
                 </div>
             </div>

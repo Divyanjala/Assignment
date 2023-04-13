@@ -2,12 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
-use App\Http\Controllers\Admin\EmployeeController as AEC;
 use App\Http\Controllers\Admin\CustomerController as ACC;
 use App\Http\Controllers\Admin\StoreController as ASC;
 use App\Http\Controllers\Admin\OrderController as AOC;
-use App\Http\Controllers\Admin\ProductController as APC;
-use App\Http\Controllers\Admin\TaskController as ATC;
+use App\Http\Controllers\Admin\PlantController as APC;
 use App\Http\Controllers\Admin\PaymentController as APYC;
 use App\Http\Controllers\Admin\UserController as AUC;
 use App\Http\Controllers\Admin\InventoryItemController as AIIC;
@@ -21,7 +19,6 @@ use App\Http\Controllers\User\OrderController as UOC;
 use App\Http\Controllers\User\ProductController as UPC;
 use App\Http\Controllers\User\TaskController as UTC;
 use App\Http\Controllers\User\PaymentController as UPYC;
-use App\Http\Controllers\User\InventoryItemController as UIIC;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,11 +36,6 @@ Route::get('/', function () {
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
     Route::get('/department', [AHC::class, "department"])->name('admin.department');
-
-    Route::get('/employee', [AEC::class, "index"])->name('admin.employee');
-    Route::get('/employee/new', [AEC::class, "new"])->name('admin.employee.new');
-    Route::post('/employee/store', [AEC::class, "store"])->name('admin.employee.store');
-    Route::get('/validate/email', [AEC::class, "validateEmail"])->name('admin.validate-email');
 
     Route::get('/customer', [ACC::class, "index"])->name('admin.customer');
     Route::get('/customer/new', [ACC::class, "new"])->name('admin.customer.new');
@@ -65,11 +57,11 @@ Route::prefix('/admin')->group(function () {
     Route::post('/material-store/store', [ASC::class, "createMaterialStore"])->name('admin.material-store.store');
     Route::get('/material-store/approve/{id}', [ASC::class, "approveMaterial"])->name('admin.material-store.approve');
 
-    Route::get('/product', [APC::class, "index"])->name('admin.product');
-    Route::get('/product/get', [APC::class, "getProduct"])->name('admin.product.get');
-    Route::get('/product/new', [APC::class, "new"])->name('admin.product.new');
-    Route::post('/product/store', [APC::class, "store"])->name('admin.product.store');
-    Route::get('/product/approve/{id}', [APC::class, "approveProduct"])->name('admin.product.approve');
+    Route::get('/plant', [APC::class, "index"])->name('admin.plant');
+    Route::get('/plant/get', [APC::class, "getPlant"])->name('admin.plant.get');
+    Route::get('/plant/new', [APC::class, "new"])->name('admin.plant.new');
+    Route::post('/plant/store', [APC::class, "store"])->name('admin.plant.store');
+    Route::get('/plant/approve/{id}', [APC::class, "approvePlant"])->name('admin.plant.approve');
 
     Route::get('/order', [AOC::class, "index"])->name('admin.order');
     Route::get('/order/new', [AOC::class, "new"])->name('admin.order.new');
@@ -79,12 +71,6 @@ Route::prefix('/admin')->group(function () {
     Route::get('/order/approve/{id}', [AOC::class, "approveOrder"])->name('admin.order.approve');
     Route::get('/order/complete/{id}', [AOC::class, "completeOrder"])->name('admin.order.complete');
 
-    Route::get('/task', [ATC::class, "index"])->name('admin.task');
-    Route::get('/task/new/{id}', [ATC::class, "new"])->name('admin.task.new');
-    Route::post('/task/store', [ATC::class, "store"])->name('admin.task.store');
-    Route::post('/task/assign', [ATC::class, "assign"])->name('admin.task.assign');
-    Route::post('/task/complete', [ATC::class, "complete"])->name('admin.task.complete');
-    Route::get('/task/view/{id}', [ATC::class, "view"])->name('admin.task.view');
 
     Route::get('/payment/new/{id}', [APYC::class, "new"])->name('admin.payment.new');
     Route::post('/payment/store', [APYC::class, "store"])->name('admin.payment.store');

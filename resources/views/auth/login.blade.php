@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Lock Hood - Login</title>
+    <title>E-Aquascape - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('theme/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -37,7 +37,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block ">
-                                <img src="{{ asset('img/security.jpeg')}}" alt="" width="400" height="500">
+                                <img src="{{ asset('img/aquascape-logo.avif')}}" alt="" width="400" height="500">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -74,7 +74,7 @@
                                     <div class="text-center">
                                         <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>

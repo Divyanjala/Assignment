@@ -4,12 +4,12 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <div class="col-lg-6 col-7">
-                    <h6 class="h4 text-dark d-inline-block mb-0">Product Management</h6>
+                    <h6 class="h4 text-dark d-inline-block mb-0">Plants Management</h6>
 
                 </div>
                 <div class="col-lg-4 text-right">
 
-                    <a href="{{ route('admin.product.new') }}" class=" btn btn-sm btn-primary float-right">
+                    <a href="{{ route('admin.plant.new') }}" class=" btn btn-sm btn-primary float-right">
                         <i class="fas fa-plus-circle"></i> Add New
                     </a>
                 </div>
@@ -25,7 +25,7 @@
                 <thead class="thead-light">
                     <tr>
                         <th>ID</th>
-                        <th>Product name</th>
+                        <th>Plant name</th>
                         <th>Code</th>
                         <th>Price</th>
                         <th>Created At</th>
@@ -35,17 +35,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $key => $product)
+                    @foreach ($plants as $key => $plant)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->code }}
+                            <td>{{ $plant->name }}</td>
+                            <td>{{ $plant->code }}
                             </td>
-                            <td><b>$ </b>{{ number_format($product->price, 2, '.', ',') }}</td>
-                            <td>{{ $product->created_at }}</td>
-                            <td>{{$product->approved_by?$product->approve->name:'-'}}</td>
+                            <td><b>$ </b>{{ number_format($plant->price, 2, '.', ',') }}</td>
+                            <td>{{ $plant->created_at }}</td>
+                            <td>{{$plant->approved_by?$plant->approve->name:'-'}}</td>
                             <td>
-                                @switch($product->status)
+                                @switch($plant->status)
                                     @case(0)
                                         <span class="badge badge-pill badge-danger">Pending</span>
                                     @break
@@ -64,10 +64,10 @@
                                     <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
                                         aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
                                         style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                        @if ($product->status == 0)
+                                        @if ($plant->status == 0)
                                             <a class="dropdown-item delete-customer" href="javascript:void(0)"
                                                 class="btn btn-danger" title=""
-                                                onclick="approve('{{ route('admin.product.approve', $product->id) }}')">
+                                                onclick="approve('{{ route('admin.plant.approve', $plant->id) }}')">
                                                 <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Approve
                                             </a>
                                         @endif
