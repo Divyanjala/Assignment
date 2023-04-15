@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InventoryItem extends Model
+class Plant extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'item_name','item_code',
-        'status','avg_qty','price'
+        'des','status','name','code','price'
     ];
+
+    public function approve()
+    {
+        return $this->belongsTo(User::class, 'approved_by');
+    }
 }

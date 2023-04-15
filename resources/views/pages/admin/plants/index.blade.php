@@ -29,7 +29,6 @@
                         <th>Code</th>
                         <th>Price</th>
                         <th>Created At</th>
-
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -41,20 +40,7 @@
                             <td>{{ $plant->code }}
                             </td>
                             <td><b>$ </b>{{ number_format($plant->price, 2, '.', ',') }}</td>
-                            <td>{{ $plant->created_at }}</td>
-                            <td>{{$plant->approved_by?$plant->approve->name:'-'}}</td>
-                            <td>
-                                @switch($plant->status)
-                                    @case(0)
-                                        <span class="badge badge-pill badge-danger">Pending</span>
-                                    @break
 
-                                    @case(1)
-                                        <span class="badge badge-pill badge-primary">Approve</span>
-                                    @break
-                                @endswitch
-                            </td>
-                            <td><b>$ </b>{{ number_format($plant->price, 2, '.', ',') }}</td>
                             <td>{{ $plant->created_at }}</td>
 
                             <td>
@@ -63,18 +49,7 @@
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-cog"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in"
-                                        aria-labelledby="dropdownMenuButton" x-placement="bottom-start"
-                                        style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                        @if ($plant->status == 0)
-                                            <a class="dropdown-item delete-customer" href="javascript:void(0)"
-                                                class="btn btn-danger" title=""
-                                                onclick="approve('{{ route('admin.plant.approve', $plant->id) }}')">
-                                                <i class="fas fa-check text-primary"></i>&nbsp;&nbsp;&nbsp;Approve
-                                            </a>
-                                        @endif
-
-                                    </div>
+                                 
                                 </div>
                             </td>
 

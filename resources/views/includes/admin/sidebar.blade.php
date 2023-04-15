@@ -35,12 +35,7 @@
              <span>Users</span>
          </a>
      </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.customer']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.customer') }}">
-             <i class="fas fa-fw fa-users"></i>
-             <span>Customers</span>
-         </a>
-     </li>
+
      <li class="nav-item {{ in_array($curr_url, ['admin.plant']) ? 'active' : '' }}">
          <a class="nav-link collapsed" href="{{ route('admin.plant') }}">
              <i class="fas fa-fw fa-tree"></i>
@@ -53,37 +48,8 @@
             <span>Fish</span>
         </a>
     </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.order']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.order') }}">
-             <i class="fas fa-fw fa-calendar"></i>
-             <span>Orders</span>
-         </a>
-     </li>
+    
 
-     <!-- Heading -->
-     <div class="sidebar-heading">
-         Store
-     </div>
-     <li class="nav-item {{ in_array($curr_url, ['admin.product-store']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.product-store') }}">
-             <i class="fas fa-fw fa-shopping-bag"></i>
-             <span>Fish Store</span>
-         </a>
-     </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.material-store']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.material-store') }}">
-             <i class="fas fa-fw fa-product-hunt"></i>
-             <span>Plants Store</span>
-         </a>
-     </li>
-     <!-- Nav Item - Pages Collapse Menu -->
-     {{-- <li class="nav-item {{ in_array($curr_url, ['admin.fine.all']) ? 'active' : '' }}">
-         <a class="nav-link collapsed" href="{{ route('admin.fine.all') }}">
-             <i class="fas fa-fw fa-file-lines"></i>
-             <span>Fine</span>
-         </a>
-
-     </li> --}}
      <div class="sidebar-heading">
          Reports
         </div>

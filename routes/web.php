@@ -2,15 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
-use App\Http\Controllers\Admin\CustomerController as ACC;
-use App\Http\Controllers\Admin\StoreController as ASC;
-use App\Http\Controllers\Admin\OrderController as AOC;
+
 use App\Http\Controllers\Admin\PlantController as APC;
-use App\Http\Controllers\Admin\PaymentController as APYC;
 use App\Http\Controllers\Admin\UserController as AUC;
-use App\Http\Controllers\Admin\InventoryItemController as AIIC;
 use App\Http\Controllers\Admin\IncomeReportController as IRC;
-use App\Http\Controllers\Admin\ScheduleReportController as SRC;
 
 use App\Http\Controllers\User\HomeController as UHC;
 
@@ -35,32 +30,12 @@ use App\Http\Controllers\User\TreatmentController as TRC;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix('/admin')->group(function () {
     Route::get('/dashboard', [AHC::class, "index"])->name('admin.dashboard');
-    Route::get('/department', [AHC::class, "department"])->name('admin.department');
-
-    Route::get('/customer', [ACC::class, "index"])->name('admin.customer');
-    Route::get('/customer/new', [ACC::class, "new"])->name('admin.customer.new');
-    Route::post('/customer/store', [ACC::class, "store"])->name('admin.customer.store');
-
-    Route::get('/inventoryItem', [AIIC::class, "index"])->name('admin.inventory-item');
-    Route::get('/inventoryItem/new', [AIIC::class, "new"])->name('admin.inventory-item.new');
-    Route::post('/inventoryItem/store', [AIIC::class, "store"])->name('admin.inventory-item.store');
-    Route::get('/inventoryItem/get', [AIIC::class, "getItem"])->name('admin.inventory-item.get');
-
-    Route::get('/product-store', [ASC::class, "productStore"])->name('admin.product-store');
-    Route::get('/product-store/new', [ASC::class, "newProductStore"])->name('admin.product-store.new');
-    Route::post('/product-store/store', [ASC::class, "createProductStore"])->name('admin.product-store.store');
-    Route::get('/product-store/approve/{id}', [ASC::class, "approveProductStore"])->name('admin.product-store.approve');
-    Route::get('/product-store/complete/{id}', [ASC::class, "completeStore"])->name('admin.product-store.complete');
-
-    Route::get('/material-store', [ASC::class, "materialStore"])->name('admin.material-store');
-    Route::get('/material-store/new', [ASC::class, "newMaterialStore"])->name('admin.material-store.new');
-    Route::post('/material-store/store', [ASC::class, "createMaterialStore"])->name('admin.material-store.store');
-    Route::get('/material-store/approve/{id}', [ASC::class, "approveMaterial"])->name('admin.material-store.approve');
 
     Route::get('/plant', [APC::class, "index"])->name('admin.plant');
     Route::get('/plant/get', [APC::class, "getPlant"])->name('admin.plant.get');
@@ -68,30 +43,12 @@ Route::prefix('/admin')->group(function () {
     Route::post('/plant/store', [APC::class, "store"])->name('admin.plant.store');
     Route::get('/plant/approve/{id}', [APC::class, "approvePlant"])->name('admin.plant.approve');
 
-    Route::get('/order', [AOC::class, "index"])->name('admin.order');
-    Route::get('/order/new', [AOC::class, "new"])->name('admin.order.new');
-    Route::get('/order/view/{id}', [AOC::class, "view"])->name('admin.order.view');
-    Route::post('/order/store', [AOC::class, "store"])->name('admin.order.store');
-    Route::get('/order/add/store/{id}', [AOC::class, "addStore"])->name('admin.order.add-store');
-    Route::get('/order/approve/{id}', [AOC::class, "approveOrder"])->name('admin.order.approve');
-    Route::get('/order/complete/{id}', [AOC::class, "completeOrder"])->name('admin.order.complete');
-
-
-    Route::get('/payment/new/{id}', [APYC::class, "new"])->name('admin.payment.new');
-    Route::post('/payment/store', [APYC::class, "store"])->name('admin.payment.store');
-
     Route::get('/user', [AUC::class, "index"])->name('admin.user');
     Route::get('/user/new', [AUC::class, "new"])->name('admin.user.new');
     Route::post('/user/store', [AUC::class, "store"])->name('admin.user.store');
     Route::get('/user/email', [AUC::class, "validateEmail"])->name('admin.validate-user');
 
-    Route::get('/units', [AHC::class, "units"])->name('admin.units');
-    Route::get('/units/new', [AHC::class, "new"])->name('admin.units.new');
-    Route::post('/units/store', [AHC::class, "store"])->name('admin.units.store');
-
     Route::get('/income-report', [IRC::class, "index"])->name('admin.income-report');
-
-    Route::get('/available-space', [src::class, "getAvailableSpaces"])->name('admin.available-space');
 });
 
 Route::prefix('/user')->group(function () {
@@ -130,6 +87,7 @@ Route::prefix('/user')->group(function () {
 
 
     Route::get('/growth', [GTC::class, "index"])->name('user.growth');
+    Route::get('/growth/rate', [GTC::class, "rate"])->name('user.growth.rate');
 
 
     Route::get('/health', [HTC::class, "index"])->name('user.health');
@@ -140,9 +98,9 @@ Route::prefix('/user')->group(function () {
 
     Route::get('/tips', [TTC::class, "index"])->name('user.tips');
 
-    
+
     Route::get('/treatment', [TRC::class, "index"])->name('user.treatment');
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

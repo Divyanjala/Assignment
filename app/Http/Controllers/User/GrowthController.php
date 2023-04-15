@@ -11,4 +11,9 @@ class GrowthController extends Controller
     {
         return view('pages.user.growth.index');
     }
+
+    public function rate()
+    {
+        return view('pages.user.growth.rate');
+    }
 }

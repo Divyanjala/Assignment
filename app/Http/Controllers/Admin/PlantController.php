@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use domain\Facades\ProductFacade;
+use domain\Facades\PlantFacade;
 use Illuminate\Http\Request;
 
 class PlantController extends ParentController
 {
     public function index()
     {
-       $response['plants']=ProductFacade::all();
+       $response['plants']=PlantFacade::all();
        return view('pages.admin.plants.index')->with($response);
     }
     public function new()
@@ -18,7 +18,7 @@ class PlantController extends ParentController
     }
     public function getProduct(Request $request)
     {
-       $product= ProductFacade::get($request->all()['id']);
+       $product= PlantFacade::get($request->all()['id']);
        return ['name'=>$product['name'],'price'=>$product['price']];
     }
        /**
@@ -29,13 +29,13 @@ class PlantController extends ParentController
      */
     public function store(Request $request)
     {
-        ProductFacade::make($request->all());
+        PlantFacade::make($request->all());
         return redirect()->route('admin.plant')->with('alert-success', 'Plant Added Successfully');
     }
 
     public function approvePlant($id)
     {
-        ProductFacade::approve($id);
+        PlantFacade::approve($id);
          return redirect()->route('admin.plant')->with('alert-success', 'Plant Approved Successfully');;
     }
 }

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-4 text-right">
 
-                    <a href="{{ route('user.product.new') }}" class=" btn btn-sm btn-primary float-right">
+                    <a href="{{ route('user.growth.rate') }}" class=" btn btn-sm btn-primary float-right">
                         <i class="fas fa-plus-circle"></i> Measure Growth
                     </a>
 
