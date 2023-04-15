@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController as AHC;
 
 use App\Http\Controllers\Admin\PlantController as APC;
+use App\Http\Controllers\Admin\FishController as AFC;
 use App\Http\Controllers\Admin\UserController as AUC;
 use App\Http\Controllers\Admin\IncomeReportController as IRC;
 
@@ -41,7 +42,12 @@ Route::prefix('/admin')->group(function () {
     Route::get('/plant/get', [APC::class, "getPlant"])->name('admin.plant.get');
     Route::get('/plant/new', [APC::class, "new"])->name('admin.plant.new');
     Route::post('/plant/store', [APC::class, "store"])->name('admin.plant.store');
-    Route::get('/plant/approve/{id}', [APC::class, "approvePlant"])->name('admin.plant.approve');
+
+    Route::get('/fish', [AFC::class, "index"])->name('admin.fish');
+    Route::get('/fish/get', [AFC::class, "getFish"])->name('admin.fish.get');
+    Route::get('/fish/new', [AFC::class, "new"])->name('admin.fish.new');
+    Route::post('/fish/store', [AFC::class, "store"])->name('admin.fish.store');
+
 
     Route::get('/user', [AUC::class, "index"])->name('admin.user');
     Route::get('/user/new', [AUC::class, "new"])->name('admin.user.new');

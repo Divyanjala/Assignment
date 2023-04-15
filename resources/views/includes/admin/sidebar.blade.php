@@ -42,13 +42,13 @@
              <span>Plants</span>
          </a>
      </li>
-     <li class="nav-item {{ in_array($curr_url, ['admin.plant']) ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="{{ route('admin.plant') }}">
+     <li class="nav-item {{ in_array($curr_url, ['admin.fish']) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="{{ route('admin.fish') }}">
             <i class="fas fa-fw fa-fish"></i>
             <span>Fish</span>
         </a>
     </li>
-    
+
 
      <div class="sidebar-heading">
          Reports
