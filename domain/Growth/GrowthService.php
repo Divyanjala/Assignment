@@ -3,6 +3,8 @@
 namespace domain\Growth;
 
 use App\Models\GrowthRate;
+use App\Models\Plant;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -13,9 +15,11 @@ use Illuminate\Support\Facades\Auth;
 class GrowthService
 {
     protected $growth;
+    protected $plants;
     public function __construct()
     {
         $this->growth = new GrowthRate();
+        $this->plants = new Plant();
     }
  /**
      * All fish
@@ -50,6 +54,54 @@ class GrowthService
     public function getGrowth($id)
     {
         return $this->growth->where('user_id',$id)->get();
+    }
+
+            /**
+     * All payment
+     */
+    public function chartdata()
+    {
+        $plants=$this->plants->get();
+
+        $collect=collect();
+
+        // return $arra
+        $startDate = Carbon::now(); //returns current day
+        $user_id=Auth::user()->id;
+        foreach ($plants as $plant) {
+            $array = [];
+
+            $firstDay = $startDate->format('Y-m-d');
+            $sum=$this->growth
+            ->where('plant_id',$plant->id)
+            ->where('user_id',$user_id)
+            ->where('date',$firstDay)->sum('height');
+            if ($sum!=0) {
+                array_push($array, $sum);
+            }
+
+
+            for ($i=1; $i <12 ; $i++) {
+                $firstDay = Carbon::now()->addDays($i)->format('Y-m-d');
+                $sum1=$this->growth
+                ->where('plant_id',$plant->id)
+                ->where('user_id',$user_id)
+                ->where('date',$firstDay)->sum('height');
+
+                if ($sum1!=0) {
+                    $sum=$sum1;
+                    array_push($array, $sum1);
+                }else{
+                    array_push($array, $sum);
+                }
+            }
+            if ($sum!=0) {
+                $collect->push($array);
+            }
+
+        }
+;
+        return $collect;
     }
 
 }
