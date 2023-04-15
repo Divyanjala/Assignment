@@ -56,6 +56,41 @@ class GrowthService
         return $this->growth->where('user_id',$id)->get();
     }
 
+    public function avarage()
+    {
+        $obj=[];
+        $plants=$this->plants->get();
+        foreach ($plants as $plant) {
+           $grow1= $this->growth
+           ->where('plant_id',$plant->id)
+            ->orderBy('date','ASC')
+           ->first();
+
+           $grow2= $this->growth
+           ->where('plant_id',$plant->id)
+            ->orderBy('date','DESC')
+           ->first();
+
+
+           if ($grow1) {
+            $diff =  Carbon::parse( $grow1->date )->diffInDays($grow2->date);
+            if ($grow1->date==$grow2->date) {
+                $diff =1;
+            }
+            $arr=array(
+                'plant' => $plant->name,
+                'diff' => $grow2->height/$diff,
+            );
+            array_push($obj, $arr);
+           }
+
+        }
+         return  $obj;
+
+    }
+
+
+
             /**
      * All payment
      */

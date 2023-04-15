@@ -20,6 +20,7 @@ class GrowthController extends Controller
         $response['plants']=PlantFacade::all();
         $response['rates']=GrowthFacade::getGrowth(Auth::user()->id);
         $response['chartdata']=GrowthFacade::chartdata();
+        $response['avarage']=GrowthFacade::avarage();
         return view('pages.user.growth.rate')->with($response);
     }
 

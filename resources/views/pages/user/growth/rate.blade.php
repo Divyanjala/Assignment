@@ -73,11 +73,8 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                             aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Daily</a>
+                            <a class="dropdown-item" href="#">Monthly</a>
                         </div>
                     </div>
                 </div>
@@ -89,12 +86,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-lg-4">
+        <div class="col-xl-4 col-lg-4 ">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Avarage</h6>
 
+                </div>
+                <div class="ml-2">
+                    <p><b>Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Avarage Rate(per day)</b></p>
+                    @foreach ($avarage as $item)
+                        <p>{{ $item['plant'] }}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{ $item['diff'] }} mm</p>
+                    @endforeach
                 </div>
 
             </div>
@@ -149,15 +152,16 @@
     <script>
         console.log(@json($chartdata).length);
         var colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
-		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D'];
+            '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D'
+        ];
         const data = @json($chartdata[0]);
         const data1 = @json($chartdata[1]);
         const obj = [];
-        var key=1;
+        var key = 1;
         @json($chartdata).forEach(rate => {
 
             const chart = {
-                label: "Plant "+key,
+                label: "Plant " + key,
                 lineTension: 0.3,
                 backgroundColor: "rgba(78, 115, 223, 0.05)",
                 borderColor: colorArray[key],
@@ -171,7 +175,7 @@
                 pointBorderWidth: 2,
                 data: rate,
             }
-            key=key+1;
+            key = key + 1;
             obj.push(chart);
         });
         $(document).ready(function() {
@@ -196,7 +200,7 @@
                 labels: ["1 day", "2 day", "3 day", "4 day", "5 day", "6 day", "7 day", "8 day", "9 day", "10 day",
                     "11 day"
                 ],
-                datasets:obj,
+                datasets: obj,
             },
             options: {
                 maintainAspectRatio: false,
