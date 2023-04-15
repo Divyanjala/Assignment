@@ -28,7 +28,7 @@
     </div>
 
 
-   <li class="nav-item {{ in_array($curr_url, ['user.growth']) ? 'active' : '' }}">
+   <li class="nav-item {{ in_array($curr_url, ['user.growth','user.growth.rate']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.growth') }}" >
            <i class="fa fa-line-chart"></i>
            <span>Growth Rate</span>

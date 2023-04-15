@@ -94,7 +94,7 @@ Route::prefix('/user')->group(function () {
 
     Route::get('/growth', [GTC::class, "index"])->name('user.growth');
     Route::get('/growth/rate', [GTC::class, "rate"])->name('user.growth.rate');
-
+    Route::post('/growth/store', [GTC::class, "store"])->name('user.growth.store');
 
     Route::get('/health', [HTC::class, "index"])->name('user.health');
 
