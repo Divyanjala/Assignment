@@ -90,11 +90,14 @@
                             <td>{{ $rate->height }} mm</td>
                             <td>
                                 <div class="dropdown no-arrow mb-1">
-                                    <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
+                                    {{-- <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-cog"></i>
-                                    </a>
-
+                                    </a> --}}
+                                    <a class="dropdown-item edit-product" href="{{ route('user.growth.delete', ['id'=>$rate->id]) }}" class="btn btn-warning"
+                                    title="">
+                                    <i class="fas fa-edit text-info"></i>&nbsp;Delete
+                                </a>
                                 </div>
                             </td>
 

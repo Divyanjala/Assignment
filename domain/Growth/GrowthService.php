@@ -139,4 +139,8 @@ class GrowthService
         return $collect;
     }
 
+    public function delete($id)
+    {
+        return $this->growth->where('id',$id)->delete();
+    }
 }

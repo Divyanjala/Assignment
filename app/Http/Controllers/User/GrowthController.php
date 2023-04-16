@@ -29,4 +29,10 @@ class GrowthController extends Controller
         GrowthFacade::make($request->all());
         return redirect()->route('user.growth.rate')->with('alert-success', 'Growth Deatils Added Successfully');
     }
+
+    public function delete($id)
+    {
+        GrowthFacade::delete($id);
+         return redirect()->route('user.growth.rate')->with('alert-success', 'Growth Deatils Deleted Successfully');;
+    }
 }
