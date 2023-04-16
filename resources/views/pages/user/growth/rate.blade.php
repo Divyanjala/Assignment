@@ -20,45 +20,8 @@
 @endsection
 
 @section('content')
-    <div class="card border-0 shadow">
-        <div class="table-responsive p-4">
-            <table id="employees" class="table align-items-center table-flush">
-                <thead class="thead-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Plant name</th>
-                        <th>Plant Code</th>
-                        <th>Date</th>
-                        <th>Height</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($rates as $key => $rate)
-                        <tr>
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $rate->plant->name }}</td>
-                            <td>{{ $rate->plant->code }}</td>
-                            <td>{{ $rate->date }}</td>
-                            <td>{{ $rate->height }} mm</td>
-                            <td>
-                                <div class="dropdown no-arrow mb-1">
-                                    <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-cog"></i>
-                                    </a>
 
-                                </div>
-                            </td>
-
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="row mt-4">
+    <div class="row">
 
         <!-- Area Chart -->
         <div class="col-xl-8 col-lg-7">
@@ -96,7 +59,7 @@
                 <div class="ml-2">
                     <p><b>Name</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Avarage Rate(per day)</b></p>
                     @foreach ($avarage as $item)
-                        <p>{{ $item['plant'] }}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{ $item['diff'] }} mm</p>
+                        <p>{{ $item['plant'] }}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{ round($item['diff'] ,2)  }} mm</p>
                     @endforeach
                 </div>
 
@@ -104,6 +67,44 @@
         </div>
 
     </div>
+    <div class="card border-0 shadow  mt-4">
+        <div class="table-responsive p-4">
+            <table id="employees" class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Plant name</th>
+                        <th>Plant Code</th>
+                        <th>Date</th>
+                        <th>Height</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($rates as $key => $rate)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $rate->plant->name }}</td>
+                            <td>{{ $rate->plant->code }}</td>
+                            <td>{{ $rate->date }}</td>
+                            <td>{{ $rate->height }} mm</td>
+                            <td>
+                                <div class="dropdown no-arrow mb-1">
+                                    <a class="btn btn-sm btn-icon-only text-dark" href="#" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-cog"></i>
+                                    </a>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
