@@ -159,7 +159,6 @@
             '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D'
         ];
         const data = @json($chartdata[0]);
-        const data1 = @json($chartdata[1]);
         const obj = [];
         var key = 1;
         @json($chartdata).forEach(rate => {
