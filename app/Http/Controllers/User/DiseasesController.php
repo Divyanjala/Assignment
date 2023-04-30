@@ -11,4 +11,14 @@ class DiseasesController extends Controller
     {
         return view('pages.user.diseases.index');
     }
+
+    public function plant()
+    {
+        return view('pages.user.diseases.plant');
+    }
+    
+    public function fish()
+    {
+        return view('pages.user.diseases.fish');
+    }
 }

@@ -101,6 +101,8 @@ Route::prefix('/user')->group(function () {
 
 
     Route::get('/diseases', [DTC::class, "index"])->name('user.diseases');
+    Route::get('/diseases/plant', [DTC::class, "plant"])->name('user.diseases.plant');
+    Route::get('/diseases/fish', [DTC::class, "fish"])->name('user.diseases.fish');
 
 
     Route::get('/tips', [TTC::class, "index"])->name('user.tips');

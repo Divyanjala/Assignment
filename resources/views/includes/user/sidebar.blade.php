@@ -40,12 +40,21 @@
            <span>Health Plan</span>
        </a>
    </li>
-   <li class="nav-item {{ in_array($curr_url, ['user.diseases']) ? 'active' : '' }}">
-       <a class="nav-link collapsed"  href="{{ route('user.diseases') }}" >
+   <div class="sidebar-heading">
+    Diseases
+   </div>
+   <li class="nav-item {{ in_array($curr_url, ['user.diseases.fish']) ? 'active' : '' }}">
+       <a class="nav-link collapsed"  href="{{ route('user.diseases.fish') }}" >
            <i class="fa fa-dashcube"></i>
-           <span>Diseases</span>
+           <span>Fish Diseases</span>
        </a>
    </li>
+   <li class="nav-item {{ in_array($curr_url, ['user.diseases.plant']) ? 'active' : '' }}">
+    <a class="nav-link collapsed"  href="{{ route('user.diseases.plant') }}" >
+        <i class="fa fa-dashcube"></i>
+        <span>Plant Diseases</span>
+    </a>
+</li>
     <!-- Heading -->
     <div class="sidebar-heading">
        Other
