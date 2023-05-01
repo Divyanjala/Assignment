@@ -3,6 +3,7 @@
 namespace domain\Growth;
 
 use App\Models\GrowthRate;
+use App\Models\HealthPlan;
 use App\Models\Plant;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -16,10 +17,12 @@ class GrowthService
 {
     protected $growth;
     protected $plants;
+    protected $plan;
     public function __construct()
     {
         $this->growth = new GrowthRate();
         $this->plants = new Plant();
+        $this->plan = new HealthPlan();
     }
  /**
      * All fish
@@ -29,6 +32,10 @@ class GrowthService
         return $this->growth->orderBy('id', 'desc')->get();
     }
 
+    public function allPlane($id)
+    {
+        return $this->plan->orderBy('id', 'desc')->where('user_id',$id)->get();
+    }
 
     /**
      * get order
@@ -48,6 +55,18 @@ class GrowthService
     {
         $data['user_id']=Auth::user()->id;
         $fish= $this->growth->create($data);
+        return $fish;
+    }
+
+        /**
+     * Make item Array
+     * @param array $data
+     * @return mixed
+     */
+    public function makeHealth($data)
+    {
+        $data['user_id']=Auth::user()->id;
+        $fish= $this->plan->create($data);
         return $fish;
     }
 
@@ -143,4 +162,6 @@ class GrowthService
     {
         return $this->growth->where('id',$id)->delete();
     }
+
+
 }

@@ -34,7 +34,7 @@
            <span>Growth Rate</span>
        </a>
    </li>
-   <li class="nav-item {{ in_array($curr_url, ['user.health']) ? 'active' : '' }}">
+   <li class="nav-item {{ in_array($curr_url, ['user.health','user.health.shedule']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.health') }}" >
            <i class="fa fa-heartbeat"></i>
            <span>Health Plan</span>

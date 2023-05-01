@@ -9,9 +9,10 @@
                 </div>
                 <div class="col-lg-4 text-right">
 
-                    {{-- <a href="{{ route('user.product.new') }}" class=" btn btn-sm btn-primary float-right">
-                        <i class="fas fa-plus-circle"></i> Add New
-                    </a> --}}
+                    <a href="{{ route('user.health.shedule') }}" class=" btn btn-sm btn-primary float-right">
+                        <i class="fas fa-plus-circle"></i> Health shedule
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -77,7 +78,7 @@
                 2. Clean pipes, lily pipes and any other equipment inside/outside your tank. Presentation is everything!
             </p>
             <video controls autoplay height="600" width="900">
-                <source src="{{ asset('video/Aquascaping Maintenance at Aquarium Gardens.mp4') }}" type="video/mp4">
+                {{-- <source src="{{ asset('video/Aquascaping Maintenance at Aquarium Gardens.mp4') }}" type="video/mp4" > --}}
 
               </video>
             <div>
