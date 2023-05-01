@@ -10,7 +10,7 @@
                 <div class="col-lg-4 text-right">
 
                     <a href="{{ route('user.growth.rate') }}" class=" btn btn-sm btn-primary float-right">
-                        <i class="fas fa-plus-circle"></i> Measure Plant
+                        <i class="fas fa-plus-circle"></i> Check Plant diseases
                     </a>
 
                 </div>
@@ -21,149 +21,216 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8">
-            <h1>How to Measure Growth Rate of Plants</h1>
-            <p style="color: black">Measuring plant growth is a very simple procedure that can be done quickly. Whether you
-                want to know
-                how quickly your house plants are growing or need to calculate growth rate of lab specimens, you can
-                do so with minimal effort. You only need a few simple supplies and a bit of time to track the
-                plant’s growth rate.</p>
+        <div class="col-md-10">
+            <h1>Most Common Aquarium Plant Problems</h1>
+            <p style="color: black">There are a range of potential plant problems. Some of which are easy to treat, whereas
+                others may be costly and difficult to treat.</p>
+
+            <p style="color: black">
+                To make it easier for you, we have made a list of common plant symptoms and along with a diagnosis.
+                Like any other living organisms, aquarium plants become susceptible to disease. In aquarium condition,
+                diseases may occur due to many reasons such as inappropriate maintenance of aquarium, improper supply of
+                nutrient substrates; lack of lighting, composition of water, its temperature etc lead to diseases of plants.
+                To make your aquarium plants disease free, it is necessary to use balanced fertilizers. In aquarium
+                condition, nutrient substances influence the growth of plants. In this case, pH plays great role than
+                fertilizers to keep your plants healthy. Besides these, the chemical composition of water, temperature,
+                lighting, quality and quantity of substrates, fertilizers, the presence of parasites of animal origin etc
+                factors adversely affect on your aquarium plants.
+            </p>
+            <div class="d-block mb-2">
+                <a type="button" class="btn btn-success mt-2" href="#Infections">Infections</a>
+                <a type="button" class="btn btn-success mt-2" href="#Growth">Growth and Development</a>
+                <a type="button" class="btn btn-success mt-2" href="#Discoloration">Discoloration</a>
+                <a type="button" class="btn btn-success mt-2" href="#Conditions">Tank & Water Conditions</a>
+                <a type="button" class="btn btn-success mt-2" href="#Roots">Roots and Stems</a>
+
+            </div>
         </div>
 
-        <div class="card col-md-9 ">
-            <h2>Measuring Plant Height</h2>
+        <div class="card col-md-9 " id="Infections">
+            <h2>Infections</h2>
 
             <div class="image">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-1-Version-2.jpg.jpeg') }}"
-                    alt="">
+                <img src="{{ asset('img/Overgrown-algae-aquarium_Madhourse_shutterstock.webp') }}" alt=""
+                    width="300" height="200">
             </div>
-            <h5 style="color: black">
-                <span><b>1. </b></span>
-                <b>Set the ruler at the base of the plant.</b> Smaller plants can be measured with a ruler, while taller
-                plants may
-                require a measuring tape, yardstick, or meter stick. Make sure that the ruler begins at zero on the bottom
+
+
+            <h4 class="mt-4"><b>Symptoms of Infections</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                White, fluffy growths on the plant. The small fur-like growths can be long or short. The growths may take on
+                a white and grey appearance due to trapped dirt. Stringlike webbing may be visible around the plant.
             </h5>
-            <u>
-                <li>If you are measuring a plant in a pot, the ruler should begin at ground level.</li>
-            </u>
-            <div class="image">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-2-Version-2.jpg.jpeg') }}"
-                    alt="">
-            </div>
-            <h5 style="color: black">
-                <span><b>2. </b></span>
-                <b>Record the height of the plant.</b> You will want to measure the plant from its base to its highest
-                point. Write this down in a chart with both the date and the height recorded. Repeat every two to three
-                days.
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                This is a fungal or bacterial infection. The plant should be moved to a quarantine tank and treated. Fungal
+                and bacterial infections spread rapidly from plant to plant. These infections present themselves in an
+                aquarium from newly added infected fish or plants. Sometimes unclean water conditions are a factor.
             </h5>
-            <div class="image mt-2">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plan.jpeg') }}" alt="">
-            </div>
-            <h5 style="color: black">
-                <span><b>3. </b></span>
-                <b>Calculate the average using the growth rate formula.</b>
-                You can see the average daily growth rate by taking the
-                change in size and dividing it by the amount of time it has been growing.
-            </h5>
-            <u>
-                <li>The equation for the growth rate formula is
-                    <b>(S2-S1)/T</b> where S1=first measurement, S2=second measurement, and T equals the number of days between
-                    each.</li>
-                <li>
-                    This is an extremely general figure. Plant growth rate is extremely fluid and can be subject to major
-                    variations day by day. Currently, there is no way to accurately predict exact daily growth rate without
-                    the use of sophisticated laboratory equipment.
-                </li>
-            </u>
         </div>
 
-        <div class="card col-md-9 mt-4">
-            <h2>Judging Leaf Size</h2>
+        <div class="card col-md-9 mt-4" id="Growth">
+            <h2>Growth and Development</h2>
 
             <div class="image">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-4-Version-2.jpg.jpeg') }}"
-                    alt="">
+                <img src="{{ asset('img/Overgrown-algae-aquarium_Madhourse_shutterstock.webp') }}" alt=""
+                    width="300" height="200">
             </div>
+
+
+            <h4 class="mt-4"><b>Symptoms</b></h4>
+
             <h5 style="color: black" class="mt-4">
-                <span><b>1. </b></span>
-                <b>Create a chart.</b> Your chart should have rows for each date that you measure your leaves. The columns should
-                be labeled “number of leaves,” “average length,” and “average width.” You should check your leaves every two
-                to three days.
+                The plant is not growing. Slow to no growth has presented itself since buying the aquatic plant. A few
+                leaves may look discoloured or wilted.
             </h5>
 
-            <div class="image mt-4">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-5-Version-2.jpg.jpeg') }}"
-                    alt="">
-            </div>
+            <h4 class="mt-4"><b>Diagnosis:</b></h4>
+
             <h5 style="color: black" class="mt-4">
-                <span><b>2. </b></span>
-                <b>Count the leaves on your plant.</b> Be extremely thoroughly, but make sure you do not count the same leaves
-                twice. Include new leaf tips and sprouts in your count. Record the number of leaves down in your chart.
+                It can be from a deficiency in either CO2, poor lighting, or a lack of nutrients in the water. Researching
+                and supplying the plants with their ideal growth requirements will grow your plant out. However, some plants
+                naturally grow at a slow rate and are not a cause of concern.
             </h5>
-            <div class="image mt-4">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-6-Version-2.jpg.jpeg') }}"
-                    alt="">
-            </div>
+
+            <h4 class="mt-4"><b>Symptoms</b></h4>
+
             <h5 style="color: black" class="mt-4">
-                <span><b>3. </b></span>
-                <b>Mark the length and width.</b> Choose a random sampling of four or five leaves. Hold the ruler from the bottom
-                to the tip of the leaf. Add up the measurements, and divide by the number of measurements you took. (For
-                example, if you measured by five leaves, divide by five). This is the average leaf length for that day.
-                Record this down in your chart.
+                The plant has brittle leaves that look wilted and dried out despite the plants being surrounded by water.
             </h5>
-            <u>
-                <li>Repeat this process to find the width of the leaves. Measure the leaves at their widest part.</li>
-                <li>Be as specific as possible; get the measurement down to centimeters and millimeters if you can.</li>
-            </u>
-            <div class="image mt-4">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-7-Version-2.jpg (1).jpeg') }}"
-                    alt="">
-            </div>
+
+            <h4 class="mt-4"><b>Diagnosis:</b></h4>
+
             <h5 style="color: black" class="mt-4">
-                <span><b>4. </b></span>
-                <b>Trace your plant's leaves on grid paper.</b> Keeping the leaf on the plant, draw around the leaf on grid paper.
-                The grid should have squares that are one inch in area. Count the number of squares covered to get the
-                surface area of each leaf.
+                The plant is lacking iron. Iron supplements should be given as fertilizer.
             </h5>
-            <div class="image mt-4">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-8-Version-2.jpg.jpeg') }}"
-                    alt="">
+
+        </div>
+
+
+        <div class="card col-md-9 " id="Discoloration">
+            <h2>Discoloration</h2>
+
+            <div class="image">
+                <img src="{{ asset('img/pond.webp') }}" alt="" width="300" height="200">
             </div>
+
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+
             <h5 style="color: black" class="mt-4">
-                <span><b>5. </b></span>
-                <b>Repeat measurements every two or three days.</b> Leaves can grow quickly. Check the size of your leaves every
-                few days to see how they are growing. You can use a modification of the growth rate formula for this
-                purpose.
+                The plant may begin developing brown or black leaves rapidly. The leaves will look wilted, and some will
+                look droopy. Healthy green plants that start developing discoloured leaves are an indication that something
+                is not right.
             </h5>
-            <u>
-                <li>You can calculate the leaf number growth rate. This modification of the growth rate formula will tell
-                    you how many leaves are approximately growing per day. The equation for this growth rate is
-                    <b>(L1 -L2/T)</b> where L1=first leaf count, L2=second leaf count, and T equals the number of days between
-                    each.</li>
-                <li>
-                    The leaf size formula is the same as the plant height formula. Instead of height, the variable is the
-                    surface area. The equation for the growth rate formula is
-                    <b>(S2-S1/T)</b> where S1=first surface area measurement, S2=second surface area measurement, and T equals the
-                    number of days between each.
-                </li>
-            </u>
-            <div class="image mt-4">
-                <img src="{{ asset('img/aid1375842-v4-728px-Measure-Growth-Rate-of-Plants-Step-9-Version-2.jpg.jpeg') }}"
-                    alt="">
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                High phosphate levels in an aquarium lead to dark and dying leaves.
+            </h5>
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                Flourishing green leaves start to turn yellow. The yellow may be in patches or the full leaf. Some browning
+                may be seen around the yellow.
+            </h5>
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+            <h5 style="color: black" class="mt-4">
+                The plant is receiving inadequate light levels. Yellow leaves are an indication of low lighting
+            </h5>
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+            <h5 style="color: black" class="mt-4">
+                The plant has multiple leaves turning an unusual grey color. This discoloration can be shown with spotting,
+                patches, or the entire leaf. The entire leaf may start to melt away.
+            </h5>
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+            <h5 style="color: black" class="mt-4">
+                The plant is receiving low amounts of CO2. Slowly increase the levels of co2 to help conquer this problem.
+            </h5>
+        </div>
+
+
+        <div class="card col-md-9 " id="Conditions">
+            <h2>Tank & Water Conditions</h2>
+
+            <div class="image">
+                <img src="{{ asset('img/rectangular-glass-aquarium_Oleksandr-Khalimonov_shutterstock.webp') }}"
+                    alt="" width="300" height="200">
             </div>
+
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+
             <h5 style="color: black" class="mt-4">
-                <span><b>6. </b></span>
-               <b> Create a growth template.</b> Once you have gathered a few weeks’ worth of leaf tracings, you can use those
-                shapes to create a template. Take a piece of paper or cardboard. Take the smallest tracing, and create a
-                circle roughly that size, starting from the bottom of the paper. Create up to six larger circles that
-                contain all of the measurements up to the largest. These should form concentric rings outside of the first
-                circle. Label each of these circles with a number. One should be the smallest and six, the largest.
+                The plant has stopped growing before reaching its full potential and is starting to die off. The plant may
+                come to a standstill in growth and slowly die off.
             </h5>
-            <u>
-                <li>In the future, you can use this template to measure leaves with greater ease. Hold up the leaf at the
-                    bottom of the paper with it centered around the smallest circle. Mark the largest circle it fills
-                    without going over and record that as the leaf size.</li>
-            </u>
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                The temperature is the main problem when it comes to ceased growth. The plant cannot photosynthesise
+                properly to provide itself with food to encourage growth.
+            </h5>
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                Small pin holes develop in the leaves. The holes gradually get larger, and the plant will start to die off.
+                Minor color change can occur around the holes.
+            </h5>
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+            <h5 style="color: black" class="mt-4">
+                High levels of nitrates cause a condition known as Cryptocoryne rot. It should be treated immediately. Doing
+                a series of large water changes can lower your aquarium’s nitrates.
+            </h5>
+        </div>
+
+
+        <div class="card col-md-9 " id="Roots">
+            <h2>Roots and Stems</h2>
+
+            <div class="image">
+                <img src="{{ asset('img/Bacteria-underwater_nuzaa_shutterstock.webp') }}" alt="" width="300"
+                    height="200">
+            </div>
+
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                The plant’s growth has ceased. The roots are turning black and decaying. The roots will appear mushy and
+                have the texture of jelly.
+            </h5>
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                The soil is not ideal for the type of plant. It may be too compact or to lose. If the plant has been in the
+                substrate for a long period, the substrate will not hold as much nutrients as it used to.
+            </h5>
+
+            <h4 class="mt-4"><b>Symptoms:</b></h4>
+
+            <h5 style="color: black" class="mt-4">
+                The stems of the plant are turning black. The stem will hang limp and not be able to support the additional
+                stems and leaves.
+            </h5>
+
+            <h4 class="mt-4"><b>Diagnosis</b></h4>
+            <h5 style="color: black" class="mt-4">
+                The plant is not receiving enough nutrients. This can be due to poor fertilizations, aquarium plants
+                competing for nutrients or the water not holding enough nutrients for the plant to sustain itself.
+            </h5>
         </div>
     </div>
 @endsection
@@ -181,9 +248,6 @@
                 }
             });
         });
-
-
-
     </script>
 @endsection
 @section('css')

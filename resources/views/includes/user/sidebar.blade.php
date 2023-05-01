@@ -59,12 +59,12 @@
     <div class="sidebar-heading">
        Other
    </div>
-   <li class="nav-item {{ in_array($curr_url, ['user.treatment']) ? 'active' : '' }}">
+   {{-- <li class="nav-item {{ in_array($curr_url, ['user.treatment']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.treatment') }}" >
            <i class="fas fa fa-plus-square"></i>
            <span>Treatment</span>
        </a>
-   </li>
+   </li> --}}
    <li class="nav-item {{ in_array($curr_url, ['user.tips']) ? 'active' : '' }}">
        <a class="nav-link collapsed"  href="{{ route('user.tips') }}" >
            <i class="fas fa fa-certificate"></i>
