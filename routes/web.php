@@ -100,6 +100,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/health', [HTC::class, "index"])->name('user.health');
     Route::get('/health/shedule', [HTC::class, "shedule"])->name('user.health.shedule');
     Route::post('/health/store', [HTC::class, "store"])->name('user.health.store');
+    Route::get('/health/approve/{id}', [HTC::class, "approve"])->name('user.health.approve');
 
     Route::get('/diseases', [DTC::class, "index"])->name('user.diseases');
     Route::get('/diseases/plant', [DTC::class, "plant"])->name('user.diseases.plant');

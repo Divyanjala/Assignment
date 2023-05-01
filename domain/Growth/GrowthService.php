@@ -151,7 +151,7 @@ class GrowthService
                 $this->shedule->create($shedule);
             }
 
-            $extendDate = $extendDate->addDay($i);
+            $extendDate = $extendDate->addDay(1);
 
             if ($count == 7) {
                 $count = 0;
@@ -160,6 +160,11 @@ class GrowthService
         }
 
         return $plan;
+    }
+
+    public function updateHealth($id)
+    {
+        return $this->shedule->where('id',$id)->update(['status'=>1]);
     }
 
     public function getGrowth($id)

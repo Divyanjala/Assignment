@@ -25,4 +25,11 @@ class HealthController extends Controller
         GrowthFacade::makeHealth($request->all());
         return redirect()->route('user.health.shedule')->with('alert-success', 'Health plan Added Successfully');
     }
+
+
+    public function approve($id)
+    {
+        GrowthFacade::updateHealth($id);
+         return redirect()->route('user.health.shedule')->with('alert-success', 'Health plan completed Successfully');;
+    }
 }

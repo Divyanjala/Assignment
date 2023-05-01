@@ -12,4 +12,8 @@ class HealthPlan extends Model
         'dec','status','tank_name','date',
         'height','width','period','user_id'
     ];
+
+    public function shedules(){
+        return $this->hasMany(HealthPlanShedule::class,'plan_id');
+    }
 }
